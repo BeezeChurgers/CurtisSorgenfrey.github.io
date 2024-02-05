@@ -1,0 +1,149 @@
+body {
+    font-family: arial, helvetica;
+    margin: 0;
+    background-color: #fffaff;
+  }
+  
+  /* Margin adjusted for navbar */
+  main {
+    margin-top: 50px;
+    background-color: #fffaff;
+    color: #050401;
+    text-align: center;
+  }
+  
+  footer {
+    background-color: #050401;
+    text-align: center;
+  }
+  
+  /* Just so I can see where the edges of everything is */
+  * {
+    border: 1px dashed red;
+  }
+  
+  /* Add a black background color to the top navigation and hide overflow, fix bar to the top */
+  .topnav {
+    background-color: #050401;
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+  
+  /* Style links inside the navigation bar */
+  .topnav a {
+    float: left;
+    color: #fffaff;
+    text-align: center;
+    padding: 1em;
+    text-decoration: none;
+    font-size: 16;
+  }
+  
+  .topnav a:hover {
+    background-color: #fc5130;
+    color: #050401;
+  }
+  
+  
+  /* Main */
+  h1 {
+    background-color: #30BCED;
+    color: #050401;
+    padding: 2em;
+    margin: 0;
+  }
+  
+  #big-letter {
+      color: white;
+      font-size: 48px;
+      text-shadow: 4px 4px 4px black;
+      text-align: center;
+      position: fixed;
+      margin: 0;
+      padding: 0;
+      top: 35px;
+    right: 43px;
+  }
+  
+  #logo {
+    width: 4em;
+    height: 4em;
+    position: fixed;
+    background-color: #fc5130;
+    top: 2em;
+    right: 2em;
+    animation: spinMove 16s 0s ease infinite;
+  }
+  
+  @keyframes spinMove {
+    0% { transform: rotate(0deg); }
+      12.5% { transform: rotate(45deg); }
+      25% { transform: rotate(90deg); }
+      37.5% { transform: rotate(135deg); }
+      50% { transform: rotate(180deg); }
+      62.5% { transform: rotate(225deg); }
+      75% { transform: rotate(270deg); }
+      87.5% { transform: rotate(315deg); }
+      100% { transform: rotate(360deg); }
+  }
+  
+  
+  #reveal {
+      position: fixed;
+      background-color: #050401;
+      height: 100%;
+      top: 0;
+      right: 0;
+      animation-name: bigReveal;
+      animation-duration: 2s;
+      animation-delay: 0s;
+      animation-timing-function: ease;
+  }
+  
+  @keyframes bigReveal {
+      from { width: 100%; }
+      50% { width: 100%; }
+      to { width: 0%; }
+  }
+  
+  
+  /* Column Quote boxes */
+  h2 {
+    background-color: #303036;
+    color: #FFFAFF;
+    padding: 5em;
+    margin: 0;
+  }
+  
+  .quotesbox {
+    display: flex;
+  }
+  
+  .quotes {
+    color: #303036;
+    padding: 1em;
+    margin: 0;
+    width: 33.3%;
+  }
+  
+  .quotes p {
+    text-align: justify;
+  }
+  
+  #quote1,
+  #quote2,
+  #quote3 {
+    background-color: white;
+    transition: background-color 1s, color 1s;
+    transition-delay: color 2s;
+  }
+  
+  #quote1:hover,
+  #quote2:hover,
+  #quote3:hover {
+    background-color: #303036;
+    color: white;
+  }
+  
