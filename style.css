@@ -17,11 +17,6 @@ body {
     text-align: center;
   }
   
-  /* Just so I can see where the edges of everything is */
-  * {
-    border: 1px dashed red;
-  }
-  
   /* Add a black background color to the top navigation and hide overflow, fix bar to the top */
   .topnav {
     background-color: #050401;
