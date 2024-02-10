@@ -10,64 +10,76 @@ Color Palette
 /* border: 1px dashed red; */
 
 body {
-  font-family: arial, helvetica;
-  margin: 0;
-  background-color: #fffaff;
-  color: #230903;
+  	font-family: arial, helvetica;
+  	margin: 0;
+  	background-color: #fffaff;
+  	color: #230903;
 	text-align: center;
 }
 
 /* Margin adjusted for navbar */
 main {
-  margin-top: 50px;
+  	margin-top: 50px;
 }
 
 /* Add a black background color to the top navigation and hide overflow, fix bar to the top */
 .topnav {
-  background-color: #E2E2E2;
+  	background-color: #E2E2E2;
 	box-shadow: 0px 2px 4px #230903;
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  top: 0;
+  	overflow: hidden;
+  	position: fixed;
+ 	width: 100%;
+ 	top: 0;
 }
 
 /* Style links inside the navigation bar */
 .topnav a {
-  float: left;
-  color: #230903;
-  text-align: center;
-  padding: 1em;
-  text-decoration: none;
-  font-size: 16px;
+	float: right;
+	color: #230903;
+	text-align: center;
+	padding: 1em;
+	text-decoration: none;
+	font-size: 16px;
+}
+
+#home {
+	float: left;
 }
 
 .topnav a:hover {
-  background-color: #004643;
-  color: #E2E2E2;
+	background-color: #004643;
+	color: #E2E2E2;
 }
 
 
 /* Main */
 .titleScreen {
 	background-color: #E2E2E2;
-	text-align: left;
 	height: 100vh;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+.titleScreen div {
+	text-align: left;
+	margin: 0;
+	padding: 5em;
+	transform: translateY(-8em);
 }
 
 h1 {
 	margin:0 auto;
-  color: #E2E2E2;
+  	color: #E2E2E2;
 	font-size: 64px;
-	text-shadow: 4px 2px 2px #230903;
-	margin-bottom: 0;
+	text-shadow: 4px 4px 4px #230903;
+	margin: 0;
 }
 
 h2 {
-  color: #E2E2E2;
+  	color: #230903;
 	font-size: 24px;
-	text-shadow: 2px 1px 1px #230903;
-	margin-top: 0;
+	margin: 0;
 }
 
 /*
@@ -80,24 +92,24 @@ h2 {
 	position: fixed;
 	margin: 0;
 	padding: 0;
-  left: 50%;
+  	left: 50%;
 	top: 20px;
 	transform: translateX(-50%);
 }
 
 #logo {
-  width: 96px;
-  height: 96px;
+ 	width: 96px;
+  	height: 96px;
 	background-color: #fc5130;
 	position: fixed;
 	left: 50%;
 	top: 1em;
 	transform: translateX(-50%);
-  animation: spinMove 8s 0s ease infinite;
+  	animation: spinMove 8s 0s ease infinite;
 }
 
 @keyframes spinMove {
-  0% { transform: translateX(-50%) rotate(0deg); }
+  	0% { transform: translateX(-50%) rotate(0deg); }
 	12.5% { transform: translateX(-50%) rotate(45deg); }
 	25% { transform: translateX(-50%) rotate(90deg); }
 	37.5% { transform: translateX(-50%) rotate(135deg); }
@@ -131,31 +143,31 @@ h2 {
 
 
 .quotesbox {
-  display: flex;
+	display: flex;
 }
 
 .quotes {
-  color: #303036;
-  padding: 1em;
-  margin: 0;
-  width: 33.3%;
+	color: #303036;
+	padding: 1em;
+	margin: 0;
+	width: 33.3%;
 }
 
 .quotes p {
-  text-align: justify;
+	text-align: justify;
 }
 
 #quote1,
 #quote2,
 #quote3 {
-  background-color: white;
-  transition: background-color 1s, color 1s;
-  transition-delay: color 2s;
+	background-color: white;
+	transition: background-color 1s, color 1s;
+	transition-delay: color 2s;
 }
 
 #quote1:hover,
 #quote2:hover,
 #quote3:hover {
-  background-color: #303036;
-  color: white;
+	background-color: #303036;
+	color: white;
 }
