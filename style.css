@@ -36,6 +36,13 @@ body {
 	text-decoration: none;
 	font-size: 24px;
   }
+
+	/* Making the top nav bar more mobile friendly */
+	@media screen and (max-width: 1200px) {
+		.topnav a {
+			font-size: 48px;
+		}
+		}
   
   #home {
 	float: left;
@@ -52,13 +59,6 @@ body {
   .topnav a:hover {
 	background-color: #004643;
 	color: #E2E2E2;
-  }
-  
-  /* Making the top nav bar more mobile friendly */
-  @media screen and (max-width: 600px) {
-	.topnav a {
-	  font-size: 48px;
-	}
   }
   
   
