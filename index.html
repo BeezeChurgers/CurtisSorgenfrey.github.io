@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Curtis Sorgenfrey</title>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css" />
     <script src="script.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <meta name="viewport" content="width=1280, initial-scale=1">
   </head>
 
   <body>
@@ -16,8 +16,8 @@
         <a href="https://github.com/BeezeChurgers"><i class="fa">&#xf09b;</i></a>
         <a href="mailto:curtissorgenfrey@gmail.com"><i class="fa">&#xf0e0;</i></a>
       </div>
-			
-			<!--
+
+      <!--
 			<div id="logo"></div>
 			
 			<p id="big-letter">
@@ -28,8 +28,12 @@
 
     <main>
       <!-- Home Screen -->
-			<div class="container">
-        <div class="examples" id="logo"></div>
+      <div class="container">
+        <div class="examples" id="logoHolder" onclick="logoAnimation()">
+          <div class="logo" id="a"></div>
+          <div class="logo" id="b"></div>
+          <div class="logo" id="c"></div>
+        </div>
         <div class="titleHolder">
           <h1>
             &lt;CS&gt;
@@ -38,16 +42,16 @@
             my name is <strong>Curtis Sorgenfrey</strong><br>math teacher turned web developer
           </h2>
         </div>
-			</div>
-			
-			<!--
+      </div>
+
+      <!--
 			<div id="reveal">
 			</div>
 			-->
 
       <!-- Projects -->
       <div class="container" id="projects">
-        <div class="titleHolder">
+        <div class="titleHolder" id="recentProjects">
           <h3><strong>Recent<br>Projects</strong></h3>
         </div>
         <div class="examples" id="projectFlow"></div>
@@ -57,23 +61,23 @@
       <div class="container" id="qualifications">
         <div class="examples" id="codeFlow"></div>
         <div class="titleHolder">
-          <h3><strong>HTML<br>CSS<br>JS</strong></h3>
+          <h3><strong>HTML CSS<br>JavaScript</strong></h3>
         </div>
       </div>
 
       <!-- Contact -->
       <div class="container" id="contact">
-        <div class="titleHolder">
+        <div class="titleHolder" id="contactMe">
           <h3><strong>Contact<br>Me</strong></h3>
         </div>
         <div class="examples" id="contactInfo"></div>
       </div>
 
-    <footer>
-      <div>
-        <p>&copy;2024 Curtis Sorgenfrey</p>
-      </div>
-    </footer>
+      <footer>
+        <div>
+          <p>&copy;2024 Curtis Sorgenfrey</p>
+        </div>
+      </footer>
 
   </body>
 
