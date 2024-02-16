@@ -39,12 +39,12 @@ body {
 	font-size: 24px;
   }
 
-	/* Making the top nav bar more mobile friendly */
+	/* Making the top nav bar more mobile friendly 
 	@media screen and (max-width: 1200px) {
 		.topnav a {
 			font-size: 48px;
 		}
-		}
+		}*/
   
   #home {
 	float: left;
@@ -92,6 +92,21 @@ body {
 	text-shadow: 8px 8px 8px #230903;
 	margin: 0;
   }
+
+  .titleShadow {
+	animation: titleAppear 2s 0s ease 1;
+  }
+  
+  @keyframes titleAppear {
+	from {
+	  transform: translate(8px, 8px);
+	  text-shadow: 0px 0px 0px #230903;
+	}
+	to {
+	  transform: translate(0px, 0px);
+	  text-shadow: 8px 8px 8px #230903;
+	}
+  }
   
   h2 {
 	color: #230903;
@@ -110,16 +125,12 @@ body {
   #recentProjects {
 	text-align: right;
   }
-  
-  #logoHolder {
-	animation: appear 2s 0s ease 1;
-  }
 
-  .test {
-	animation: appear 2s 0s ease 1;
+  .boxShadow {
+	animation: boxAppear 2s 0s ease 1;
   }
   
-  @keyframes appear {
+  @keyframes boxAppear {
 	from {
 	  transform: translate(8px, 8px);
 	  box-shadow: 0px 0px 0px #230903;
@@ -129,6 +140,32 @@ body {
 	  box-shadow: 8px 8px 8px #230903;
 	}
   }
+  
+  /* Projects */
+  #projects {
+	background-color: #004643;
+  }
+  
+  h3 {
+	margin: 0 auto;
+	color: #E2E2E2;
+	font-size: 96px;
+	text-shadow: 8px 8px 8px #230903;
+	margin: 0;
+	text-transform: uppercase;
+  }
+  
+  /* Qualifications */
+  #qualifications {
+	background-color: #ff9f1c;
+  }
+  
+  /* Contact */
+  #contact {
+	background-color: #E2E2E2;
+  }
+  
+  /* Footer */
   
   /* Animated logo */
   .logo {
@@ -289,34 +326,8 @@ body {
 	  transform: rotate(-135deg);
 	}
   }
-  
-  /* Projects */
-  #projects {
-	background-color: #004643;
-  }
-  
-  h3 {
-	margin: 0 auto;
-	color: #E2E2E2;
-	font-size: 96px;
-	text-shadow: 8px 8px 8px #230903;
-	margin: 0;
-	text-transform: uppercase;
-  }
-  
-  /* Qualifications */
-  #qualifications {
-	background-color: #ff9f1c;
-  }
-  
-  /* Contact */
-  #contact {
-	background-color: #E2E2E2;
-  }
-  
-  /* Footer */
-  
-  
+
+
   /*
   #big-letter {
 	  color: #fc5130;
