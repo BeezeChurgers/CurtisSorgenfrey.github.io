@@ -13,7 +13,7 @@ body {
 	font-family: arial, helvetica;
 	margin: 0;
 	background-color: #E2E2E2;
-	color: #230903;
+	color: #000000;
 	text-align: center;
 	min-width: 960px;
   }
@@ -21,7 +21,7 @@ body {
   /* Add a black background color to the top navigation and hide overflow, fix bar to the top */
   .topnav {
 	background-color: #E2E2E2;
-	box-shadow: 0px 4px 16px #230903;
+	box-shadow: 0px 4px 16px #000000;
 	overflow: hidden;
 	position: fixed;
 	width: 100%;
@@ -32,7 +32,7 @@ body {
   /* Style links inside the navigation bar */
   .topnav a {
 	float: right;
-	color: #230903;
+	color: #000000;
 	text-align: center;
 	padding: 1em;
 	text-decoration: none;
@@ -49,7 +49,7 @@ body {
   #home {
 	float: left;
 	color: #E2E2E2;
-	text-shadow: 3px 3px 2px #230903;
+	text-shadow: 3px 3px 2px #000000;
   }
   
   #home:hover {
@@ -83,13 +83,14 @@ body {
 	text-align: left;
 	margin: 0;
 	padding: 2em;
+	width: 50vw;
   }
   
   h1 {
 	margin: 0 auto;
 	color: #E2E2E2;
 	font-size: 128px;
-	text-shadow: 8px 8px 8px #230903;
+	text-shadow: 8px 8px 8px #000000;
 	margin: 0;
   }
 
@@ -100,25 +101,30 @@ body {
   @keyframes titleAppear {
 	from {
 	  transform: translate(8px, 8px);
-	  text-shadow: 0px 0px 0px #230903;
+	  text-shadow: 0px 0px 0px #000000;
 	}
 	to {
 	  transform: translate(0px, 0px);
-	  text-shadow: 8px 8px 8px #230903;
+	  text-shadow: 8px 8px 8px #000000;
 	}
   }
   
   h2 {
-	color: #230903;
+	color: #000000;
 	font-size: 32px;
 	margin: 0;
   }
   
   .examples {
-	border: 4px solid #230903;
+	border: 4px solid #000000;
+	width: 32vw;
+	height: 50vh;
+	box-shadow: 8px 8px 8px #000000;
+  }
+
+  #logoHolder {
 	width: 192px;
 	height: 192px;
-	box-shadow: 8px 8px 8px #230903;
   }
   
   #contactMe,
@@ -133,11 +139,11 @@ body {
   @keyframes boxAppear {
 	from {
 	  transform: translate(8px, 8px);
-	  box-shadow: 0px 0px 0px #230903;
+	  box-shadow: 0px 0px 0px #000000;
 	}
 	to {
 	  transform: translate(0px, 0px);
-	  box-shadow: 8px 8px 8px #230903;
+	  box-shadow: 8px 8px 8px #000000;
 	}
   }
   
@@ -150,7 +156,7 @@ body {
 	margin: 0 auto;
 	color: #E2E2E2;
 	font-size: 96px;
-	text-shadow: 8px 8px 8px #230903;
+	text-shadow: 8px 8px 8px #000000;
 	margin: 0;
 	text-transform: uppercase;
   }
@@ -165,20 +171,12 @@ body {
 	background-color: #E2E2E2;
   }
 
-  /* Project Carousel */
-  #projectCarousel {
-	border: 4px solid #230903;
-	width: 64vw;
-	height: 192px;
-	box-shadow: 8px 8px 8px #230903;
-  }
-  
   /* Footer */
   
   /* Animated logo */
   .logo {
 	position: relative;
-	background-color: #230903;
+	background-color: #000000;
 	width: 4px;
 	height: 64px;
 	left: 96px;
@@ -334,6 +332,21 @@ body {
 	  transform: rotate(-135deg);
 	}
   }
+
+/* Recent Projects carousel */
+#recentProjectsImg {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Needs to have a width AND height to work */
+  }
+
+
+
+
+
+
+
+
 
 
   /*
