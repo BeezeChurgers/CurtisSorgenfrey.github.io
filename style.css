@@ -340,7 +340,31 @@ body {
 	object-fit: cover; /* Needs to have a width AND height to work */
   }
 
+.prevNextContainer {
+	display: flex;
+	padding: 1em;
+	justify-content: right;
+}
 
+.prevBtn, .nextBtn {
+	width: 1em;
+	height: 1em;
+	rotate: 45deg;
+	border-top: 2px solid #000000;
+	border-right: 2px solid #000000;
+	margin-left: 1em;
+}
+
+.prevBtn {
+	rotate: -135deg;
+}
+
+.randomBtn {
+	height: 3em;
+	background-color: #000000;
+	color: #E2E2E2;
+	border-radius: 1.5em;
+}
 
 
 

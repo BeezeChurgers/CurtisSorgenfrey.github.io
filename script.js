@@ -139,3 +139,43 @@ const recentProjects = [
 // Select Items
 const img = document.getElementById("recentProjectsImg");
 const description = document.getElementById("recentProjectsDescription");
+const prevBtn = document.querySelector('.prevBtn')
+const nextBtn = document.querySelector('.nextBtn')
+const randomBtn = document.querySelector('.randomBtn')
+// Set starting item
+let currentItem = 0;
+// Load initial item
+window.addEventListener("DOMContentLoaded", function () {
+  showProject();
+});
+// Show recent project based on item
+function showProject() {
+  const item = recentProjects[currentItem];
+  img.src = item.img;
+  description.textContent = item.text;
+}
+// Show next project
+nextBtn.addEventListener('click', function() {
+  currentItem++;
+  if (currentItem > recentProjects.length - 1) {
+    currentItem = 0;
+  }
+  showProject();
+});
+// Show prev project
+prevBtn.addEventListener('click', function() {
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = recentProjects.length - 1;
+  }
+  showProject();
+});
+// Show random project
+randomBtn.addEventListener('click', function() {
+  let rand = Math.floor(Math.random() * 4);
+  while (rand === currentItem) {
+    rand = Math.floor(Math.random() * 4);
+  }
+  currentItem = rand;
+  showProject();
+});
