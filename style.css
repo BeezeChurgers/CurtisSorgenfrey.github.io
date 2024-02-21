@@ -176,10 +176,10 @@ body {
   .logo {
 	position: relative;
 	background-color: #000000;
-	width: 4px;
-	height: 64px;
-	left: 96px;
-	top: 66px;
+	width: 0.16em;
+	height: 2.56em;
+	left: 2.92em;
+	top: 1.72em;
 	transform-origin: center;
 	transform: rotate(45deg);
   }
@@ -189,13 +189,13 @@ body {
   }
   
   #b {
-	top: 2px;
+	top: -0.84em;
 	transform: rotate(-45deg);
 	animation: plusB 2s 2s ease 1, divideB 2s 4s ease 1, minusB 2s 6s ease 1, multB 2s 8s ease 1;
   }
   
   #c {
-	top: -62px;
+	top: -3.4em;
 	transform: rotate(-45deg);
 	animation: plusB 2s 2s ease 1, divideC 2s 4s ease 1, minusC 2s 6s ease 1, multC 2s 8s ease 1;
   }
@@ -241,10 +241,10 @@ body {
 	  transform: rotate(0deg);
 	}
 	75% {
-		transform: scaleY(0.0625) translateY(-480px);
+		transform: scaleY(0.0625) translateY(-19.2em);
 	  }
 	100% {
-	  transform: scaleY(0.0625) translateY(-480px);
+	  transform: scaleY(0.0625) translateY(-19.2em);
 	}
   }
   
@@ -253,10 +253,10 @@ body {
 	  transform: rotate(0deg) translateY(0px);
 	}
 	75% {
-		transform: scaleY(0.0625) translateY(480px);
+		transform: scaleY(0.0625) translateY(19.2em);
 	  }
 	100% {
-	  transform: scaleY(0.0625) translateY(480px);
+	  transform: scaleY(0.0625) translateY(19.2em);
 	}
   }
   
@@ -274,25 +274,27 @@ body {
   
   @keyframes minusB {
 	0% {
-	  transform: scaleY(0.0625) translateY(-480px);
+	  transform: scaleY(0.0625) translateY(-19.2em);
 	}
 	75% {
-		transform: scaleY(0.0625) translateY(-480px) translateX(100px);
+		transform: scaleY(0.0625) translateY(-19.2em) translateX(3.09em);
 	  }
 	100% {
-	  transform: scaleY(0.0625) translateY(-480px) translateX(100px);
+	  transform: scaleY(0.0625) translateY(-19.2em) translateX(3.09em);
+	  background: none;
 	}
   }
   
   @keyframes minusC {
 	0% {
-	  transform: scaleY(0.0625) translateY(480px);
+	  transform: scaleY(0.0625) translateY(19.2em);
 	}
 	75% {
-		transform: scaleY(0.0625) translateY(480px) translateX(-100px);
+		transform: scaleY(0.0625) translateY(19.2em) translateX(-3.09em);
 	  }
 	100% {
-	  transform: scaleY(0.0625) translateY(480px) translateX(-100px);
+	  transform: scaleY(0.0625) translateY(19.2em) translateX(-3.09em);
+	  background: none;
 	}
   }
   

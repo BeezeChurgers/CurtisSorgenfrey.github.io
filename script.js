@@ -179,3 +179,12 @@ randomBtn.addEventListener('click', function() {
   currentItem = rand;
   showProject();
 });
+// Loop through projects every 10 seconds
+function loopProjects() {
+  currentItem++;
+  if (currentItem > recentProjects.length - 1) {
+    currentItem = 0;
+  }
+  showProject();
+}
+setInterval(loopProjects, 10000);
