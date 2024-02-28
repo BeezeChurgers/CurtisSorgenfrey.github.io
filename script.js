@@ -114,7 +114,7 @@ const recentProjects = [
   {
     id: 1,
     name: "calculator",
-    img: "https://i.redd.it/7fma1shw8ncb1.jpg",
+    img: "calculator.png",
     text: "The ultimate calculator application built entirely with JavaScript. Whether you're a student solving complex equations or a professional crunching numbers, it is your go-to tool for all your mathematical needs."
   },
   {
