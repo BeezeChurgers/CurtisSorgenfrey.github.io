@@ -1,0 +1,81 @@
+body {
+	font-family: Helvetica;
+	background: black;
+}
+
+/* Structure */
+main {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	max-width: 336px;
+	margin: 0 auto;
+	border: 4px solid #222222;
+	border-radius: 16px;
+	padding: 16px 8px 16px 8px;
+	font-size: 32px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	position: fixed;
+}
+
+/* Screen */
+#mainDisplay {
+	width: 280px;
+}
+
+/* Buttons */
+div {
+	width: 64px;
+	height: 64px;
+	background: black;
+	border-radius: 32px;
+	color: white;
+	text-align: center;
+	margin: 4px;
+}
+
+div p {
+	font-size: 32px;
+	padding: 0;
+	margin-top: 14px;
+}
+
+#zero p {
+	text-align: left;
+	margin-left: 24px;
+}
+
+#screen {
+	text-align: right;
+	margin-right: 24px;
+}
+
+#zero {
+	width: 136px;
+}
+
+.number {
+	background: #333333;
+}
+
+.secFunc {
+	background: #a5a5a5;
+	color: black;
+}
+
+.primeFunc {
+	background: #ff9f0a;
+}
+
+/* Dark Mode setting */
+@media (prefers-color-scheme: light) {
+    div.adaptive {
+      background: white;
+      color: black;
+    }
+    body.adaptive {
+      background: white;
+    }
+  }

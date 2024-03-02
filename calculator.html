@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers, calculator">
+    	<meta name="description" content="Apple-Like Calculator">
+    	<meta name="author" content="Curtis Sorgenfrey">
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="calculator.css">
+		<title>Calculator</title>
+	</head>
+	<body>
+		<main>
+		
+			<div class="display" id="mainDisplay">
+				<p id="screen">0</p>
+			</div>
+		
+		<!-- Buttons -->
+			<div class="secFunc" onclick="wipe()">
+				<p id="clear">AC</p>
+			</div>
+			
+			<div class="secFunc" id="negative" onclick="negative()">
+				<p>+/-</p>
+			</div>
+			
+			<div class="secFunc" id="percent" onclick="percent()">
+				<p>%</p>
+			</div>
+			
+			<div class="primeFunc" id="divide" onclick="divide()">
+				<p>&divide;</p>
+			</div>
+			
+			<div class="number" id="seven" onclick="seven()">
+				<p>7</p>
+			</div>
+			
+			<div class="number" id="eight" onclick="eight()">
+				<p>8</p>
+			</div>
+			
+			<div class="number" id="nine" onclick="nine()">
+				<p>9</p>
+			</div>
+			
+			<div class="primeFunc" id="multiply" onclick="multiply()">
+				<p>&times;</p>
+			</div>
+			
+			<div class="number" id="four" onclick="four()">
+				<p>4</p>
+			</div>
+			
+			<div class="number" id="five" onclick="five()">
+				<p>5</p>
+			</div>
+			
+			<div class="number" id="six" onclick="six()">
+				<p>6</p>
+			</div>
+			
+			<div class="primeFunc" id="subtract" onclick="subtract()">
+				<p>&minus;</p>
+			</div>
+			
+			<div class="number" id="one" onclick="one()">
+				<p>1</p>
+			</div>
+			
+			<div class="number" id="two" onclick="two()">
+				<p>2</p>
+			</div>
+			
+			<div class="number" id="three" onclick="three()">
+				<p>3</p>
+			</div>
+			
+			<div class="primeFunc" id="add" onclick="add()">
+				<p>&plus;</p>
+			</div>
+			
+			<div class="number" id="zero" onclick="zero()">
+				<p>0</p>
+			</div>
+			
+			<div class="number" id="decimal" onclick="decimal()">
+				<p>.</p>
+			</div>
+			
+			<div class="primeFunc" id="equals" onclick="equals()">
+				<p>&equals;</p>
+			</div>
+			
+		</main>
+
+        <script src="calculator.js" charset="utf-8"></script>
+	</body>
+</html>

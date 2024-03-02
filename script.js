@@ -116,28 +116,28 @@ const recentProjects = [
     name: "calculator",
     img: "images/calculator.png",
     text: "The ultimate calculator application built entirely with JavaScript. Whether you're a student solving complex equations or a professional crunching numbers, it is your go-to tool for all your mathematical needs.",
-    link: "index.html"
+    link: "calculator.html"
   },
   {
     id: 2,
     name: "tic-tac-toe",
     img: "https://static-00.iconduck.com/assets.00/tic-tac-toe-icon-1024x1024-bmwf454z.png",
     text: "Tic Tac Toe game developed entirely in JavaScript. TicTacJS offers a seamless gaming experience with its intuitive user interface and responsive design, allowing players to enjoy the classic game on any device.",
-    link: "beezechurgers.github.io/tictactoe/tictactoe.html"
+    link: "tictactoe.html"
   },
   {
     id: 3,
     name: "to-do list",
     img: "https://static1.anpoimages.com/wordpress/wp-content/uploads/2023/10/google-keep-list.jpeg",
     text: "Built using JavaScript, our to-do list application seamlessly organizes your tasks with ease. From adding new items to marking them complete, it streamlines your workflow, keeping you productive throughout the day.",
-    link: "index.html"
+    link: "todolist.html"
   },
   {
     id: 4,
     name: "Tetris",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Typical_Tetris_Game.svg/1200px-Typical_Tetris_Game.svg.png",
     text: "Harnessing the power of JavaScript, our Tetris game delivers an immersive gaming experience right in your browser. Rotate and stack blocks strategically to clear lines and achieve high scores, offering endless hours of addictive fun for players of all ages.",
-    link: "index.html"
+    link: "tetris.html"
   }
 ]
 // Select Items
