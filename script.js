@@ -123,7 +123,7 @@ const recentProjects = [
     name: "tic-tac-toe",
     img: "https://static-00.iconduck.com/assets.00/tic-tac-toe-icon-1024x1024-bmwf454z.png",
     text: "Tic Tac Toe game developed entirely in JavaScript. TicTacJS offers a seamless gaming experience with its intuitive user interface and responsive design, allowing players to enjoy the classic game on any device.",
-    link: "tictactoe/tictactoe.html"
+    link: "beezechurgers.github.io/tictactoe/tictactoe.html"
   },
   {
     id: 3,
