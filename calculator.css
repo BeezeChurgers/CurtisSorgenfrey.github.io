@@ -71,11 +71,17 @@ div p {
 
 /* Dark Mode setting */
 @media (prefers-color-scheme: light) {
-    div.adaptive {
-      background: white;
-      color: black;
+    div {
+      	background: white;
+      	color: black;
     }
-    body.adaptive {
-      background: white;
+    body {
+		background: white;
     }
+	.number {
+		color: white;
+	}
+	main {
+		border: 4px solid #a5a5a5;
+	}
   }
