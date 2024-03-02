@@ -360,6 +360,10 @@ body {
 	rotate: -135deg;
 }
 
+.prevBtn:hover, .nextBtn:hover {
+	border-color: #ff9f1c;
+}
+
 .randomBtn {
 	height: 3em;
 	background-color: #000000;
@@ -367,8 +371,20 @@ body {
 	border-radius: 1.5em;
 }
 
+.randomBtn:hover {
+	background-color: #ff9f1c;
+	color: #000000;
+}
 
+#projectLink {
+	text-decoration: none;
+	color: #000000;
+	font-size: 1em;
+}
 
+#projectLink:hover {
+	color: #ff9f1c;
+}
 
 
 

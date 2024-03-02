@@ -1,0 +1,77 @@
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="tictactoe.css">
+		<title>Tic-Tac-Toe</title>
+	</head>
+	<body>
+		
+		<div class="title">
+            <div class="container">
+                <h1>
+                    Tic-Tac-Toe
+                </h1>
+                <h2 id="p1">Player One</h2>
+                <h2 id="p2">Player Two</h2>
+            </div>
+            <div class="container" id="scoreContainer">
+                <h3 id="scoreBoard"><strong id="s1">0</strong> - <strong id="s2">0</strong></h3>
+                <button type="button" id="reset">Reset</button>
+                <label for="darkMode" id="darkModeLabel">Dark Mode</label>
+                <input type="checkbox" id="darkMode" name="darkMode" value="dark" checked>
+            </div>
+		</div>
+		
+		<div class="game">
+				<div class="grid" id="box1">
+					<div id="shape1">
+						<div id="shape1x"></div>
+					</div>
+				</div>
+				<div class="grid" id="box2">
+					<div id="shape2">
+						<div id="shape2x"></div>
+					</div>
+				</div>
+				<div class="grid" id="box3">
+					<div id="shape3">
+						<div id="shape3x"></div>
+					</div>
+				</div>
+				<div class="grid" id="box4">
+					<div id="shape4">
+						<div  id="shape4x"></div>
+					</div>
+				</div>
+				<div class="grid" id="box5">
+					<div id="shape5">
+						<div id="shape5x"></div>
+					</div>
+				</div>
+				<div class="grid" id="box6">
+					<div id="shape6">
+						<div id="shape6x"></div>
+					</div>
+				</div>
+				<div class="grid" id="box7">
+					<div id="shape7">
+						<div id="shape7x"></div>
+					</div>
+				</div>
+				<div class="grid" id="box8">
+					<div id="shape8">
+						<div id="shape8x"></div>
+					</div>
+				</div>
+				<div class="grid" id="box9">
+					<div id="shape9">
+						<div id="shape9x"></div>
+					</div>
+				</div>
+		</div>
+		
+		<div id="win"></div>
+		
+		<script src="tictactoe.js" charset="utf-8"></script>
+	</body>
+</html>
