@@ -158,7 +158,7 @@ function showProject() {
   const item = recentProjects[currentItem];
   img.src = item.img;
   description.textContent = item.text;
-  link.src = item.link;
+  link.href = item.link;
 }
 // Show next project
 nextBtn.addEventListener('click', function() {
