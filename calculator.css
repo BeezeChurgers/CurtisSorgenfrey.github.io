@@ -8,52 +8,65 @@ main {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	max-width: 336px;
+	max-width: 540px;
+	max-height: 960px;
+	width: 90vw;
+	height: 160vw;
 	margin: 0 auto;
-	border: 4px solid #222222;
-	border-radius: 16px;
-	padding: 16px 8px 16px 8px;
-	font-size: 32px;
+	border: 1vw solid #222222;
+	border-radius: 4vw;
+	padding: 0vw;
+	font-size: 8vw;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
 	position: fixed;
 }
 
+@media screen and (min-width:540px) {
+	main {
+		font-size: 48px;
+	}
+	p {
+		margin-top: 8px;
+	}
+}
+
 /* Screen */
 #mainDisplay {
-	width: 280px;
+	width: 80vw;
 }
 
 /* Buttons */
 div {
-	width: 64px;
-	height: 64px;
+	width: 20vw;
+	height: 20vw;
+	max-width: 120px;
+	max-height: 120px;
 	background: black;
-	border-radius: 32px;
+	border-radius: 10vw;
 	color: white;
 	text-align: center;
-	margin: 4px;
+	margin: 0.5vw;
 }
 
 div p {
-	font-size: 32px;
 	padding: 0;
-	margin-top: 14px;
+	margin-top: 4vw;
 }
 
 #zero p {
 	text-align: left;
-	margin-left: 24px;
+	margin-left: 1vw;
 }
 
 #screen {
 	text-align: right;
-	margin-right: 24px;
+	margin-right: 8vw;
 }
 
 #zero {
-	width: 136px;
+	width: 32vw;
 }
 
 .number {
@@ -82,6 +95,6 @@ div p {
 		color: white;
 	}
 	main {
-		border: 4px solid #a5a5a5;
+		border: 1vw solid #a5a5a5;
 	}
   }
