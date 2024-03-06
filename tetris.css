@@ -1,0 +1,36 @@
+body {
+	background: black;
+}
+
+div {
+	background-color: gray;
+	height: 10vw;
+	width: 10vw;
+}
+
+.grid {
+	background-color: blue;
+	height: 200vw;
+	width: 100vw;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.block {
+	background-color: blue;
+}
+
+@media only screen and (min-width: 620px) {
+    div {
+		height: calc(620px*0.1);
+		width: calc(620px*0.1);
+	}
+    .game {
+		height: calc(620px*0.1);
+		width: calc(620px*0.1);
+    }
+	.grid {
+		height: calc(620px*2);
+		width: calc(620px*1);
+	}
+}

@@ -11,6 +11,9 @@ body {
 
 .container {
 	width: 40vw;
+	position: relative;
+	left: 50%;
+	transform: translateX(-100%);
 }
 
 #scoreContainer {
@@ -181,3 +184,128 @@ h3 {
 	margin: 1vw;
 	font-size: 3vw;
 }
+
+/* Limit size calc(720px*0.8) */
+@media screen and (min-width: 720px) {
+	.title {
+		margin: calc(720px*0.08);
+	}
+	
+	.container {
+		width: calc(720px*0.4);
+	}
+
+	h1 {
+		font-size: calc(720px*0.06);
+	}
+	
+	h2 {
+		font-size: calc(720px*0.04);
+	}
+	
+	h3 {
+		font-size: calc(720px*0.08);
+	}
+	
+	.darkMode {
+		font-size: calc(720px*0.03);
+		margin-top: calc(720px*0.02);
+	}
+	
+	#darkMode {
+		width: calc(720px*0.03);
+		height: calc(720px*0.03);
+	}
+	
+	.game {
+		height: calc(720px*0.9);
+		width: calc(720px*0.9);
+		padding: calc(720px*0.01);
+	}
+	
+	.grid {
+		border: calc(720px*0.01) solid black;
+		height: calc(720px*0.24);
+		width: calc(720px*0.24);
+		border-radius: calc(720px*0.06);
+	}
+	
+	.xr, .xl {
+		height: calc(720px*0.24);
+		width: calc(720px*0.04);
+		border-radius: calc(720px*0.02);
+		left: calc(720px*0.1);
+	}
+	
+	.o {
+		border: calc(720px*0.04) solid blue;
+		height: calc(720px*0.14);
+		width: calc(720px*0.14);
+	}
+	
+	#win {
+		border-radius: calc(720px*0.05);
+	}
+	
+	.win1 {
+		width: calc(720px*0.8);
+		height: calc(720px*0.04);
+		top: calc(720px*-0.80);
+		left: calc(720px*0.09);
+	}
+	
+	.win2 {
+		width: calc(720px*0.8);
+		height: calc(720px*0.04);
+		top: calc(720px*-0.5);
+		left: calc(720px*0.09);
+	}
+	
+	.win3 {
+		width: calc(720px*0.8);
+		height: calc(720px*0.04);
+		top: calc(720px*-0.2);
+		left: calc(720px*0.09);
+	}
+	
+	.win4 {
+		width: calc(720px*0.04);
+		height: calc(720px*0.8);
+		top: calc(720px*-0.88);
+		left: calc(720px*0.15);
+	}
+	
+	.win5 {
+		width: calc(720px*0.04);
+		height: calc(720px*0.8);
+		top: calc(720px*-0.88);
+		left: calc(720px*0.45);
+	}
+	
+	.win6 {
+		width: calc(720px*0.04);
+		height: calc(720px*0.8);
+		top: calc(720px*-0.88);
+		left: calc(720px*0.75);
+	}
+	
+	.win7 {
+		width: calc(720px*1);
+		height: calc(720px*0.04);
+		top: calc(720px*-0.5);
+		left: calc(720px*-0.01);
+	}
+	
+	.win8 {
+		width: calc(720px*1);
+		height: calc(720px*0.04);
+		top: calc(720px*-0.5);
+		left: calc(720px*-0.01);
+	}
+	
+	#reset {
+		border-radius: calc(720px*0.04);
+		margin: calc(720px*0.01);
+		font-size: calc(720px*0.03);
+	}
+  }
