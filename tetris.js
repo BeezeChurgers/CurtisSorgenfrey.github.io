@@ -66,10 +66,23 @@ let currentPosition = 4
 	
 	// Move down shape
 	function moveDown() {
-		undraw()
-		currentPosition = currentPosition += width
-		draw()
-		freeze()
+		undraw();
+		currentPosition += width;
+		draw();
+	}
+
+    // Move right shape
+	function moveRight() {
+		undraw();
+		currentPosition += 1;
+		draw();
+	}
+
+    // Move left shape
+	function moveLeft() {
+		undraw();
+		currentPosition -= 1;
+		draw();
 	}
 	
 	// Creating Swiping trigger
@@ -85,31 +98,23 @@ let currentPosition = 4
 	}
 	
 	// Testing movement
-	gridArr[5] = 1;
-	
 	let move = (event) => {
 		if (event.key === "d") {
 			if ((currentPosition % 10) != 9) {
-				squares[currentPosition].classList.remove("block");
-				currentPosition += 1;
-				squares[currentPosition].classList.add("block");
+				moveRight();
 			}
 		}	else if (event.key === "a") {
 			if ((currentPosition % 10) != 0) {
-				squares[currentPosition].classList.remove("block");
-				currentPosition -= 1;
-				squares[currentPosition].classList.add("block");
+				moveLeft();
 			}
 		} else if (event.key === "s") {
-			squares[currentPosition].classList.remove("block");
-			currentPosition += 10;
-			squares[currentPosition].classList.add("block");
+			if ((currentPosition + 10) < 171) {
+				moveDown();
+			}
 		}
 	}
 	
 	window.addEventListener("keypress", move);
-	
-	squares[currentPosition + zTetromino[currentRotation][1]].classList.add("block");
 	
 /*}
 
