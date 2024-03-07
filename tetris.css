@@ -17,7 +17,31 @@ div {
 }
 
 .block {
-	background-color: blue;
+	background-color: black;
+}
+
+.block2 {
+	background-color: black;
+}
+
+.block3 {
+	background-color: black;
+}
+
+.cutOff {
+	border-bottom: 1px solid black;
+}
+
+.nextGrid {
+	height: 40vw;
+	width: 40vw;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.nextShape {
+	height: 40vw;
+	width: 40vw;
 }
 
 @media only screen and (min-width: 620px) {
@@ -25,10 +49,6 @@ div {
 		height: calc(620px*0.1);
 		width: calc(620px*0.1);
 	}
-    .game {
-		height: calc(620px*0.1);
-		width: calc(620px*0.1);
-    }
 	.grid {
 		height: calc(620px*2);
 		width: calc(620px*1);
