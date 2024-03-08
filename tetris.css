@@ -8,10 +8,20 @@ div {
 	width: 10vw;
 }
 
+.game {
+	height: 200vw;
+	width: 100vw;
+	position: fixed;
+	left: 50%;
+	transform: translate(-50%, 0%);
+}
+
 .grid {
 	background-color: blue;
 	height: 200vw;
 	width: 100vw;
+	position: relative;
+	left: 0;
 	display: flex;
 	flex-wrap: wrap;
 }
@@ -44,13 +54,29 @@ div {
 	width: 40vw;
 }
 
-@media only screen and (min-width: 620px) {
+h2 {
+	color: white;
+}
+
+@media only screen and (min-width: 720px) {
     div {
-		height: calc(620px*0.1);
-		width: calc(620px*0.1);
+		height: calc(720px*0.1);
+		width: calc(720px*0.1);
+	}
+	.game {
+		height: calc(720px*2);
+		width: calc(720px*1);
 	}
 	.grid {
-		height: calc(620px*2);
-		width: calc(620px*1);
+		height: calc(720px*2);
+		width: calc(720px*1);
+	}
+	.nextGrid {
+		height: calc(720px*0.4);
+		width: calc(720px*0.4);
+  }
+	.nextShape {
+	height: calc(720px*0.4);
+	width: calc(720px*0.4);
 	}
 }

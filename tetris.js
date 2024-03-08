@@ -1,11 +1,16 @@
 const startBtn = document.querySelector("button")
 const grid = document.querySelector('.grid');
+const scoreDisplay = document.querySelector('.score');
+const linesDisplay = document.querySelector('.lines');
 const displaySquares = document.querySelectorAll(".nextGrid div");
 let squares = Array.from(grid.querySelectorAll('div'));
 const width = 10;
 const height = 20;
 let currentPosition = 4;
+let currentIndex = 0;
 let timerId;
+let score = 0;
+let lines = 0;
 
 // Control blocks
 let move = (event) => {
@@ -23,6 +28,12 @@ let move = (event) => {
 }
 
 window.addEventListener("keypress", move);
+
+// Creating Swiping trigger
+	// Getting Horizontal Movement of Mouse
+	let getMouseX = (event) => event.movementX;
+	// Getting vertical Movement of Mouse
+	let getMouseY = (event) => event.movementY;
 
 
 	// The Tetrominoes
@@ -107,19 +118,19 @@ window.addEventListener("keypress", move);
   // Move right shape
 	function moveRight() {
 		undraw();
-		const isAtRightEdge = current.some(index => (currentPosition + index) % width === width - 1);
-		if (!isAtRightEdge) {
-			currentPosition += 1;
-		}
-		if (current.some(index => squares[currentPosition + index].classList.contains("block2"))) {
-			currentPosition -= 1;
-		}
+		isAtRightEdge();
 		draw();
 	}
 
   // Move left shape
 	function moveLeft() {
 		undraw();
+		isAtLeftEdge();
+		draw();
+	}
+
+	// Check Left and right edge
+	function isAtLeftEdge() {
 		const isAtLeftEdge = current.some(index => (currentPosition + index) % width === 0);
 		if (!isAtLeftEdge) {
 			currentPosition -= 1;
@@ -127,7 +138,16 @@ window.addEventListener("keypress", move);
 		if (current.some(index => squares[currentPosition + index].classList.contains("block2"))) {
 			currentPosition += 1;
 		}
-		draw();
+	}
+
+	function isAtRightEdge() {
+		const isAtRightEdge = current.some(index => (currentPosition + index) % width === width - 1);
+		if (!isAtRightEdge) {
+			currentPosition += 1;
+		}
+		if (current.some(index => squares[currentPosition + index].classList.contains("block2"))) {
+			currentPosition -= 1;
+		}
 	}
 	
 	// Rotate shape right
@@ -152,13 +172,13 @@ window.addEventListener("keypress", move);
 	let nextRandom = 0;
 
 	const smallTetrominoes = [
-		[1, width + 1, width * 2 + 1, 2],
-		[1, width + 1, width * 2 + 1, 0],
-		[0, width, width + 1, width * 2 + 1],
-		[2, width + 1, width + 2, width * 2 + 1],
-		[1, width, width + 1, width + 2],
-		[0, 1, width, width + 1],
-		[1, width + 1, width * 2 + 1, width * 3 + 1]
+		[1, displayWidth + 1, displayWidth * 2 + 1, 2],
+		[1, displayWidth + 1, displayWidth * 2 + 1, 0],
+		[0, displayWidth, displayWidth + 1, displayWidth * 2 + 1],
+		[2, displayWidth + 1, displayWidth + 2, displayWidth * 2 + 1],
+		[1, displayWidth, displayWidth + 1, displayWidth + 2],
+		[0, 1, displayWidth, displayWidth + 1],
+		[1, displayWidth + 1, displayWidth * 2 + 1, displayWidth * 3 + 1]
 	]
 
 	function displayShape() {
@@ -173,12 +193,14 @@ window.addEventListener("keypress", move);
 	function freeze() {
 		if(current.some(index => squares[currentPosition + index + width].classList.contains("block3") || squares[currentPosition + index + width].classList.contains("block2"))) {
 			current.forEach(index => squares[index + currentPosition].classList.add("block2"));
+			gameOver();
 			random = nextRandom;
 			nextRandom = Math.floor(Math.random() * theTetrominoes.length);
 			current = theTetrominoes[random][currentRotation];
 			currentPosition = 4;
 			draw();
 			displayShape();
+			addScore();
 		}
 	}
 
@@ -194,10 +216,61 @@ window.addEventListener("keypress", move);
 		}
 	});
 
-
+	// Start game when page loads
+	window.addEventListener("load", () => {
+		if(timerId) {
+			clearInterval(timerId);
+			timerId = null;
+		} else {
+			draw();
+			timerId = setInterval(moveDown, 1000);
+			nextRandom = Math.floor(Math.random() * theTetrominoes.length);
+			displayShape();
+		}
+	});
 	
-	// Creating Swiping trigger
-	// Getting Horizontal Movement of Mouse
-	let getMouseX = (event) => event.movementX;
-	// Getting vertical Movement of Mouse
-	let getMouseY = (event) => event.movementY;
+	// Game Over
+	function gameOver() {
+		if (current.some(index => squares[currentPosition + index].classList.contains("cutOff"))) {
+			scoreDisplay.innerHTML = "end";
+			clearInterval(timerId);
+		}
+	}
+	
+	// Add Score
+	function addScore() {
+		for (currentIndex = 0; currentIndex < 239; currentIndex += width) {
+			const row = [
+				currentIndex,
+				currentIndex + 1,
+				currentIndex + 2,
+				currentIndex + 3,
+				currentIndex + 4,
+				currentIndex + 5,
+				currentIndex + 6,
+				currentIndex + 7,
+				currentIndex + 8,
+				currentIndex + 9,
+			];
+			if (row.every(index => squares[index].classList.contains("block2"))) {
+				score += 10;
+				lines += 1;
+				scoreDisplay.innerHTML = `${score} Points`;
+				linesDisplay.innerHTML = `${lines} Points`;
+				row.forEach(index => {
+					squares[index].classList.remove("block2") || squares[index].classList.remove("block")
+				});
+
+				// Splice Array
+				const squaresRemoved = squares.splice(currentIndex, width);
+				squares = squaresRemoved.concat(squares);
+				squares.forEach(cell => grid.appendChild(cell));
+
+				// Moving Cutoff back up
+				for (let i = 30; i<40; i++) {
+					squares[i].classList.add("cutOff");
+					squares[i + 10].classList.remove("cutOff");
+				}
+			}
+		}
+	}
