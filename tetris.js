@@ -1,4 +1,4 @@
-const startBtn = document.querySelector("button")
+const reset = document.querySelector("button")
 const grid = document.querySelector('.grid');
 const scoreDisplay = document.querySelector('.score');
 const linesDisplay = document.querySelector('.lines');
@@ -11,8 +11,9 @@ let currentIndex = 0;
 let timerId;
 let score = 0;
 let lines = 0;
+let colors = ["blockL", "blockLm", "blockZ", "blockZm", "blockT", "blockO", "blockI"]
 
-// Control blocks
+// Keyboard Controls
 let move = (event) => {
 	if (event.key === "d") {
 		moveRight();
@@ -29,12 +30,71 @@ let move = (event) => {
 
 window.addEventListener("keypress", move);
 
-// Creating Swiping trigger
-	// Getting Horizontal Movement of Mouse
-	let getMouseX = (event) => event.movementX;
-	// Getting vertical Movement of Mouse
-	let getMouseY = (event) => event.movementY;
+// Touch Controls
+grid.addEventListener("touchstart", handleTouchStart, false);        
+grid.addEventListener("touchmove", handleTouchMove, false);
 
+let xDown = null;                                                        
+let yDown = null;
+
+function getTouches(evt) {
+  return evt.touches ||
+         evt.originalEvent.touches;
+}                                                     
+                                                                         
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];                                      
+    xDown = firstTouch.clientX;                                      
+    yDown = firstTouch.clientY;                                      
+}                                                
+                                                                         
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+
+    let xUp = evt.touches[0].clientX;                                    
+    let yUp = evt.touches[0].clientY;
+
+    let xDiff = xDown - xUp;
+    let yDiff = yDown - yUp;
+                                                                         
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+            moveLeft(); // left swipe
+        } else {
+            moveRight(); // right swipe
+        }                       
+    } else {
+        if ( yDiff > 0 ) {
+            rotateRight(); // up swipe
+        } else { 
+            moveDown(); // down swipe 
+        }                                                                 
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;                                             
+}
+
+
+// Double Tap to Rotate
+let timeout;
+let lastTap = 0;
+grid.addEventListener('touchend', function(event) {
+    let currentTime = new Date().getTime();
+    let tapLength = currentTime - lastTap;
+    clearTimeout(timeout);
+    if (tapLength < 500 && tapLength > 0) {
+        rotateRight();
+        event.preventDefault();
+    } else {
+        timeout = setTimeout(function() {
+            clearTimeout(timeout);
+        }, 500);
+    }
+    lastTap = currentTime;
+});
 
 	// The Tetrominoes
 	const lTetromino = [
@@ -96,14 +156,14 @@ window.addEventListener("keypress", move);
 	// Draw the shape
 	function draw() {
 		current.forEach( index => (
-			squares[currentPosition + index].classList.add('block')
+			squares[currentPosition + index].classList.add(colors[random])
 		));
 	}
 	
 	// Undraw the shape
 	function undraw() {
 		current.forEach( index => (
-			squares[currentPosition + index].classList.remove('block')
+			squares[currentPosition + index].classList.remove(colors[random])
 		));
 	}
 	
@@ -153,6 +213,8 @@ window.addEventListener("keypress", move);
 	// Rotate shape right
 	function rotateRight() {
 		undraw();
+		isAtRightEdge();
+		isAtLeftEdge();
 		currentRotation = (currentRotation + 1) % 4;
 		current = theTetrominoes[random][currentRotation];
 		draw();
@@ -161,14 +223,16 @@ window.addEventListener("keypress", move);
 	// Rotate shape right
 	function rotateLeft() {
 		undraw();
+		isAtRightEdge();
+		isAtLeftEdge();
 		currentRotation = (currentRotation + 3) % 4;
 		current = theTetrominoes[random][currentRotation];
 		draw();
 	}
 
 	// Show next Tetromino
-	const displayWidth = 4;
-	const displayIndex = 0;
+	const displayWidth = 6;
+	const displayIndex = 8;
 	let nextRandom = 0;
 
 	const smallTetrominoes = [
@@ -183,10 +247,16 @@ window.addEventListener("keypress", move);
 
 	function displayShape() {
 		displaySquares.forEach(square => {
-			square.classList.remove("block");
+			square.classList.remove("blockL");
+			square.classList.remove("blockLm");
+			square.classList.remove("blockZ");
+			square.classList.remove("blockZm");
+			square.classList.remove("blockT");
+			square.classList.remove("blockO");
+			square.classList.remove("blockI");
 		});
 		smallTetrominoes[nextRandom].forEach(index => {
-			displaySquares[displayIndex + index].classList.add("block")
+			displaySquares[displayIndex + index].classList.add(colors[nextRandom])
 		});
 	}
 
@@ -204,16 +274,31 @@ window.addEventListener("keypress", move);
 		}
 	}
 
-	startBtn.addEventListener("click", () => {
-		if(timerId) {
-			clearInterval(timerId);
-			timerId = null;
-		} else {
-			draw();
-			timerId = setInterval(moveDown, 1000);
-			nextRandom = Math.floor(Math.random() * theTetrominoes.length);
-			displayShape();
+	// Reset Game to play again
+	reset.addEventListener("click", () => {
+		undraw();
+		for (let square of squares) {
+			square.classList.remove("block2");
+			square.classList.remove("blockL");
+			square.classList.remove("blockLm");
+			square.classList.remove("blockZ");
+			square.classList.remove("blockZm");
+			square.classList.remove("blockT");
+			square.classList.remove("blockO");
+			square.classList.remove("blockI");
 		}
+		clearInterval(timerId);
+		timerId = setInterval(moveDown, 1000);
+		score = 0;
+		lines = 0;
+		scoreDisplay.innerHTML = `${score} Points`;
+		linesDisplay.innerHTML = `${lines} Points`;
+		random = nextRandom;
+		nextRandom = Math.floor(Math.random() * theTetrominoes.length);
+		current = theTetrominoes[random][currentRotation];
+		currentPosition = 4;
+		displayShape();
+		draw();
 	});
 
 	// Start game when page loads
@@ -232,7 +317,7 @@ window.addEventListener("keypress", move);
 	// Game Over
 	function gameOver() {
 		if (current.some(index => squares[currentPosition + index].classList.contains("cutOff"))) {
-			scoreDisplay.innerHTML = "end";
+			scoreDisplay.innerHTML = `${score} Points Game Over`;
 			clearInterval(timerId);
 		}
 	}
@@ -258,7 +343,7 @@ window.addEventListener("keypress", move);
 				scoreDisplay.innerHTML = `${score} Points`;
 				linesDisplay.innerHTML = `${lines} Points`;
 				row.forEach(index => {
-					squares[index].classList.remove("block2") || squares[index].classList.remove("block")
+					squares[index].classList.remove("block2") || squares[index].classList.remove(colors[random])
 				});
 
 				// Splice Array

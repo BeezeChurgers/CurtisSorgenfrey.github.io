@@ -1,9 +1,35 @@
 body {
 	background: black;
+	font-family: Arial;
+}
+
+.hud {
+	width: 24vw;
+	right: 0;
+	top: 0;
+	position: fixed;
+	z-index: 2;
+	padding: 1em;
+	text-align: right;
+	background: none;
+}
+
+button {
+	background: none;
+	color: white;
+	border-radius: 4vw;
+	border: 0.8vw solid white;
+	margin: 1vw;
+	font-size: 4vw;
+}
+
+h2 {
+	font-size: 4vw;
+	color: white;
 }
 
 div {
-	background-color: gray;
+	background-color: black;
 	height: 10vw;
 	width: 10vw;
 }
@@ -13,7 +39,9 @@ div {
 	width: 100vw;
 	position: fixed;
 	left: 50%;
+	top: 0;
 	transform: translate(-50%, 0%);
+	z-index: 1;
 }
 
 .grid {
@@ -27,11 +55,39 @@ div {
 }
 
 .block {
-	background-color: black;
+	background-color: green;
+}
+
+.blockL {
+	background-color: #ff7f00;
+}
+
+.blockLm {
+	background-color: #0000ff;
+}
+
+.blockZ {
+	background-color: #00ff00;
+}
+
+.blockZm {
+	background-color: #ff0000;
+}
+
+.blockT {
+	background-color: #800080;
+}
+
+.blockO {
+	background-color: #ffff00;
+}
+
+.blockI {
+	background-color: #00ffff;
 }
 
 .block2 {
-	background-color: black;
+	background-color: #7f7f7f;
 }
 
 .block3 {
@@ -39,27 +95,33 @@ div {
 }
 
 .cutOff {
-	border-bottom: 1px solid black;
+	border-bottom: 1px solid white;
 }
 
 .nextGrid {
-	height: 40vw;
-	width: 40vw;
+	height: 24vw;
+	width: 24vw;
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .nextShape {
-	height: 40vw;
-	width: 40vw;
+	height: 24vw;
+	width: 24vw;
+	left: 0;
+	top: 4vw;
+	position: fixed;
+	z-index: 2;
 }
 
-h2 {
-	color: white;
+.nextGrid div {
+	height: 4vw;
+	width: 4vw;
 }
+
 
 @media only screen and (min-width: 720px) {
-    div {
+   div {
 		height: calc(720px*0.1);
 		width: calc(720px*0.1);
 	}
@@ -76,7 +138,26 @@ h2 {
 		width: calc(720px*0.4);
   }
 	.nextShape {
-	height: calc(720px*0.4);
-	width: calc(720px*0.4);
+		height: calc(720px*0.4);
+		width: calc(720px*0.4);
+	}
+	.hud {
+		width: calc(720px*0.24);
+	}
+	button {
+		border-radius: calc(720px*0.04);
+		border: calc(720px*0.08) solid white;
+		margin: calc(720px*0.01);
+		font-size: calc(720px*0.04);
+	}
+	h2 {
+		font-size: calc(720px*0.04);
+	}
+	.cutOff {
+		border-bottom: calc(720px*0.01) solid white;
+	}
+	.nextGrid div {
+		height: calc(720px*0.04);
+		width: calc(720px*0.04);
 	}
 }
