@@ -11,7 +11,8 @@ let currentIndex = 0;
 let timerId;
 let score = 0;
 let lines = 0;
-let colors = ["blockL", "blockLm", "blockZ", "blockZm", "blockT", "blockO", "blockI"]
+let colors = ["blockL", "blockLm", "blockZ", "blockZm", "blockT", "blockO", "blockI"];
+let instructions = document.querySelector('.instructions');
 
 // Keyboard Controls
 let move = (event) => {
@@ -85,12 +86,12 @@ function handleTouchMove(evt) {
 let timeout;
 let lastTap = 0;
 grid.addEventListener('touchend', function(event) {
+	event.preventDefault();
     let currentTime = new Date().getTime();
     let tapLength = currentTime - lastTap;
     clearTimeout(timeout);
     if (tapLength < 500 && tapLength > 0) {
         rotateRight();
-        event.preventDefault();
     } else {
         timeout = setTimeout(function() {
             clearTimeout(timeout);
@@ -302,6 +303,11 @@ grid.addEventListener('touchend', function(event) {
 		currentPosition = 4;
 		displayShape();
 		draw();
+	});
+
+	// Make instructions go away after tap
+	grid.addEventListener("click", () => {
+		instructions.style.display = "none";
 	});
 
 	// Start game when page loads
