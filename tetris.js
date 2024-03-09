@@ -12,6 +12,8 @@ let timerId;
 let score = 0;
 let lines = 0;
 let colors = ["blockL", "blockLm", "blockZ", "blockZm", "blockT", "blockO", "blockI"];
+let isAtBottom = false;
+let multiplier = 1;
 
 // Keyboard Controls
 let move = (event) => {
@@ -71,8 +73,11 @@ function handleTouchMove(event) {
     } else {
         if ( yDiff > 0 ) {
             rotateRight(); // up swipe
-        } else { 
-            moveDown(); // down swipe 
+        } else {
+			while (!isAtBottom) {
+				moveDown();
+			}
+			isAtBottom = false; // down swipe 
         }                                                                 
     }
     /* reset values */
@@ -235,8 +240,8 @@ grid.addEventListener('touchend', function(event) {
 	}
 
 	// Show next Tetromino
-	const displayWidth = 6;
-	const displayIndex = 8;
+	const displayWidth = 4;
+	const displayIndex = 1;
 	let nextRandom = 0;
 
 	const smallTetrominoes = [
@@ -267,14 +272,15 @@ grid.addEventListener('touchend', function(event) {
 	function freeze() {
 		if(current.some(index => squares[currentPosition + index + width].classList.contains("block3") || squares[currentPosition + index + width].classList.contains("block2"))) {
 			current.forEach(index => squares[index + currentPosition].classList.add("block2"));
-			gameOver();
 			random = nextRandom;
 			nextRandom = Math.floor(Math.random() * theTetrominoes.length);
 			current = theTetrominoes[random][currentRotation];
 			currentPosition = 4;
 			draw();
 			displayShape();
+			gameOver();
 			addScore();
+			isAtBottom = true;
 		}
 	}
 
@@ -296,7 +302,7 @@ grid.addEventListener('touchend', function(event) {
 		score = 0;
 		lines = 0;
 		scoreDisplay.innerHTML = `${score} Points`;
-		linesDisplay.innerHTML = `${lines} Points`;
+		linesDisplay.innerHTML = `${lines} Lines`;
 		random = nextRandom;
 		nextRandom = Math.floor(Math.random() * theTetrominoes.length);
 		current = theTetrominoes[random][currentRotation];
@@ -320,7 +326,7 @@ grid.addEventListener('touchend', function(event) {
 	
 	// Game Over
 	function gameOver() {
-		if (current.some(index => squares[currentPosition + index].classList.contains("cutOff"))) {
+		if (current.some(index => squares[currentPosition + index].classList.contains("block2"))) {
 			scoreDisplay.innerHTML = `${score} Points Game Over`;
 			clearInterval(timerId);
 		}
@@ -328,7 +334,7 @@ grid.addEventListener('touchend', function(event) {
 	
 	// Add Score
 	function addScore() {
-		for (currentIndex = 0; currentIndex < 239; currentIndex += width) {
+		for (currentIndex = 0; currentIndex < 209; currentIndex += width) {
 			const row = [
 				currentIndex,
 				currentIndex + 1,
@@ -342,10 +348,15 @@ grid.addEventListener('touchend', function(event) {
 				currentIndex + 9,
 			];
 			if (row.every(index => squares[index].classList.contains("block2"))) {
-				score += 10;
+				score += 10 * multiplier;
+				if (multiplier * 50 <= score) {
+					multiplier++;
+				}
+				clearInterval(timerId);
+				timerId = setInterval(moveDown, 1000/multiplier);
 				lines += 1;
 				scoreDisplay.innerHTML = `${score} Points`;
-				linesDisplay.innerHTML = `${lines} Points`;
+				linesDisplay.innerHTML = `${lines} Lines`;
 				row.forEach(index => {
 					squares[index].classList.remove("block2") || squares[index].classList.remove(colors[random])
 				});
@@ -365,7 +376,7 @@ grid.addEventListener('touchend', function(event) {
 				squares.forEach(cell => grid.appendChild(cell));
 
 				// Moving Cutoff back up
-				for (let i = 30; i<40; i++) {
+				for (let i = 0; i<10; i++) {
 					squares[i].classList.add("cutOff");
 					squares[i + 10].classList.remove("cutOff");
 				}

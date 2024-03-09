@@ -12,6 +12,7 @@ body {
 	padding: 1em;
 	text-align: right;
 	background: none;
+	border: none;
 }
 
 button {
@@ -46,29 +47,33 @@ h2 {
 
 div {
 	background-color: black;
-	height: 3.5vh;
-	width: 3.5vh;
+	height: 3.8vh;
+	width: 3.8vh;
+	border: 0.1vh solid #111111;
 }
 
 .game {
-	height: 72vh;
-	width: 35vh;
+	height: 84vh;
+	width: 40vh;
 	position: fixed;
 	left: 50%;
 	top: 0;
 	transform: translate(-50%, 0%);
 	z-index: 1;
 	background: black;
+	border: none;
 }
 
 .grid {
-	background-color: blue;
-	height: 72vh;
-	width: 35vh;
+	background-color: black;
+	height: 84vh;
+	width: 40vh;
 	position: relative;
 	left: 0;
 	display: flex;
 	flex-wrap: wrap;
+	border: none;
+
 }
 
 .block {
@@ -109,7 +114,7 @@ div {
 
 .block3 {
 	background-color: black;
-	border-top: 0.1vh solid gray;
+	border: none;
 }
 
 .cutOff {
@@ -117,24 +122,27 @@ div {
 }
 
 .nextGrid {
-	height: 12vh;
-	width: 12vh;
+	height: 8vh;
+	width: 8vh;
 	display: flex;
 	flex-wrap: wrap;
+	border: none;
 }
 
 .nextShape {
-	height: 12vh;
-	width: 12vh;
+	height: 8vh;
+	width: 8vh;
 	left: 0;
-	top: 1vh;
+	top: 2vh;
 	position: fixed;
 	z-index: 2;
+	border: none;
 }
 
 .nextGrid div {
 	height: 2vh;
 	width: 2vh;
+	border: none;
 }
 
 /*
