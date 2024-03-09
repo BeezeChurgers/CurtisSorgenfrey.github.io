@@ -280,6 +280,8 @@ grid.addEventListener('touchend', function(event) {
 			displayShape();
 			gameOver();
 			addScore();
+		}
+		if(current.some(index => squares[currentPosition + index + 4*width].classList.contains("block3") || squares[currentPosition + index + 4*width].classList.contains("block2"))) {
 			isAtBottom = true;
 		}
 	}
@@ -353,7 +355,7 @@ grid.addEventListener('touchend', function(event) {
 					multiplier++;
 				}
 				clearInterval(timerId);
-				timerId = setInterval(moveDown, 1000/multiplier);
+				timerId = setInterval(moveDown, 1000-(50*lines));
 				lines += 1;
 				scoreDisplay.innerHTML = `${score} Points`;
 				linesDisplay.innerHTML = `${lines} Lines`;

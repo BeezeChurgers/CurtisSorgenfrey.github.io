@@ -49,7 +49,7 @@ div {
 	background-color: black;
 	height: 3.8vh;
 	width: 3.8vh;
-	border: 0.1vh solid #111111;
+	border: 0.1vh solid #333333;
 }
 
 .game {
@@ -73,7 +73,6 @@ div {
 	display: flex;
 	flex-wrap: wrap;
 	border: none;
-
 }
 
 .block {
@@ -114,11 +113,23 @@ div {
 
 .block3 {
 	background-color: black;
-	border: none;
+	border-top: 0.1vh solid white;
+	border-left: none;
+	border-right: none;
+	border-bottom: none;
+	width: 3.95vh;
+}
+
+.borderLeft {
+	border-left: 0.1vh solid white;
+}
+
+.borderRight {
+	border-right: 0.1vh solid white;
 }
 
 .cutOff {
-	border-bottom: 0.1vh solid gray;
+	border-bottom: 0.1vh solid white;
 }
 
 .nextGrid {
