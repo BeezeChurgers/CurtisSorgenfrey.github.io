@@ -31,8 +31,8 @@ let move = (event) => {
 window.addEventListener("keypress", move);
 
 // Touch Controls
-window.addEventListener("touchstart", handleTouchStart, false);        
-window.addEventListener("touchmove", handleTouchMove, false);
+grid.addEventListener("touchstart", handleTouchStart, false);        
+grid.addEventListener("touchmove", handleTouchMove, false);
 
 let xDown = null;                                                        
 let yDown = null;
