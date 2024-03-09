@@ -29,22 +29,31 @@ h2 {
 
 .instructions {
 	position: fixed;
-	z-index: 3;
+	z-index: 0;
 	text-align: center;
 	left: 50%;
 	top: 25%;
 	transform: translate(-50%, -50%);
+	animation: disappear 5s 0s ease 1;
+}
+
+@keyframes disappear {
+	0% { z-index: 3; color: white; }
+	85% { z-index: 3; color: white; }
+	90% { z-index: 3; color: black; }
+	100% { z-index: 0; color: black; }
 }
 
 div {
 	background-color: black;
-	height: 3.3vh;
-	width: 3.3vh;
+	height: 3.5vh;
+	width: 3.5vh;
+	border-radius: 0.5vh;
 }
 
 .game {
-	height: 66vh;
-	width: 33vh;
+	height: 70vh;
+	width: 35vh;
 	position: fixed;
 	left: 50%;
 	top: 0;
@@ -54,8 +63,8 @@ div {
 
 .grid {
 	background-color: blue;
-	height: 66vh;
-	width: 33vh;
+	height: 70vh;
+	width: 35vh;
 	position: relative;
 	left: 0;
 	display: flex;
@@ -100,11 +109,11 @@ div {
 
 .block3 {
 	background-color: black;
-	border-top: 0.1vh solid #222222;
+	border-top: 0.1vh solid gray;
 }
 
 .cutOff {
-	border-bottom: 0.1vh solid #222222;
+	border-bottom: 0.1vh solid gray;
 }
 
 .nextGrid {

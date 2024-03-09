@@ -12,7 +12,6 @@ let timerId;
 let score = 0;
 let lines = 0;
 let colors = ["blockL", "blockLm", "blockZ", "blockZm", "blockT", "blockO", "blockI"];
-let instructions = document.querySelector('.instructions');
 
 // Keyboard Controls
 let move = (event) => {
@@ -22,7 +21,7 @@ let move = (event) => {
 		moveLeft();
 	} else if (event.key === "s") {
 		moveDown();
-	} else if (event.key === "e") {
+	} else if (event.key === "w") {
 		rotateRight();
 	} else if (event.key === "q") {
 		rotateLeft();
@@ -32,33 +31,33 @@ let move = (event) => {
 window.addEventListener("keypress", move);
 
 // Touch Controls
-grid.addEventListener("touchstart", handleTouchStart, false);        
-grid.addEventListener("touchmove", handleTouchMove, false);
+window.addEventListener("touchstart", handleTouchStart, false);        
+window.addEventListener("touchmove", handleTouchMove, false);
 
 let xDown = null;                                                        
 let yDown = null;
 
-function getTouches(evt) {
-  return evt.touches ||
-         evt.originalEvent.touches;
+function getTouches(event) {
+  return event.touches ||
+         event.originalEvent.touches;
 }                                                     
                                                                          
-function handleTouchStart(evt) {
-    const firstTouch = getTouches(evt)[0];                                      
+function handleTouchStart(event) {
+    const firstTouch = getTouches(e)[0];                                      
     xDown = firstTouch.clientX;                                      
     yDown = firstTouch.clientY;                                      
 }                                                
                                                                          
-function handleTouchMove(evt) {
+function handleTouchMove(event) {
 	
-	evt.preventDefault(); // Keeps the swiping from scrolling
+	event.preventDefault(); // Keeps the swiping from scrolling
 
     if ( ! xDown || ! yDown ) {
         return;
     }
 
-    let xUp = evt.touches[0].clientX;                                    
-    let yUp = evt.touches[0].clientY;
+    let xUp = event.touches[0].clientX;                                    
+    let yUp = event.touches[0].clientY;
 
     let xDiff = xDown - xUp;
     let yDiff = yDown - yUp;
@@ -81,7 +80,7 @@ function handleTouchMove(evt) {
     yDown = null;                                             
 }
 
-
+/*
 // Double Tap to Rotate
 let timeout;
 let lastTap = 0;
@@ -99,6 +98,7 @@ grid.addEventListener('touchend', function(event) {
     }
     lastTap = currentTime;
 });
+*/
 
 	// The Tetrominoes
 	const lTetromino = [
@@ -305,11 +305,6 @@ grid.addEventListener('touchend', function(event) {
 		draw();
 	});
 
-	// Make instructions go away after tap
-	grid.addEventListener("click", () => {
-		instructions.style.display = "none";
-	});
-
 	// Start game when page loads
 	window.addEventListener("load", () => {
 		if(timerId) {
@@ -357,6 +352,15 @@ grid.addEventListener('touchend', function(event) {
 
 				// Splice Array
 				const squaresRemoved = squares.splice(currentIndex, width);
+				for (let i=0; i<squaresRemoved.length; i++) {
+					squaresRemoved[i].classList.remove("blockL");
+					squaresRemoved[i].classList.remove("blockLm");
+					squaresRemoved[i].classList.remove("blockZ");
+					squaresRemoved[i].classList.remove("blockZm");
+					squaresRemoved[i].classList.remove("blockT");
+					squaresRemoved[i].classList.remove("blockO");
+					squaresRemoved[i].classList.remove("blockI");
+				}
 				squares = squaresRemoved.concat(squares);
 				squares.forEach(cell => grid.appendChild(cell));
 
