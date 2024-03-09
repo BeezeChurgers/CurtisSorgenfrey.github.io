@@ -280,8 +280,6 @@ grid.addEventListener('touchend', function(event) {
 			displayShape();
 			gameOver();
 			addScore();
-		}
-		if(current.some(index => squares[currentPosition + index + 4*width].classList.contains("block3") || squares[currentPosition + index + 4*width].classList.contains("block2"))) {
 			isAtBottom = true;
 		}
 	}
