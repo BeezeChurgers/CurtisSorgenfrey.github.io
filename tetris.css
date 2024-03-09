@@ -17,26 +17,25 @@ body {
 button {
 	background: none;
 	color: white;
-	border-radius: 4vw;
-	border: 0.8vw solid white;
-	margin: 1vw;
-	font-size: 4vw;
+	border-radius: 2vh;
+	border: 0.4vh solid white;
+	font-size: 2vh;
 }
 
 h2 {
-	font-size: 4vw;
+	font-size: 2vh;
 	color: white;
 }
 
 div {
 	background-color: black;
-	height: 10vw;
-	width: 10vw;
+	height: 4vh;
+	width: 4vh;
 }
 
 .game {
-	height: 200vw;
-	width: 100vw;
+	height: 80vh;
+	width: 40vh;
 	position: fixed;
 	left: 50%;
 	top: 0;
@@ -46,8 +45,8 @@ div {
 
 .grid {
 	background-color: blue;
-	height: 200vw;
-	width: 100vw;
+	height: 80vh;
+	width: 40vh;
 	position: relative;
 	left: 0;
 	display: flex;
@@ -99,27 +98,27 @@ div {
 }
 
 .nextGrid {
-	height: 24vw;
-	width: 24vw;
+	height: 12vh;
+	width: 12vh;
 	display: flex;
 	flex-wrap: wrap;
 }
 
 .nextShape {
-	height: 24vw;
-	width: 24vw;
+	height: 12vh;
+	width: 12vh;
 	left: 0;
-	top: 4vw;
+	top: 1vh;
 	position: fixed;
 	z-index: 2;
 }
 
 .nextGrid div {
-	height: 4vw;
-	width: 4vw;
+	height: 2vh;
+	width: 2vh;
 }
 
-
+/*
 @media only screen and (min-width: 720px) {
    div {
 		height: calc(720px*0.1);
@@ -161,3 +160,4 @@ div {
 		width: calc(720px*0.04);
 	}
 }
+*/

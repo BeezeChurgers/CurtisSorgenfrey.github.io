@@ -49,6 +49,9 @@ function handleTouchStart(evt) {
 }                                                
                                                                          
 function handleTouchMove(evt) {
+	
+	evt.preventDefault(); // Keeps the swiping from scrolling
+
     if ( ! xDown || ! yDown ) {
         return;
     }
