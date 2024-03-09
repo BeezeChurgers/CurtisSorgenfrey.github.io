@@ -51,18 +51,19 @@ div {
 }
 
 .game {
-	height: 70vh;
+	height: 72vh;
 	width: 35vh;
 	position: fixed;
 	left: 50%;
 	top: 0;
 	transform: translate(-50%, 0%);
 	z-index: 1;
+	background: black;
 }
 
 .grid {
 	background-color: blue;
-	height: 70vh;
+	height: 72vh;
 	width: 35vh;
 	position: relative;
 	left: 0;

@@ -43,7 +43,7 @@ function getTouches(event) {
 }                                                     
                                                                          
 function handleTouchStart(event) {
-    const firstTouch = getTouches(e)[0];                                      
+    const firstTouch = getTouches(event)[0];                                      
     xDown = firstTouch.clientX;                                      
     yDown = firstTouch.clientY;                                      
 }                                                
