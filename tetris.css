@@ -4,7 +4,7 @@ body {
 }
 
 .hud {
-	width: 24vw;
+	width: 12vh;
 	right: 0;
 	top: 0;
 	position: fixed;
@@ -29,13 +29,13 @@ h2 {
 
 div {
 	background-color: black;
-	height: 4vh;
-	width: 4vh;
+	height: 3.6vh;
+	width: 3.6vh;
 }
 
 .game {
-	height: 80vh;
-	width: 40vh;
+	height: 72vh;
+	width: 36vh;
 	position: fixed;
 	left: 50%;
 	top: 0;
@@ -45,8 +45,8 @@ div {
 
 .grid {
 	background-color: blue;
-	height: 80vh;
-	width: 40vh;
+	height: 72vh;
+	width: 36vh;
 	position: relative;
 	left: 0;
 	display: flex;
