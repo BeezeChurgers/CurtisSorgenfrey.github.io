@@ -54,20 +54,25 @@ function handleTouchStart(event) {
     const firstTouch = getTouches(event)[0];                                      
     xDown = firstTouch.clientX;                                      
     yDown = firstTouch.clientY;
-	touchStart = Date.now();                                     
+	touchStart = Date.now();
+	event.preventDefault(); // Stop double tap zoom
+	event.stopPropagation(); // Prevent firing on other elements
 } 
 
 function handleTouchEnd() {
 	touchEnd = Date.now();
 	touchTime = touchEnd - touchStart;
-	if (touchTime < 100) {
+	if (touchTime < 50) {
 		rotateRight();
 	}
+	event.preventDefault(); // Stop double tap zoom
+	event.stopPropagation(); // Prevent firing on other elements
 }
                                                                          
 function handleTouchMove(event) {
 	
-	event.preventDefault(); // Keeps the swiping from scrolling
+	event.preventDefault(); // Prevent scrolling
+	event.stopPropagation(); // Prevent firing on other elements
 
     if ( ! xDown || ! yDown ) {
         return;
@@ -237,21 +242,25 @@ grid.addEventListener('touchend', function(event) {
 	// Rotate shape right
 	function rotateRight() {
 		undraw();
-		isAtRightEdge();
-		isAtLeftEdge();
-		currentRotation = (currentRotation + 1) % 4;
-		current = theTetrominoes[random][currentRotation];
-		draw();
+		if (current.some(index => (currentPosition + index) % width === 0) || current.some(index => (currentPosition + index) % width === width - 1)) {
+			draw(); // Prevent rotating near side or other tetrominoes
+		} else {
+			currentRotation = (currentRotation + 1) % 4;
+			current = theTetrominoes[random][currentRotation];
+			draw();
+		}
 	}
 	
 	// Rotate shape right
 	function rotateLeft() {
 		undraw();
-		isAtRightEdge();
-		isAtLeftEdge();
-		currentRotation = (currentRotation + 3) % 4;
-		current = theTetrominoes[random][currentRotation];
-		draw();
+		if (current.some(index => (currentPosition + index) % width === 0) || current.some(index => (currentPosition + index) % width === width - 1)) {
+			draw(); // Prevent rotating near side or other tetrominoes
+		} else {
+			currentRotation = (currentRotation + 3) % 4;
+			current = theTetrominoes[random][currentRotation];
+			draw();
+		}
 	}
 
 	// Show next Tetromino
@@ -352,7 +361,7 @@ grid.addEventListener('touchend', function(event) {
 			grid.removeEventListener("touchend", handleTouchEnd, false);    
 		} else {
 			timerId = setInterval(moveDown, 1000-(50*lines));
-			pause.innerHTML = "&#10074;&#10074; Pause";
+			pause.innerHTML = "&#10073;&#10073; Pause";
 			window.addEventListener("keypress", move);
 			grid.addEventListener("touchstart", handleTouchStart, false);        
 			grid.addEventListener("touchmove", handleTouchMove, false);
