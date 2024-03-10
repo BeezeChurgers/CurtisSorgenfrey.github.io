@@ -48,8 +48,8 @@ h2 {
 @keyframes disappear {
 	0% { z-index: 3; color: white; }
 	85% { z-index: 3; color: white; }
-	90% { z-index: 3; color: black; }
-	100% { z-index: 0; color: black; }
+	90% { z-index: 3; color: white; }
+	100% { z-index: 0; color: none; }
 }
 
 div {
