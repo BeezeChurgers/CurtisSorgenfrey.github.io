@@ -56,23 +56,20 @@ function handleTouchStart(event) {
     yDown = firstTouch.clientY;
 	touchStart = Date.now();
 	event.preventDefault(); // Stop double tap zoom
-	event.stopPropagation(); // Prevent firing on other elements
 } 
 
 function handleTouchEnd() {
 	touchEnd = Date.now();
 	touchTime = touchEnd - touchStart;
-	if (touchTime < 50) {
+	if (touchTime < 75) {
 		rotateRight();
 	}
 	event.preventDefault(); // Stop double tap zoom
-	event.stopPropagation(); // Prevent firing on other elements
 }
                                                                          
 function handleTouchMove(event) {
 	
 	event.preventDefault(); // Prevent scrolling
-	event.stopPropagation(); // Prevent firing on other elements
 
     if ( ! xDown || ! yDown ) {
         return;
@@ -91,10 +88,8 @@ function handleTouchMove(event) {
             moveRight(); // right swipe
         }                       
     } else {
-        if ( yDiff > 0 ) {
-            rotateRight(); // up swipe
-        } else {
-			while (!isAtBottom) {
+        if ( yDiff < 0 ) {
+            while (!isAtBottom) {
 				moveDown();
 			}
 			isAtBottom = false; // down swipe 
