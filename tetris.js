@@ -1,4 +1,5 @@
-const reset = document.querySelector("button")
+const reset = document.querySelector(".reset")
+const pause = document.querySelector(".pause")
 const grid = document.querySelector('.grid');
 const scoreDisplay = document.querySelector('.score');
 const linesDisplay = document.querySelector('.lines');
@@ -35,9 +36,14 @@ window.addEventListener("keypress", move);
 // Touch Controls
 grid.addEventListener("touchstart", handleTouchStart, false);        
 grid.addEventListener("touchmove", handleTouchMove, false);
+grid.addEventListener("touchend", handleTouchEnd, false);        
+
 
 let xDown = null;                                                        
 let yDown = null;
+let touchTime;
+let touchStart;
+let touchEnd;
 
 function getTouches(event) {
   return event.touches ||
@@ -47,8 +53,17 @@ function getTouches(event) {
 function handleTouchStart(event) {
     const firstTouch = getTouches(event)[0];                                      
     xDown = firstTouch.clientX;                                      
-    yDown = firstTouch.clientY;                                      
-}                                                
+    yDown = firstTouch.clientY;
+	touchStart = Date.now();                                     
+} 
+
+function handleTouchEnd() {
+	touchEnd = Date.now();
+	touchTime = touchEnd - touchStart;
+	if (touchTime < 100) {
+		rotateRight();
+	}
+}
                                                                          
 function handleTouchMove(event) {
 	
@@ -241,7 +256,7 @@ grid.addEventListener('touchend', function(event) {
 
 	// Show next Tetromino
 	const displayWidth = 4;
-	const displayIndex = 1;
+	const displayIndex = 0;
 	let nextRandom = 0;
 
 	const smallTetrominoes = [
@@ -309,6 +324,7 @@ grid.addEventListener('touchend', function(event) {
 		currentPosition = 4;
 		displayShape();
 		draw();
+		pause.innerHTML = "&#10074;&#10074; Pause";
 	});
 
 	// Start game when page loads
@@ -321,6 +337,26 @@ grid.addEventListener('touchend', function(event) {
 			timerId = setInterval(moveDown, 1000);
 			nextRandom = Math.floor(Math.random() * theTetrominoes.length);
 			displayShape();
+		}
+	});
+
+	// Pause Button
+	pause.addEventListener("click", () => {
+		if(timerId) {
+			clearInterval(timerId);
+			timerId = null;
+			pause.innerHTML = "&#9658; Play";
+			window.removeEventListener("keypress", move);
+			grid.removeEventListener("touchstart", handleTouchStart, false);        
+			grid.removeEventListener("touchmove", handleTouchMove, false);
+			grid.removeEventListener("touchend", handleTouchEnd, false);    
+		} else {
+			timerId = setInterval(moveDown, 1000-(50*lines));
+			pause.innerHTML = "&#10074;&#10074; Pause";
+			window.addEventListener("keypress", move);
+			grid.addEventListener("touchstart", handleTouchStart, false);        
+			grid.addEventListener("touchmove", handleTouchMove, false);
+			grid.addEventListener("touchend", handleTouchEnd, false);    
 		}
 	});
 	
