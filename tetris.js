@@ -44,6 +44,7 @@ let yDown = null;
 let touchTime;
 let touchStart;
 let touchEnd;
+let touchDir = 0;
 
 function getTouches(event) {
   return event.touches ||
@@ -61,8 +62,20 @@ function handleTouchStart(event) {
 function handleTouchEnd() {
 	touchEnd = Date.now();
 	touchTime = touchEnd - touchStart;
-	if (touchTime < 75) {
+	if (touchTime < 100) {
 		rotateRight();
+	} else if (touchTime > 100) {
+		if (touchDir === 1) {
+			moveLeft();
+		} else if (touchDir === 2) {
+			moveRight();
+		} else if (touchDir === 3) {
+			while (!isAtBottom) {
+				moveDown();
+			}
+			isAtBottom = false;
+		}
+		touchDir = 0;
 	}
 	event.preventDefault(); // Stop double tap zoom
 }
@@ -83,16 +96,13 @@ function handleTouchMove(event) {
                                                                          
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
         if ( xDiff > 0 ) {
-            moveLeft(); // left swipe
+			touchDir = 1; // left swipe
         } else {
-            moveRight(); // right swipe
+            touchDir = 2; // right swipe
         }                       
     } else {
         if ( yDiff < 0 ) {
-            while (!isAtBottom) {
-				moveDown();
-			}
-			isAtBottom = false; // down swipe 
+            touchDir = 3; // down swipe 
         }                                                                 
     }
     /* reset values */
@@ -329,6 +339,11 @@ grid.addEventListener('touchend', function(event) {
 		displayShape();
 		draw();
 		pause.innerHTML = "&#10074;&#10074; Pause";
+		// Allow movement again
+		window.addEventListener("keypress", move);
+		grid.addEventListener("touchstart", handleTouchStart, false);        
+		grid.addEventListener("touchmove", handleTouchMove, false);
+		grid.addEventListener("touchend", handleTouchEnd, false);    
 	});
 
 	// Start game when page loads
@@ -350,6 +365,7 @@ grid.addEventListener('touchend', function(event) {
 			clearInterval(timerId);
 			timerId = null;
 			pause.innerHTML = "&#9658; Play";
+			// Stop movement
 			window.removeEventListener("keypress", move);
 			grid.removeEventListener("touchstart", handleTouchStart, false);        
 			grid.removeEventListener("touchmove", handleTouchMove, false);
@@ -357,6 +373,7 @@ grid.addEventListener('touchend', function(event) {
 		} else {
 			timerId = setInterval(moveDown, 1000-(50*lines));
 			pause.innerHTML = "&#10073;&#10073; Pause";
+			// Allow movement again
 			window.addEventListener("keypress", move);
 			grid.addEventListener("touchstart", handleTouchStart, false);        
 			grid.addEventListener("touchmove", handleTouchMove, false);
@@ -369,6 +386,12 @@ grid.addEventListener('touchend', function(event) {
 		if (current.some(index => squares[currentPosition + index].classList.contains("block2"))) {
 			scoreDisplay.innerHTML = `${score} Points Game Over`;
 			clearInterval(timerId);
+			timerId = null;
+			// Stop movement
+			window.removeEventListener("keypress", move);
+			grid.removeEventListener("touchstart", handleTouchStart, false);        
+			grid.removeEventListener("touchmove", handleTouchMove, false);
+			grid.removeEventListener("touchend", handleTouchEnd, false); 
 		}
 	}
 	
@@ -393,13 +416,14 @@ grid.addEventListener('touchend', function(event) {
 					multiplier++;
 				}
 				clearInterval(timerId);
-				timerId = setInterval(moveDown, 1000-(50*lines));
 				lines += 1;
 				scoreDisplay.innerHTML = `${score} Points`;
 				linesDisplay.innerHTML = `${lines} Lines`;
 				row.forEach(index => {
 					squares[index].classList.remove("block2") || squares[index].classList.remove(colors[random])
 				});
+
+				undraw(); // Prevent parts from being left behind
 
 				// Splice Array
 				const squaresRemoved = squares.splice(currentIndex, width);
@@ -420,6 +444,8 @@ grid.addEventListener('touchend', function(event) {
 					squares[i].classList.add("cutOff");
 					squares[i + 10].classList.remove("cutOff");
 				}
+				
+				timerId = setInterval(moveDown, 1000-(50*lines)); // Not reseting time until after splice to give program time
 			}
 		}
 	}
