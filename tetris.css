@@ -61,7 +61,7 @@ div {
 
 .game {
 	height: 84vh;
-	width: 55vh;
+	width: 53vh;
 	position: fixed;
 	left: 50%;
 	top: 0;
@@ -162,7 +162,7 @@ div {
 	border-bottom: 0.1vh solid white;
 }
 
-
+/*
 @media only screen and (max-width: 720px) {
 	.hud {
 		width: calc(12vw*1.7);
@@ -233,3 +233,4 @@ div {
 		border-bottom: calc(0.1vw*1.7) solid white;
 	}
 }
+*/
