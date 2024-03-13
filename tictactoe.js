@@ -148,8 +148,7 @@ pveSwitch.addEventListener("click", () => {
 
 function computersTurn() {
 	if (pve) {
-		const inPlay = scoreBoard.some(index => scoreBoard[index] === 0);
-		while (inPlay) {
+		while (!playerOne) {
 			if (scoreBoard[random - 1] === 0) {
 				makeO(random);
 				break;
