@@ -99,7 +99,7 @@ h3 {
 
 .xl {
 	rotate: -90deg;
-	left: 0vw;
+	left: 0;
 }
 
 .o {
@@ -177,7 +177,7 @@ h3 {
 	rotate: -45deg;
 }
 
-#reset {
+button {
 	background: none;
 	color: black;
 	border-radius: 4vw;
@@ -235,6 +235,10 @@ h3 {
 		width: calc(720px*0.04);
 		border-radius: calc(720px*0.02);
 		left: calc(720px*0.1);
+	}
+
+	.xl {
+		left: 0;
 	}
 	
 	.o {
@@ -303,7 +307,7 @@ h3 {
 		left: calc(720px*-0.01);
 	}
 	
-	#reset {
+	button {
 		border-radius: calc(720px*0.04);
 		margin: calc(720px*0.01);
 		font-size: calc(720px*0.03);

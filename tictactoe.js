@@ -18,6 +18,8 @@ function darkModeSwitch() {
 		document.getElementById("darkModeLabel").style.color = "white";
 		document.getElementById("reset").style.color = "white";
 		document.getElementById("reset").style.border = "0.5vw solid white";
+		document.getElementById("PvE").style.color = "white";
+		document.getElementById("PvE").style.border = "0.5vw solid white";
         document.getElementById("scoreBoard").style.color = "white";
 			
 		// Changing Win marker
@@ -37,6 +39,8 @@ function darkModeSwitch() {
 		document.getElementById("darkModeLabel").style.color = "black";
 		document.getElementById("reset").style.color = "black";
 		document.getElementById("reset").style.border = "0.5vw solid black";
+		document.getElementById("PvE").style.color = "black";
+		document.getElementById("PvE").style.border = "0.5vw solid black";
         document.getElementById("scoreBoard").style.color = "black";
 			
 		// Changing Win marker
@@ -126,191 +130,167 @@ function updateScore(winner) {
     }
 }
 
+// Playing computer PvE
+let pveSwitch = document.getElementById("PvE");
+let pve = false;
+let random = Math.floor(Math.random() * 9) + 1;
+
+pveSwitch.addEventListener("click", () => {
+	if (!pve) {
+		pve = true;
+		pveSwitch.innerHTML = "PvE";
+	} else {
+		pve = false;
+		pveSwitch.innerHTML = "PvP";
+	}
+});
+
+function computersTurn() {
+	if (pve) {
+		while (!playerOne) {
+			if (scoreBoard[random - 1] === 0) {
+				makeO(random);
+			} else {
+				random = Math.floor(Math.random() * 9) + 1;
+			}
+		}
+		checkWinning();
+	}
+}
+
+// Makes an x
+function makeX(square) {
+	// Fills with an x
+	document.getElementById(`shape${square}`).classList.add("xr"); 
+	document.getElementById(`shape${square}x`).classList.add("xl");
+	playerOne = false;
+	// Changes player indicator on top
+	document.getElementById("p1").style.display = "none";
+	document.getElementById("p2").style.display = "inline";
+	// Update scoreBoard
+	scoreBoard[square-1] = 3;
+}
+
+// Makes an o
+function makeO(square) {
+	// Fills with an o
+	document.getElementById(`shape${square}`).classList.add("o");
+	playerOne = true;
+	// Changes player indicator on top
+	document.getElementById("p2").style.display = "none"; 
+	document.getElementById("p1").style.display = "inline";
+	// Update scoreBoard
+	scoreBoard[square-1] = 4;
+}
+
 // Clicking boxes
 box1.addEventListener("click", () => {
 	if (scoreBoard[0] === 0) {
 		if (playerOne) {
-			// Makes an x
-			document.getElementById("shape1").classList.add("xr"); 
-			document.getElementById("shape1x").classList.add("xl");
-			playerOne = false;
-			// Changes player indicator on top
-			document.getElementById("p1").style.display = "none";
-			document.getElementById("p2").style.display = "inline";
-			// Update scoreBoard
-			scoreBoard[0] = 3;
+			makeX(1);
 		} else {
-			// Makes an o
-			document.getElementById("shape1").classList.add("o");
-			playerOne = true;
-			// Changes player indicator on top
-			document.getElementById("p2").style.display = "none"; 
-			document.getElementById("p1").style.display = "inline";
-			// Update scoreBoard
-			scoreBoard[0] = 4;
+			makeO(1);
 		}
 		// Checks if somebody won
 		checkWinning();
+		// Adding computer's move
+		computersTurn();
 	}
 });
 
 box2.addEventListener("click", () => {
 	if (scoreBoard[1] === 0) {
 		if (playerOne) {
-			document.getElementById("shape2").classList.add("xr");
-			document.getElementById("shape2x").classList.add("xl");
-			playerOne = false;
-			document.getElementById("p1").style.display = "none";
-			document.getElementById("p2").style.display = "inline";
-			scoreBoard[1] = 3;
+			makeX(2);
 		} else {
-			document.getElementById("shape2").classList.add("o");
-			playerOne = true;
-			document.getElementById("p2").style.display = "none";
-			document.getElementById("p1").style.display = "inline";
-			scoreBoard[1] = 4;
+			makeO(2);
 		}
 		checkWinning();
+		computersTurn();
 	}
 });
 
 box3.addEventListener("click", () => {
 	if (scoreBoard[2] === 0) {
 		if (playerOne) {
-			document.getElementById("shape3").classList.add("xr");
-			document.getElementById("shape3x").classList.add("xl");
-			playerOne = false;
-			document.getElementById("p1").style.display = "none";
-			document.getElementById("p2").style.display = "inline";
-			scoreBoard[2] = 3;
+			makeX(3);
 		} else {
-			document.getElementById("shape3").classList.add("o");
-			playerOne = true;
-			document.getElementById("p2").style.display = "none";
-			document.getElementById("p1").style.display = "inline";
-			scoreBoard[2] = 4;
+			makeO(3);
 		}
 		checkWinning();
+		computersTurn();
 	}
 });
 
 box4.addEventListener("click", () => {
 	if (scoreBoard[3] === 0) {
 		if (playerOne) {
-			document.getElementById("shape4").classList.add("xr");
-			document.getElementById("shape4x").classList.add("xl");
-			playerOne = false;
-			document.getElementById("p1").style.display = "none";
-			document.getElementById("p2").style.display = "inline";
-			scoreBoard[3] = 3;
+			makeX(4);
 		} else {
-			document.getElementById("shape4").classList.add("o");
-			playerOne = true;
-			document.getElementById("p2").style.display = "none";
-			document.getElementById("p1").style.display = "inline";
-			scoreBoard[3] = 4;
+			makeO(4);
 		}
 		checkWinning();
+		computersTurn();
 	}
 });
 
 box5.addEventListener("click", () => {
 	if (scoreBoard[4] === 0) {
 		if (playerOne) {
-			document.getElementById("shape5").classList.add("xr");
-			document.getElementById("shape5x").classList.add("xl");
-			playerOne = false;
-			document.getElementById("p1").style.display = "none";
-			document.getElementById("p2").style.display = "inline";
-			scoreBoard[4] = 3;
+			makeX(5);
 		} else {
-			document.getElementById("shape5").classList.add("o");
-			playerOne = true;
-			document.getElementById("p2").style.display = "none";
-			document.getElementById("p1").style.display = "inline";
-			scoreBoard[4] = 4;
+			makeO(5);
 		}
 		checkWinning();
+		computersTurn();
 	}
 });
 
 box6.addEventListener("click", () => {
 	if (scoreBoard[5] === 0) {
 		if (playerOne) {
-			document.getElementById("shape6").classList.add("xr");
-			document.getElementById("shape6x").classList.add("xl");
-			playerOne = false;
-			document.getElementById("p1").style.display = "none";
-			document.getElementById("p2").style.display = "inline";
-			scoreBoard[5] = 3;
+			makeX(6);
 		} else {
-			document.getElementById("shape6").classList.add("o");
-			playerOne = true;
-			document.getElementById("p2").style.display = "none";
-			document.getElementById("p1").style.display = "inline";
-			scoreBoard[5] = 4;
+			makeO(6);
 		}
 		checkWinning();
+		computersTurn();
 	}
 });
 
 box7.addEventListener("click", () => {
 	if (scoreBoard[6] === 0) {
 		if (playerOne) {
-			document.getElementById("shape7").classList.add("xr");
-			document.getElementById("shape7x").classList.add("xl");
-			playerOne = false;
-			document.getElementById("p1").style.display = "none";
-			document.getElementById("p2").style.display = "inline";
-			scoreBoard[6] = 3;
+			makeX(7);
 		} else {
-			document.getElementById("shape7").classList.add("o");
-			playerOne = true;
-			document.getElementById("p2").style.display = "none";
-			document.getElementById("p1").style.display = "inline";
-			scoreBoard[6] = 4;
+			makeO(7);
 		}
 		checkWinning();
+		computersTurn();
 	}
 });
 
 box8.addEventListener("click", () => {
 	if (scoreBoard[7] === 0) {
 		if (playerOne) {
-			document.getElementById("shape8").classList.add("xr");
-			document.getElementById("shape8x").classList.add("xl");
-			playerOne = false;
-			document.getElementById("p1").style.display = "none";
-			document.getElementById("p2").style.display = "inline";
-			scoreBoard[7] = 3;
+			makeX(8);
 		} else {
-			document.getElementById("shape8").classList.add("o");
-			playerOne = true;
-			document.getElementById("p2").style.display = "none";
-			document.getElementById("p1").style.display = "inline";
-			scoreBoard[7] = 4;
+			makeO(8);
 		}
 		checkWinning();
+		computersTurn();
 	}
 });
 
 box9.addEventListener("click", () => {
 	if (scoreBoard[8] === 0) {
 		if (playerOne) {
-			document.getElementById("shape9").classList.add("xr");
-			document.getElementById("shape9x").classList.add("xl");
-			playerOne = false;
-			document.getElementById("p1").style.display = "none";
-			document.getElementById("p2").style.display = "inline";
-			scoreBoard[8] = 3;
+			makeX(9);
 		} else {
-			document.getElementById("shape9").classList.add("o");
-			playerOne = true;
-			document.getElementById("p2").style.display = "none";
-			document.getElementById("p1").style.display = "inline";
-			scoreBoard[8] = 4;
+			makeO(9);
 		}
 		checkWinning();
+		computersTurn();
 	}
 });
 
