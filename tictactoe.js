@@ -139,6 +139,7 @@ pveSwitch.addEventListener("click", () => {
 	if (!pve) {
 		pve = true;
 		pveSwitch.innerHTML = "PvE";
+		computersTurn();
 	} else {
 		pve = false;
 		pveSwitch.innerHTML = "PvP";
@@ -147,9 +148,11 @@ pveSwitch.addEventListener("click", () => {
 
 function computersTurn() {
 	if (pve) {
-		while (!playerOne) {
+		const inPlay = scoreBoard.some(index => scoreBoard[index] === 0);
+		while (inPlay) {
 			if (scoreBoard[random - 1] === 0) {
 				makeO(random);
+				break;
 			} else {
 				random = Math.floor(Math.random() * 9) + 1;
 			}
@@ -308,4 +311,6 @@ reset.addEventListener("click", () => {
         // Removing win line
         document.getElementById("win").classList.remove("win"+(i+1));
 	}
+	// Let computer play if it is its turn
+	computersTurn();
 });
