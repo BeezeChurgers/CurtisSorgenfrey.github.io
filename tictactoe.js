@@ -20,7 +20,7 @@ function darkModeSwitch() {
 		document.getElementById("reset").style.border = "0.5vw solid white";
 		document.getElementById("PvE").style.color = "white";
 		document.getElementById("PvE").style.border = "0.5vw solid white";
-        document.getElementById("scoreBoard").style.color = "white";
+    document.getElementById("scoreBoard").style.color = "white";
 			
 		// Changing Win marker
 		document.getElementById("win").style.backgroundColor = "white";
@@ -41,7 +41,7 @@ function darkModeSwitch() {
 		document.getElementById("reset").style.border = "0.5vw solid black";
 		document.getElementById("PvE").style.color = "black";
 		document.getElementById("PvE").style.border = "0.5vw solid black";
-        document.getElementById("scoreBoard").style.color = "black";
+    document.getElementById("scoreBoard").style.color = "black";
 			
 		// Changing Win marker
 		document.getElementById("win").style.backgroundColor = "black";
@@ -147,7 +147,21 @@ pveSwitch.addEventListener("click", () => {
 });
 
 function computersTurn() {
-	if (pve) {
+	if (pve && !playerOne) {
+		random = Math.floor(Math.random() * 9) + 1;
+		if (scoreBoard[random - 1] === 0) {
+			makeO(random);
+		} else {
+		// Jumps into a loop to play the next availible spot
+			for (let i=0; i<scoreBoard.length; i++) {
+				random = (random % 9) + 1;
+				if (scoreBoard[random - 1] === 0) {
+					makeO(random);
+					break;
+				}
+			}
+		}
+	/* Didn't work
 		while (!playerOne) {
 			if (scoreBoard[random - 1] === 0) {
 				makeO(random);
@@ -156,6 +170,7 @@ function computersTurn() {
 				random = Math.floor(Math.random() * 9) + 1;
 			}
 		}
+	*/
 		checkWinning();
 	}
 }
