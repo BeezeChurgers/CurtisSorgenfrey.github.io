@@ -1,0 +1,14 @@
+body {
+	background-color: #333333;
+	color: #AAAAAA;
+	font-family: Arial;
+}
+
+footer {
+	position: fixed;
+	bottom: 0;
+}
+
+li {
+    list-style-type: none;
+}
