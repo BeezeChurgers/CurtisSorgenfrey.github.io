@@ -1,6 +1,5 @@
 let note = document.getElementById("note");
 let title = document.getElementById("title");
-let checkBox = document.getElementById("checkboxes");
 
 // Erase default text and change color
 function eraseTitleDefault(event) {
@@ -39,4 +38,14 @@ function restoreNoteDefault() {
 note.addEventListener("click", eraseNoteDefault);
 window.addEventListener("click", restoreNoteDefault);
 
-// Make new note when pressing ENTER
+// Make notes into checkbox list
+let checkBox = document.getElementById("checkbox");
+let isCheckbox = false;
+
+function makeCheckbox() {
+    if (!isCheckbox) {
+        
+    }
+}
+
+checkBox.addEventListener("click", makeCheckbox)

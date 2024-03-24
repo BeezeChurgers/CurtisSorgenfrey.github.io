@@ -1,6 +1,8 @@
 body {
 	background: black;
 	font-family: Arial;
+	width: 100vw;
+	height: 100vh;
 }
 
 .hud {
@@ -50,14 +52,15 @@ h2 {
 
 div {
 	background-color: black;
-	height: 3.8vh;
-	width: 3.8vh;
+	height: 4vh;
+	width: 4vh;
 	border: 0.1vh solid #222222;
+	box-sizing: border-box;
 }
 
 .game {
-	height: 84vh;
-	width: 53vh;
+	height: 88vh;
+	width: 54vh;
 	position: fixed;
 	left: 50%;
 	top: 0;
@@ -69,7 +72,7 @@ div {
 
 .grid {
 	background-color: black;
-	height: 84vh;
+	height: 88vh;
 	width: 40vh;
 	position: fixed;
 	right: 1vh;
@@ -91,8 +94,8 @@ div {
 	height: 8vh;
 	width: 8vh;
 	border: none;
-	margin: 2vh;
 	margin-bottom: none;
+	margin: 2vh;
 }
 
 .nextGrid div {
@@ -143,7 +146,7 @@ div {
 	border-left: none;
 	border-right: none;
 	border-bottom: none;
-	width: 3.95vh;
+	width: 4vh;
 }
 
 .borderLeft {
