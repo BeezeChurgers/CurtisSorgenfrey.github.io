@@ -60,7 +60,8 @@ div {
 
 .game {
 	height: 88vh;
-	width: 54vh;
+	width: 52vh;
+	max-width: 99vw;
 	position: fixed;
 	left: 50%;
 	top: 0;
