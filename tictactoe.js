@@ -67,10 +67,7 @@ let playerOne = true;
 let win = document.getElementById("win");
 
 // Setting Winning Games
-let scoreBoard = new Array(9);
-for (let i=0; i<scoreBoard.length; i++) {
-	scoreBoard[i] = 0;
-}
+let scoreBoard = new Array(9).fill(0);
 function checkWinning() {
 	for (let i=0; i<3; i++) {
 		// Checking Vertical
@@ -146,6 +143,114 @@ pveSwitch.addEventListener("click", () => {
 	}
 });
 
+// Initiallizing Neural Network
+const network = new brain.NeuralNetwork();
+let networkHolder = network;
+
+// Arrays to help train network
+const lettersToNumbers = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+const trainingArr = [
+	{input:[0,0,0,0,0,0,0,0,0], output:{one:1}},
+  {input:[0,0,0,0,0,0,0,0,0], output:{two:1}},
+  {input:[0,0,0,0,0,0,0,0,0], output:{three:1}},
+  {input:[0,0,0,0,0,0,0,0,0], output:{four:1}},
+  {input:[0,0,0,0,0,0,0,0,0], output:{five:1}},
+  {input:[0,0,0,0,0,0,0,0,0], output:{six:1}},
+  {input:[0,0,0,0,0,0,0,0,0], output:{seven:1}},
+  {input:[0,0,0,0,0,0,0,0,0], output:{eight:1}},
+  {input:[0,0,0,0,0,0,0,0,0], output:{nine:1}}
+];
+
+// Train the Network with input objects
+networkHolder.train(trainingArr);
+
+// Teaching good or bad play
+function goodOrBad(arr1, arr2) {
+	for (let i=0; i<3; i++) {
+		if ((scoreBoard[i]+scoreBoard[i+3]+scoreBoard[i+6]) == 6 || (scoreBoard[3*i]+scoreBoard[3*i+1]+scoreBoard[3*i+2]) == 6 || (scoreBoard[i]+scoreBoard[4]+scoreBoard[8-i]) == 6) {
+			let numberName = lettersToNumbers[indexOfMax(arr2)];
+			const outputObject = {};
+			outputObject[numberName] = 0;
+			const newTrainingObject = { input:arr1, output:outputObject };
+			const newTrainingArr = trainingArr.concat([newTrainingObject]);
+			//trainingArr.push(newTrainingObject);
+			const newNetwork = new brain.NeuralNetwork();
+			networkHolder = newNetwork;
+			networkHolder.train(newTrainingArr);
+			console.log(newTrainingArr);
+		} else if ((scoreBoard[i]+scoreBoard[i+3]+scoreBoard[i+6]) == 12 || (scoreBoard[3*i]+scoreBoard[3*i+1]+scoreBoard[3*i+2]) == 12 || (scoreBoard[i]+scoreBoard[4]+scoreBoard[8-i]) == 12) {
+			let numberName = lettersToNumbers[indexOfMax(arr2)];
+			const outputObject = {};
+			outputObject[numberName] = 1;
+			const newTrainingObject = { input:arr1, output:outputObject };
+			const newTrainingArr = trainingArr.concat([newTrainingObject]);
+			//trainingArr.push(newTrainingObject);
+			const newNetwork = new brain.NeuralNetwork();
+			networkHolder = newNetwork;
+			networkHolder.train(newTrainingArr);
+			console.log(newTrainingArr);
+		}
+	}
+}
+
+// Find max value of gameMoveArr
+function indexOfMax(arr) {
+    if (arr.length === 0) {
+        return -1;
+    }
+    let max = arr[0];
+    let maxIndex = 0;
+    for (var i = 1; i < arr.length; i++) {
+        if (arr[i] > max) {
+            maxIndex = i;
+            max = arr[i];
+        }
+    }
+    return maxIndex;
+}
+
+// Computer plays Neural Network
+function computersTurn() {
+	if (pve && !playerOne) {
+		// What is the expected output of current game?
+		let result = networkHolder.run(scoreBoard);
+		// Test best spot to play
+		let gameMoveArr = [
+			result.one,
+			result.two,
+			result.three,
+			result.four,
+			result.five,
+			result.six,
+			result.seven,
+			result.eight,
+			result.nine
+		];
+		if (scoreBoard[indexOfMax(gameMoveArr)] == 0) {
+			const placeHolder = scoreBoard;
+			makeO(indexOfMax(gameMoveArr) + 1);
+			goodOrBad(placeHolder, gameMoveArr);
+		} else {
+			// Makes spot zero to try the next best spot
+			gameMoveArr[indexOfMax(gameMoveArr)] = 0;
+			// Jumps into a loop to play the next availible spot
+			for (let i=0; i<gameMoveArr.length; i++) {
+				if (scoreBoard[indexOfMax(gameMoveArr)] == 0) {
+					const placeHolder2 = scoreBoard;
+					makeO(indexOfMax(gameMoveArr) + 1);
+					goodOrBad(placeHolder2, gameMoveArr);
+					break;
+				} else {
+					gameMoveArr[indexOfMax(gameMoveArr)] = 0;
+				}
+			}
+		}
+		checkWinning();
+	}
+}
+
+// Computer plays random
+/*
 function computersTurn() {
 	if (pve && !playerOne) {
 		random = Math.floor(Math.random() * 9) + 1;
@@ -161,7 +266,7 @@ function computersTurn() {
 				}
 			}
 		}
-	/* Didn't work
+	// Didn't work
 		while (!playerOne) {
 			if (scoreBoard[random - 1] === 0) {
 				makeO(random);
@@ -170,10 +275,10 @@ function computersTurn() {
 				random = Math.floor(Math.random() * 9) + 1;
 			}
 		}
-	*/
 		checkWinning();
 	}
 }
+*/
 
 // Makes an x
 function makeX(square) {

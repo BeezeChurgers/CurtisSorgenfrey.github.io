@@ -1,6 +1,6 @@
 body {
 	background-color: #333333;
-	color: #AAAAAA;
+	color: white;
 	font-family: Arial;
 }
 
@@ -9,6 +9,10 @@ footer {
 	bottom: 0;
 }
 
-li {
-    list-style-type: none;
+form {
+	margin-left: 2em;
+}
+
+input {
+	margin-bottom: 1em;
 }
