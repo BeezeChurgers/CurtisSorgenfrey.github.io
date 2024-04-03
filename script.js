@@ -1,12 +1,4 @@
-// Changes logo color
-function colorChanger() {
-	let x = document.getElementById("logo");
-	x.style.background = '#' + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
-}
-  
-// Logo animation on click
-
-  
+/*
 // Play animation when section title is visible
 let logoBox = document.getElementById("logoHolder");
 let logoTitle = document.getElementById("logoTitle");
@@ -108,6 +100,7 @@ function logoAppear() {
   logoAppearQualifications();
   logoAppearContact();
 }
+*/
 
 // Recent Projects Carousel
 const recentProjects = [
@@ -194,3 +187,13 @@ function loopProjects() {
   showProject();
 }
 setInterval(loopProjects, 10000);
+
+/*
+// Changes logo color
+function colorChanger() {
+	let x = document.getElementById("logo");
+	x.style.background = '#' + (Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0');
+}
+  
+// Logo animation on click
+*/

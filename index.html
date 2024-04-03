@@ -7,7 +7,7 @@
     <meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers">
     <meta name="description" content="Curtis Sorgenfrey Web Development Portfolio">
     <meta name="author" content="Curtis Sorgenfrey">
-    <meta http-equiv="refresh" content="30">
+    <!--<meta http-equiv="refresh" content="30">-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,7 +16,7 @@
   <body onscroll="logoAppear()">
     <header>
       <div class="topnav">
-        <a href="https://beezechurgers.github.io/" id="home"><strong>&lt;CS&gt;</strong></a>
+        <a href="index.html" id="home"><strong>&lt;CS&gt;</strong></a>
         <a href="https://www.linkedin.com/in/curtis-sorgenfrey-02a109186?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BfpzrDYdlSWqI%2FnBdnTYDaQ%3D%3D"><i class="fa">&#xf08c;</i></a>
         <a href="https://github.com/BeezeChurgers"><i class="fa">&#xf09b;</i></a>
         <a href="mailto:curtissorgenfrey@gmail.com"><i class="fa">&#xf0e0;</i></a>
@@ -33,21 +33,20 @@
 
     <main>
       <!-- Home Screen -->
-      <div class="container">
-        <div class="examples" id="logoHolder">
-          <div class="logo" id="a"></div>
-          <div class="logo" id="b"></div>
-          <div class="logo" id="c"></div>
+      <section class="container" id="homeScreen">
+        <div class="border">
+          <!--<div class="examples" id="logoHolder">
+            <div class="logo" id="a"></div>
+            <div class="logo" id="b"></div>
+            <div class="logo" id="c"></div>
+          </div>-->
+          <!--<div class="titleHolder">-->
+            <h1 id="logoTitle">
+              my name is <strong>Curtis Sorgenfrey</strong><br>math teacher turned web developer
+            </h1>
+          <!--</div>-->
         </div>
-        <div class="titleHolder">
-          <h1 id="logoTitle">
-            &lt;CS&gt;
-          </h1>
-          <h2>
-            my name is <strong>Curtis Sorgenfrey</strong><br>math teacher turned web developer
-          </h2>
-        </div>
-      </div>
+      </section>
 
       <!--
 			<div id="reveal">
@@ -55,45 +54,54 @@
 			-->
 
       <!-- Projects -->
-      <div class="container" id="projects">
-        <div class="titleHolder" id="recentProjects">
-          <h3 id="recentProjectsTitle"><strong>Recent<br>Projects</strong></h3>
-          <h2 id="recentProjectsDescription">
-            The ultimate calculator application built entirely with JavaScript. Whether you're a student solving complex equations or a professional crunching numbers, it is your go-to tool for all your mathematical needs.
-          </h2>
-          <a href="calculator.html" id="projectLink">Check it out for yourself!</a>
-          <div class="prevNextContainer">
-            <div class="prevBtn"></div>
-            <div class="nextBtn"></div>
+      <section class="container" id="projects">
+        <div class="border">
+          <div class="titleHolder">
+            <h2 id="recentProjectsTitle"><strong>Recent<br>Projects</strong></h2>
+            <p id="recentProjectsDescription">
+              The ultimate calculator application built entirely with JavaScript. Whether you're a student solving complex equations or a professional crunching numbers, it is your go-to tool for all your mathematical needs.
+            </p>
+            <a href="calculator.html" id="projectLink">Check it out for yourself!</a>
+            <div class="prevNextContainer">
+              <div class="prevBtn"></div>
+              <div class="nextBtn"></div>
+            </div>
+            <button class="randomBtn">Surprise Me</button>
           </div>
-          <button class="randomBtn">Surprise Me</button>
+          
+          <div class="examples" id="projectFlow">
+            <img id="recentProjectsImg" src="images/calculator.png" alt="https://i.redd.it/7fma1shw8ncb1.jpg">
+          </div>
         </div>
-        <div class="examples" id="projectFlow">
-          <img id="recentProjectsImg" src="images/calculator.png" alt="https://i.redd.it/7fma1shw8ncb1.jpg">
-        </div>
-      </div>
+      </section>
 
       <!-- Qualifications -->
-      <div class="container" id="qualifications">
-        <div class="examples" id="codeFlow"></div>
-        <div class="titleHolder">
-          <h3 id="qualificationsTitle"><strong>HTML<br>CSS<br>JavaScript<br>and more...</strong></h3>
+      <section class="container" id="qualifications">
+        <div class="border">
+          <div class="examples" id="codeFlow"></div>
+          <h2 id="qualificationsTitle">
+            <strong>HTML<br>CSS<br>JavaScript<br>and more...</strong>
+          </h2>
         </div>
-      </div>
+      </section>
 
       <!-- Contact -->
-      <div class="container" id="contact">
-        <div class="titleHolder" id="contactMe">
-          <h3 id="contactTitle"><strong>Contact<br>Me</strong></h3>
+      <section class="container" id="contact">
+        <div class="border">
+        <h2 id="contactTitle">
+          <strong>Contact<br>Me</strong>
+        </h2>
+          <div class="examples" id="contactInfo"></div>
         </div>
-        <div class="examples" id="contactInfo"></div>
-      </div>
+      </section>
 
       <footer>
         <div>
           <p>&copy;2024 Curtis Sorgenfrey</p>
         </div>
       </footer>
-      <script src="script.js"></script>
+    </main>
+    
+    <script src="script.js"></script>
   </body>
 </html>
