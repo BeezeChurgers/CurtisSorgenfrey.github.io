@@ -149,7 +149,7 @@ window.addEventListener("DOMContentLoaded", function () {
 // Show recent project based on item
 function showProject() {
   const item = recentProjects[currentItem];
-  img.src = item.img;
+  img.src = item.link;
   description.textContent = item.text;
   link.href = item.link;
 }

@@ -10,8 +10,6 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     text-align: center;
-    width: 100%;
-    height: 100%;
     margin: 0;
     animation: blurBG 2s ease 0s 1;
 }
@@ -90,6 +88,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: start;
+    /* Adding snappy scroll */
+    scroll-snap-align: start;
   }
 
     /* Border around each section */
@@ -117,6 +117,7 @@ body {
       font-size: 2em;
       display: inline;
       padding-left: 1em;
+      padding-right: 1em;
     }
 
 
@@ -153,6 +154,12 @@ body {
       width: 45%;
       height: 80%;
       padding: 2.5%;
+    }
+
+    .examples iframe {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Needs to have a width AND height to work */
     }
 
     .examples img {
@@ -270,4 +277,92 @@ body {
       color: #202020;
       font-size: 1em;
     }
+  }
+
+/* Mobile Sizing */
+  @media screen and (max-width: 720px) {    
+  
+  /* Home Page */
+    
+      /* Border around each section */
+      #homeScreen .border {
+        flex-direction: row;
+        justify-content: start; /* vertical */
+        align-items: end; /* horizontal */
+      }
+  
+      h1 {
+        font-size: 2em;
+        display: inline;
+        padding-left: 1em;
+        padding-right: 1em;
+      }
+  
+  
+  /* Recent Projects */
+    .border {
+      flex-direction: column;
+      justify-content: center; /* vertical */
+      align-items: center; /* horizontal */
+      text-align: left;
+    }
+  
+    .titleHolder {
+      width: 80%;
+      height: 45%;
+      padding: 2.5%;
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: center; /* vertical */
+      align-items: start; /* horizontal */
+      text-align: left;
+    }
+  
+    h2 {
+      font-size: 1.6em;
+      margin: 0;
+    }
+  
+    .titleHolder p {
+      font-size: 0.8em;
+    }
+  
+      /* Recent Projects carousel */
+      .examples {
+        width: 80%;
+        height: 45%;
+        padding: 2.5%;
+      }
+  
+      .examples iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Needs to have a width AND height to work */
+      }
+  
+      .examples img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Needs to have a width AND height to work */
+      }
+  
+      .prevNextContainer {
+        padding-left: 0;
+      }
+  
+      .prevBtn, .nextBtn {
+        width: 0.5em;
+        height: 0.5em;
+      }
+  
+      .randomBtn {
+        height: 3em;
+        border-radius: 1.5em;
+      }
+  
+      #projectLink {
+        font-size: 0.8em;
+      }
+  
   }
