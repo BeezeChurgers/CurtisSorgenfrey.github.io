@@ -64,21 +64,20 @@ body {
     /* Adding snappy scroll */
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
-    
   }
 
     /* touchscreens */
-    @media (hover: none) {    
-      main {
-        /* Adding snappy scroll */
-        scroll-snap-type: y mandatory;
-        overflow-y: scroll;
+      @media (hover: none) {    
+        main {
+          /* Adding snappy scroll */
+          scroll-snap-type: y mandatory;
+          overflow-y: scroll;
+        }
+        .container {
+          /* Adding snappy scroll */
+          scroll-snap-align: start;
+        }
       }
-      .container {
-        /* Adding snappy scroll */
-        scroll-snap-align: start;
-      }
-    }
 
     /* Hide scrollbar for Chrome, Safari and Opera */
       main::-webkit-scrollbar {
@@ -101,6 +100,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: start;
+    
     /* Adding snappy scroll */
     scroll-snap-align: start;
   }
@@ -114,7 +114,7 @@ body {
       display: flex;
       flex-wrap: wrap;
       flex-direction: column;
-      justify-content: end; /* vertical */
+      justify-content: center; /* vertical */
       align-items: start; /* horizontal */
       text-align: left;
       background: url(images/pineappleBlur.jpg) no-repeat center;
@@ -124,6 +124,7 @@ body {
     #homeScreen .border {
       background: url(images/pineapple.jpg) no-repeat center;
       background-size: cover;
+      justify-content: end;
     }
 
     h1 {
@@ -135,12 +136,6 @@ body {
 
 
 /* Recent Projects */
-  #projects .border {
-    flex-direction: row;
-    justify-content: center; /* vertical */
-    align-items: center; /* horizontal */
-    text-align: left;
-  }
 
   .titleHolder {
     width: 45%;
@@ -292,7 +287,7 @@ body {
     }
   }
 
-/* Mobile Sizing */
+/* Mobile Sizing and Layout */
   @media screen and (max-width: 720px) {    
   
   /* Home Page */
@@ -333,12 +328,12 @@ body {
     }
   
     h2 {
-      font-size: 1.6em;
+      font-size: 2em;
       margin: 0;
     }
   
     .titleHolder p {
-      font-size: 0.8em;
+      font-size: 1em;
     }
   
       /* Recent Projects carousel */
@@ -375,7 +370,7 @@ body {
       }
   
       #projectLink {
-        font-size: 0.8em;
+        font-size: 1em;
       }
   
   }
