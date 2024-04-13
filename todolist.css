@@ -2,17 +2,39 @@ body {
 	background-color: #333333;
 	color: white;
 	font-family: Arial;
-}
-
-footer {
-	position: fixed;
-	bottom: 0;
-}
-
-form {
-	margin-left: 2em;
-}
-
-input {
-	margin-bottom: 1em;
-}
+  }
+  
+  #todoInput {
+	background: none;
+	color: white;
+	border: none;
+	  font-size: 1rem;
+  }
+  
+  /* Task elements style */
+  ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+  }
+  
+  li {
+	padding-bottom: 0.5em;
+  }
+  
+  button {
+	background: none;
+	color: #AAAAAA;
+	border: none;
+	  font-size: 1.2rem;
+  }
+  
+  span {
+	padding: 0.5em;
+  }
+  
+  input[type="checkbox"] {
+	accent-color: #333333;
+  }
+  
+  

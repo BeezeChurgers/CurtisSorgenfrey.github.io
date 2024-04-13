@@ -1,35 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers, to, do, list">
-    	<meta name="description" content="To Do List">
-    	<meta name="author" content="Curtis Sorgenfrey">
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="todolist.css">
-		<title>To Do List</title>
-	</head>
-	<body>
-		
-		<main>
-			<h1 id="title" contenteditable="true">
-				Title
-			</h1>
-		
-			<p id="note" contenteditable="true">Take a note...</p>
-		
-		<form>
-			
-		</form>
-			
-		</main>
-		
-		<footer>
-			<button id="checkboxes">
-				&#9745;
-			</button>
-		</footer>
-		
-		<script src="todolist.js" charset="utf-8"></script>
-	</body>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers, to, do, list">
+    <meta name="description" content="To Do List">
+    <meta name="author" content="Curtis Sorgenfrey">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="todolist.css">
+    <title>To Do List</title>
+  </head>
+
+  <body>
+
+    <main>
+      <h1 id="title" contenteditable="true">Title</h1>
+
+      <ul id="todoList">
+        <!-- Tasks will be added here -->
+        <!--<li>
+          <input type="checkbox" class="checkbox"><span>This is my test note</span><button>&#x270E;</button><button>&#x2715;</button>
+        </li>-->
+      </ul>
+
+      <form id="todoForm">
+        <button type="submit">&#x2b;</button>
+        <input type="text" id="todoInput" placeholder="Add a new task...">
+      </form>
+
+    </main>
+
+    <script src="todolist.js" charset="utf-8"></script>
+  </body>
+
 </html>

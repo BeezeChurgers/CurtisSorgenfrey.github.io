@@ -1,123 +1,139 @@
-let note = document.getElementById("note");
+// Erase default text and change color
 let title = document.getElementById("title");
-let isInTitle = false;
-note.style.color = "#AAAAAA";
 title.style.color = "#AAAAAA";
 
-// Erase default text and change color
 function eraseTitleDefault(event) {
   event.stopPropagation();
-	if (/Title/.test(title.innerHTML)) {
-		title.innerHTML = "";
-        title.style.color = "white";
-	}
-	inInTitle = true;
+  if (/^Title$/.test(title.innerHTML)) {
+    title.innerHTML = "";
+    title.style.color = "white";
+  }
 }
 
 function restoreTitleDefault() {
-	if (title.innerHTML == "") {
-		title.innerHTML = "Title";
-        title.style.color = "#AAAAAA";
-	}
-	inInTitle = false;
+  if (title.innerHTML == "") {
+    title.innerHTML = "Title";
+    title.style.color = "#AAAAAA";
+  }
+  saveTitleToLocalStorage();
 }
 
 title.addEventListener("click", eraseTitleDefault);
 window.addEventListener("click", restoreTitleDefault);
 
-function eraseNoteDefault(event) {
-    event.stopPropagation();
-    if (note.innerHTML == "Take a note...") {
-        note.innerHTML = "";
-        note.style.color = "white";
+// Initializing the todo list
+let todoForm = document.getElementById("todoForm");
+let todoInput = document.getElementById("todoInput");
+let todoList = document.getElementById("todoList");
+
+// Create task function
+const createTask = (task) => {
+  let listItem = document.createElement("li");
+  let taskText = document.createElement("span");
+  taskText.textContent = task;
+	taskText.contentEditable = "true";
+  let checkBox = document.createElement("input");
+  checkBox.type = "checkbox";
+  let deleteButton = document.createElement("button");
+  deleteButton.textContent = "\u2715";
+  deleteButton.style.display = "none";
+
+  // Adding all elements to listItem in correct order
+  listItem.appendChild(checkBox);
+  listItem.appendChild(taskText);
+  listItem.appendChild(deleteButton);
+  todoList.appendChild(listItem);
+
+  // Event listeners for the checkbox and delete/edit button
+  checkBox.addEventListener("change", function() {
+    if (this.checked) {
+      taskText.style.textDecoration = "line-through";
+			task.classList.add("completed");
+    } else {
+      taskText.style.textDecoration = "none";
+			task.classList.remove("completed");
     }
-}
+  });
 
-function restoreNoteDefault() {
-	if (note.innerHTML == "") {
-		note.innerHTML = "Take a note...";
-        note.style.color = "#AAAAAA";
-	}
-}
+  deleteButton.addEventListener("click", function() {
+    todoList.removeChild(listItem);
+	saveTasksToLocalStorage();
+  });
+	
+	// Show delete button when editing
+	taskText.addEventListener("focus", function() {
+		deleteButton.style.display = "inline";
+	});
+	taskText.addEventListener("focusout", function() {
+		setTimeout(() => {
+			deleteButton.style.display = "none";
+		}, 500);
+	});
 
-note.addEventListener("click", eraseNoteDefault);
-window.addEventListener("click", restoreNoteDefault);
-
-// Convert paragraphs to list
-let checkBox = document.getElementById("checkboxes");
-let isCheckBox = false;
-let form = document.querySelector("form");
-let main = document.querySelector("main");
-
-function makeCheckBox() {
-	if (isCheckBox) {
-		const labels = document.querySelectorAll("label");
-		const boxes = document.querySelectorAll("input");
-		const brs = document.querySelectorAll("br");
-		for (let i = 0; i < labels.length; i++) {
-			let paragraph = document.createElement("p");
-			paragraph.innerText = labels[i].innerHTML;
-			main.appendChild(paragraph);
-			paragraph.contentEditable = true;
-			labels[i].remove();
-			boxes[i].remove();
-			brs[i].remove();
+	// EventListener to save on "Enter"
+  taskText.addEventListener("keypress", function(event) {
+		if (event.key === "Enter") {
+			todoInput.focus();
+		} else if (event.key === "Backspace" || event.key === "Delete") { // Does not work, need to fix **************************************************
+			todoList.removeChild(listItem);
 		}
-		isCheckBox = false;
-	} else {
-		const paragraphs = document.querySelectorAll("p");
-		for (let i = 0; i < paragraphs.length; i++) {
-			/*let listItem = document.createElement("li");
-			listItem.innerText = paragraphs[i].innerHTML;
-			list.appendChild(listItem);
-			listItem.contentEditable = true;
-			paragraphs[i].remove();*/
-			let box = document.createElement("input");
-			box.type = "checkbox";
-			box.id = i;
-			form.appendChild(box);
-			let label = document.createElement("label");
-			label.for = i;
-			label.innerText = paragraphs[i].innerText;
-			label.contentEditable = true;
-			form.appendChild(label);
-			let br = document.createElement("br");
-			form.appendChild(br);
-			paragraphs[i].remove();
-		}
-		isCheckBox = true;
-	}
+	});
+
+	saveTasksToLocalStorage();
 }
 
-checkBox.addEventListener("click", makeCheckBox);
+// Adding task to list on "Submit"
+const addNewTask = (event) => {
+  event.preventDefault();
+  let newTask = todoInput.value;
 
-// Enter creates new element
-function createNewLine(event) {
-	if (event.key === "Enter" && isInTitle) {
-		if (isCheckBox) {
-			document.getElementsByTagName("label")[0].focus();
-		} else {
-			document.getElementsByTagName("p")[0].focus();
-		}
-	} else if (event.key === "Enter" && isCheckBox) {
-		event.preventDefault();
-		let box = document.createElement("input");
-		box.type = "checkbox";
-		form.appendChild(box);
-		let label = document.createElement("label");
-		label.contentEditable = true;
-		form.appendChild(label);
-		let br = document.createElement("br");
-		form.appendChild(br);
-		label.focus();
-	} else if (event.key === "Enter" && !isCheckBox) {
-		event.preventDefault();
-		let paragraph = document.createElement("p");
-		paragraph.innerText = "";
-		main.appendChild(paragraph);
-		paragraph.contentEditable = true;
-		paragraph.focus();
-	}
+  if (newTask === "") {
+    todoInput.placeholder = "Please enter a new task."
+  } else {
+    createTask(newTask);
+    newTask = "";
+    todoInput.value = newTask;
+    todoInput.focus();
+  }
+}
+todoForm.addEventListener("submit", addNewTask);
+
+// Adding task to list on "Enter"
+todoInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    addNewTask(event);
+  }
+});
+
+// Save each task to local storage for later use
+const saveTasksToLocalStorage = () => {
+    const tasks = [];
+    document.querySelectorAll("#todoList li").forEach(task => {
+      let taskText = task.querySelector("span").textContent;
+      let isCompleted = task.classList.contains("completed");
+      tasks.push({
+        text: taskText,
+        completed: isCompleted
+      });
+    });
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+
+const saveTitleToLocalStorage = () => {
+	localStorage.setItem("title", title.innerText);
 }
 
-window.addEventListener("keypress", createNewLine);
+// Calls all the previous tasks from local storage when the page loads
+document.addEventListener("DOMContentLoaded", function() {
+	const savedTasks = JSON.parse(localStorage.getItem("tasks")) || [];
+	savedTasks.forEach(task => {
+		createTask(task.text);
+	});
+	// Set title from memory
+	title.innerText = localStorage.getItem("title") || "Title";
+	if (/^Title$/.test(title.innerHTML)) {
+		title.style.color = "#AAAAAA";
+	  } else {
+		title.style.color = "white";
+	  }
+});

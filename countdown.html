@@ -1,94 +1,98 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers, count, down, timer">
-    	<meta name="description" content="Count Down">
-    	<meta name="author" content="Curtis Sorgenfrey">
-    	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Countdown</title>
 
-        <style>
-            body {
-                background-color: #63255e;
-                color: white;
-                font-family: Arial;
-                text-align: center;
-                overflow: hidden;
-            }
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers, count, down, timer">
+    <meta name="description" content="Count Down">
+    <meta name="author" content="Curtis Sorgenfrey">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
 
-            p {
-                font-size: 2rem;
-            }
+    <style>
+      body {
+        background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, red, orange);
+        background-size: 900% 100%;
+        color: white;
+        font-family: Arial;
+        text-align: center;
+        overflow: hidden;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        animation: gradientFade 60s 0s linear infinite;
+      }
 
-            main {
-                margin: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 100vw;
-                height: 100vh;
-            }
+      /* red,orange,yellow,green,blue,indigo,violet */
+      @keyframes gradientFade {
+        from {
+          background-position: 0% 50%;
+        }
 
-            .container {
-                padding: 1rem;
-                margin: 0;
-                width: 75%;
-                height: 50%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                background: #333333;
-                border-radius: 1rem;
-                box-shadow: 0.2rem 0.2rem 1rem black;
-            }
+        to {
+          background-position: 98% 50%;
+        }
+      }
 
-        </style>
-	</head>
-	<body>
-		
-		<main>
-			
-			<div class="container">
-				
-				<h1>
-					Countdown Timer
-				</h1>
+      p {
+        font-size: 2rem;
+      }
 
-				<p id="time"></p>
-			
-			</div>
-		
-		</main>
-		
-		<script>
-            let countdown = document.getElementById("time");
+      main {
+        padding: 1rem;
+        background: #333333;
+        border-radius: 1rem;
+        box-shadow: 0.2rem 0.2rem 1rem black;
+      }
 
-            // Setting desired date to countdown to
-            const targetDate = new Date("2024-05-02T00:00:00");
+    </style>
+  </head>
 
-            // Make countdown update every second
-            const interval = setInterval(updateCountdown, 1000);
+  <body>
 
-            // Function math for countdown
-            function updateCountdown() {
-                const currentTime = new Date();
-            const difference = targetDate - currentTime;
-                
-                if (difference < 0) {
-                clearInterval(interval);
-                countdown.innerHTML = "The baby is here!";
-            } else {
-                    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-                
-                    countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-                }
-            }
-            updateCountdown();
-        </script>
-	</body>
+    <main>
+
+      <h1>
+        Countdown Timer
+      </h1>
+
+      <p id="time"></p>
+
+    </main>
+
+    <script>
+      let countdown = document.getElementById("time");
+
+      // Setting desired date to countdown to
+      const targetDate = new Date("2024-05-02T00:00:00");
+
+      // Make countdown update every second
+      const interval = setInterval(updateCountdown, 1000);
+
+      // Function math for countdown
+      function updateCountdown() {
+        const currentTime = new Date();
+        const difference = targetDate - currentTime;
+
+        if (difference < 0) {
+          clearInterval(interval);
+          countdown.innerHTML = "The baby is here!";
+        } else {
+          const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+          countdown.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+      }
+      updateCountdown();
+
+    </script>
+  </body>
+
 </html>
