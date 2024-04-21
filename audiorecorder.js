@@ -149,7 +149,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
           soundClips.appendChild(clipContainer);
           // Making mp3 file
           const blob = new Blob(chunks, {
-            type: "audio/mpeg; codecs=mp3"
+            type: "audio/mp3"
           });
           const file = new File([blob], `${clipName}.mp3`, {
             type: blob.type,
