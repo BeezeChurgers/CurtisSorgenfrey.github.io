@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers, audiorecorder, voice, recorder, audio">
+    <meta name="description" content="To Do List">
+    <meta name="author" content="Curtis Sorgenfrey">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Recorder</title>
+		
+    <style>
+      body {
+        background: white;
+        color: white;
+        font-family: Arial;
+        text-align: center;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      main {
+        padding: 1rem;
+				margin: 0;
+        background: #333333;
+        border-radius: 1rem;
+        box-shadow: 0.2rem 0.2rem 1rem black;
+      }
+			
+			.record {
+				font-size: 4em;
+				border-radius: 50%;
+				width: 1.4em;
+				height: 1.4em;
+			}
+			
+			.clip {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+			}
+			
+			form {
+				margin: 1em;
+				display: none;
+			}
+			
+			input {
+				background: none;
+				color: white;
+				margin: 0.5em;
+			}
+			
+			select {
+				background: none;
+				color: white;
+				margin: 0.5em;
+			}
+			
+			select:focus {
+				background: white;
+				color: black;
+			}
+
+    </style>
+  </head>
+
+  <body>
+
+    <main>
+      <h1 id="title">Audio Recorder</h1>
+			
+			<button class="record">
+				&#9724;
+			</button>
+			
+			<form>
+				<label for="preacher">Preacher:</label>
+				<select id="preacher" name="preacher">
+					<option value="Brucker">Stephen Brucker</option>
+					<option value="Spector">Ben Spector</option>
+					<option value="Spagnolo">Phil Spagnolo</option>
+				</select>
+				<br>
+				
+				<label for="book">Book:</label>
+				<input type="text" id="book" name="book">
+				<br>
+				
+				<label for="chapter">Chapter:</label>
+				<input type="text" id="chapter" name="chapter">
+				<br>
+				
+				<label for="verse">Verse:</label>
+				<input type="text" id="verse" name="verse">
+				<br>
+				
+				<input type="submit">
+			</form>
+			
+			<section class="soundClips"></section>
+    </main>
+
+    <script src="audiorecorder.js" charset="utf-8"></script>
+  </body>
+
+</html>
