@@ -35,11 +35,18 @@ const recentProjects = [{
   link: "countdown.html"
 },
 {
-  id: 5,
+  id: 6,
   name: "Audio Recorder",
   img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Typical_Tetris_Game.svg/1200px-Typical_Tetris_Game.svg.png",
   text: "Audio recording app using blob and file objects, with automatic download and title.",
   link: "audiorecorder.html"
+},
+{
+  id: 7,
+  name: "Summarizer",
+  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Typical_Tetris_Game.svg/1200px-Typical_Tetris_Game.svg.png",
+  text: "Summarize your podcast or video with the power of Transformers.js.",
+  link: "summarizer.html"
 }
 ]
 // Select Items

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers, summary, audio, podcast, ai">
+    <meta name="description" content="Summarize your audio">
+    <meta name="author" content="Curtis Sorgenfrey">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summarizer</title>
+
+    <style>
+        body {
+            background: white;
+            font-family: Arial;
+            text-align: center;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: center;
+        }
+
+        main {
+            padding: 1rem;
+            width: calc(100% - 2.2rem);
+            margin: 0;
+            margin-top: 1rem;
+            background: #333333;
+            color: white;
+            border-radius: 2rem;
+            box-shadow: 0.2rem 0.2rem 1rem black;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .description {
+            margin: 2rem;
+        }
+
+    </style>
+  </head>
+
+  <body>
+	
+		<h1 id="title">Summarize My Podcast</h1>
+
+    <main>
+        <label for="audioLink">Paste Link</label>
+        <input type="url" name="url" id="audioLink" placeholder="https://example.com" pattern="https://.*" size="30" required />
+       
+        <p id="textOutput"></p>
+        <p id="status"></p>
+
+    </main>
+		
+		<p class="description">
+			Have you ever been talking to a friend and you both listen to the same podcast, so they start a conversation about this week's episode, but you don't remember anything from the episode because you listened to it too long ago, and then there like, "Oh, so that part about the pineapples, that was so funny, right?", and so you have to be like, "Oh yeah, that made me laugh so hard.", but that was a lie because you actually don't remember anything about any pineapples? Has that ever happened to you? Well, we have got your back! Just plug in the link to your podcast and get a short summary of all the things that happened in your podcast, so you never have to lie to your friends again.
+		</p>
+
+    <script src="summarizer.js" type="module" charset="utf-8"></script>
+  </body>
+
+</html>

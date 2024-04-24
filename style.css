@@ -138,6 +138,7 @@ h2 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border: none;
   /* Needs to have a width AND height to work */
 }
 
