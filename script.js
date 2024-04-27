@@ -1,48 +1,55 @@
 // Recent Projects Carousel --------------------------------------------------
 const recentProjects = [{
   id: 1,
+  name: "ecommercepage",
+  img: "images/calculator.png",
+  text: "eCommerce Site, with product cards and pages.",
+  link: "ecommercepage.html"
+},
+{
+  id: 2,
   name: "calculator",
   img: "images/calculator.png",
   text: "Calculator equipped with fully functional clickable buttons. Dark mode uses \"prefers-color-scheme\" CSS method.",
   link: "calculator.html"
 },
 {
-  id: 2,
+  id: 3,
   name: "tic-tac-toe",
   img: "https://static-00.iconduck.com/assets.00/tic-tac-toe-icon-1024x1024-bmwf454z.png",
   text: "Tic Tac Toe game with both pvp and pve modes. PvE offers intelligent Neural Network computer player, learning as you play with the power of Brain.js.",
   link: "tictactoe.html"
 },
 {
-  id: 3,
+  id: 4,
   name: "to-do list",
   img: "https://static1.anpoimages.com/wordpress/wp-content/uploads/2023/10/google-keep-list.jpeg",
   text: "To Do List using iseditable elements.",
   link: "todolist.html"
 },
 {
-  id: 4,
+  id: 5,
   name: "Tetris",
   img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Typical_Tetris_Game.svg/1200px-Typical_Tetris_Game.svg.png",
   text: "Tetris uses flexbox structure, testing class lists to move tetrominoes. The game uses arrays to itterate colors, and intervals to increase play speed.",
   link: "tetris.html"
 },
 {
-  id: 5,
+  id: 6,
   name: "Countdown",
   img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Typical_Tetris_Game.svg/1200px-Typical_Tetris_Game.svg.png",
   text: "Simple countdown app.",
   link: "countdown.html"
 },
 {
-  id: 6,
+  id: 7,
   name: "Audio Recorder",
   img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Typical_Tetris_Game.svg/1200px-Typical_Tetris_Game.svg.png",
   text: "Audio recording app using blob and file objects, with automatic download and title.",
   link: "audiorecorder.html"
 },
 {
-  id: 7,
+  id: 8,
   name: "Summarizer",
   img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Typical_Tetris_Game.svg/1200px-Typical_Tetris_Game.svg.png",
   text: "Summarize your podcast or video with the power of Transformers.js.",

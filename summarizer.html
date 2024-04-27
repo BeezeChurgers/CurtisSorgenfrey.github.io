@@ -11,7 +11,8 @@
 
     <style>
         body {
-            background: white;
+            background: #042525;
+            color: white;
             font-family: Arial;
             text-align: center;
             margin: 0;
@@ -23,13 +24,13 @@
 
         main {
             padding: 1rem;
-            width: calc(100% - 2.2rem);
+            width: calc(100% - 2.6rem);
             margin: 0;
             margin-top: 1rem;
-            background: #333333;
+            background: #A33C00;
             color: white;
-            border-radius: 2rem;
-            box-shadow: 0.2rem 0.2rem 1rem black;
+            border-radius: 1rem;
+            /* box-shadow: 0.2rem 0.2rem 1rem black; */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -40,6 +41,10 @@
             margin: 2rem;
         }
 
+        h1 {
+            padding: 1rem;
+        }
+
     </style>
   </head>
 
@@ -48,8 +53,11 @@
 		<h1 id="title">Summarize My Podcast</h1>
 
     <main>
-        <label for="audioLink">Paste Link</label>
-        <input type="url" name="url" id="audioLink" placeholder="https://example.com" pattern="https://.*" size="30" required />
+        <label for="link">Paste Link</label>
+				<input type="text" id="link">
+				<!--
+        <input type="link" name="url" id="link" placeholder="https://example.com" pattern="https://.*" size="30" required />
+				-->
        
         <p id="textOutput"></p>
         <p id="status"></p>
