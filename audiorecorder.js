@@ -148,10 +148,8 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
           clipContainer.appendChild(deleteButton);
           soundClips.appendChild(clipContainer);
           // Making mp3 file
-          const blob = new Blob(chunks, {
-            type: "audio/mp3"
-          });
-          const file = new File([blob], `${clipName}.mp3`, {
+          const blob = new Blob(chunks, { type: "audio/ogg; codecs=opus" });
+          const file = new File([blob], `${clipName}`, {
             type: blob.type,
           });
           chunks = [];
