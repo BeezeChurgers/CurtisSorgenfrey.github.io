@@ -189,9 +189,10 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 } else {
   console.log("getUserMedia not supported on your browser!");
 }
-
+/*
 // Prevents user from leaving
 window.onbeforeunload = confirmExit;
     function confirmExit() {
         return "You have attempted to leave this page. Are you sure?";
     }
+*/
