@@ -148,8 +148,10 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
           clipContainer.appendChild(deleteButton);
           soundClips.appendChild(clipContainer);
           // Making mp3 file
-          const blob = new Blob(chunks, { type: "audio/ogg; codecs=opus" });
-          const file = new File([blob], `${clipName}`, {
+          const blob = new Blob(chunks, {
+            type: "audio/mp3"
+          });
+          const file = new File([blob], `${clipName}.mp3`, {
             type: blob.type,
           });
           chunks = [];
@@ -187,10 +189,9 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 } else {
   console.log("getUserMedia not supported on your browser!");
 }
-/*
+
 // Prevents user from leaving
 window.onbeforeunload = confirmExit;
     function confirmExit() {
         return "You have attempted to leave this page. Are you sure?";
     }
-*/
