@@ -72,7 +72,7 @@ main {
 /* Home Page */
 .container {
   width: calc(100% - 2rem);
-	padding: 1rem;
+  padding: 1rem;
   margin: 0rem 1rem 1rem 1rem;
 
   display: flex;
@@ -96,8 +96,8 @@ main {
 
 h1 {
   font-size: 2em;
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -105,21 +105,23 @@ h1 {
 .titleHolder {
   width: 50%;
   height: 100%;
-	margin-right: 0.5rem;
-	
+  margin-right: 0.5rem;
+
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  justify-content: center;/* vertical */
-  align-items: end;/* horizontal */
-	
+  justify-content: center;
+  /* vertical */
+  align-items: end;
+  /* horizontal */
+
   text-align: right;
 }
 
 h2 {
   font-size: 2em;
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .titleHolder p {
@@ -131,7 +133,7 @@ h2 {
 .examples {
   width: 50%;
   height: 600px;
-	margin-left: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .examples iframe {
@@ -201,13 +203,13 @@ h2 {
 #qualifications .titleHolder {
   text-align: left;
   align-items: start;
-	margin-right: 0;
-	margin-left: 0.5rem;
+  margin-right: 0;
+  margin-left: 0.5rem;
 }
 
 #qualificationsExamples {
-	margin-left: 0;
-	margin-right: 0.5rem;
+  margin-left: 0;
+  margin-right: 0.5rem;
 }
 
 #qualifications {
@@ -224,7 +226,7 @@ h2 {
 /* Contact */
 #contact {
   text-align: center;
-	flex-direction: column;
+  flex-direction: column;
 }
 
 
@@ -232,8 +234,8 @@ h2 {
 
 /* Footer */
 footer {
-	font-size: 1em;
-	text-align: center;
+  font-size: 1em;
+  text-align: center;
 }
 
 /* Dark Mode setting */
@@ -242,11 +244,11 @@ footer {
     background: #dfdfdf;
     color: black;
   }
-	
-	.topnav {
-		background: #dfdfdf;
-	}
-	
+
+  .topnav {
+    background: #dfdfdf;
+  }
+
   .topnavLinks {
     color: black;
   }
@@ -290,46 +292,46 @@ footer {
 
 /* Mobile Sizing and Layout */
 @media screen and (max-width: 720px) {
-	
-	.container {
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-	
-	#homePage {
-		justify-content: end;
-		align-items: start;
-	}
-	
-	.titleHolder {
-		width: 100%;
-		height: 50%;
-		text-align: left;
-		align-items: start;
-		margin: 0;
-		margin-bottom: 1rem;
-	}
-	
-	.examples {
-		width: 100%;
+
+  .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #homePage {
+    justify-content: end;
+    align-items: start;
+  }
+
+  .titleHolder {
+    width: 100%;
+    height: 50%;
+    text-align: left;
+    align-items: start;
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  .examples {
+    width: 100%;
     height: 400px;
-		margin: 0;
-	}
-	
-	#qualifications {
-		flex-direction: column;
-	}
-	
-	#qualifications .titleHolder {
-		text-align: right;
-		align-items: end;
-	}
-	
-	#contact {
-		align-items: center;
-	}
-	
-	/* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
-	
+    margin: 0;
+  }
+
+  #qualifications {
+    flex-direction: column;
+  }
+
+  #qualifications .titleHolder {
+    text-align: right;
+    align-items: end;
+  }
+
+  #contact {
+    align-items: center;
+  }
+
+  /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
+
 }
