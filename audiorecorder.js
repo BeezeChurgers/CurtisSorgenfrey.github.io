@@ -46,15 +46,78 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       // Grabbing and using the blob
       mediaRecorder.onstop = (e) => {
         form.style.display = "block";
-        // Getting file name information
-        let clipName = "";
+        
+				// Listen for form to be filled out
         form.onsubmit = (e2) => {
           e2.preventDefault();
-          const todaysDate = new Date();
-          let year = todaysDate.getFullYear();
-          let month = (todaysDate.getMonth() + 1).toString().padStart(2, "0");
-          let day = todaysDate.getDate().toString().padStart(2, "0");
-          const bibleBooks = [
+
+          // Creating elements to display clip
+					const clipContainer = document.createElement("article");
+					const clipLabel = document.createElement("p");
+					const audio = document.createElement("audio");
+					const deleteButton = document.createElement("button");
+
+					// Setting attributes of elements
+					clipContainer.classList.add("clip");
+					audio.setAttribute("controls", "");
+					deleteButton.innerHTML = "Delete";
+					clipLabel.innerHTML = `${dateDetails()}-${bookDetails()}`;
+
+					// Appending elements to article in HTML body
+					clipContainer.appendChild(audio);
+					clipContainer.appendChild(clipLabel);
+					clipContainer.appendChild(deleteButton);
+					soundClips.appendChild(clipContainer);
+
+          // Making mp3 file
+          const file = new File(chunks, `${dateDetails()}-${bookDetails()}.mp3`, {
+            type: "audio/mp3",
+          });
+          chunks = [];
+          const audioURL = window.URL.createObjectURL(file);
+          audio.src = audioURL;
+
+          // Downloading file automatically
+          download();
+
+          // Allowing file to be deleted
+          deleteButton.onclick = (e) => {
+            let evtTgt = e.target;
+            evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
+          };
+
+          // Making title form disappear
+          form.style.display = "none";
+        };
+      };
+    })
+
+    // Error callback
+    .catch((err) => {
+      console.error(`The following getUserMedia error occurred: ${err}`);
+    });
+} else {
+  console.log("getUserMedia not supported on your browser!");
+}
+
+// Prevents user from leaving
+window.onbeforeunload = confirmExit;
+    function confirmExit() {
+        return "You have attempted to leave this page. Are you sure?";
+    }
+		
+// Make date format
+const dateDetails = () => {
+	const todaysDate = new Date();
+  let year = todaysDate.getFullYear();
+  let month = (todaysDate.getMonth() + 1).toString().padStart(2, "0");
+  let day = todaysDate.getDate().toString().padStart(2, "0");
+	return `${year}${month}${day}`;
+};
+
+// Make Book Format from Form
+const bookDetails = () => {
+	const bibleBooks = [
             "Genesis",
             "Exodus",
             "Leviticus",
@@ -122,76 +185,28 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             "Jude",
             "Revelation"
           ];
-          let book = form.elements[1].value;
-          let bookNum = (bibleBooks.indexOf(book) + 1).toString().padStart(2, "0");
-          // Make book just 3 uppercase characters no spaces
-          book = book.replace(/\s/g, "");
-          book = book.substring(0, 3);
-          book = book.toUpperCase();
-          let chapter = (form.elements[2].value).toString().padStart(3, "0");
-          let verse = (form.elements[3].value).toString().padStart(3, "0");
-          let preacher = form.elements[0].value;
-          clipName = `${year}${month}${day}-${bookNum}-${book}-${chapter}-${verse}-${preacher}`;
-          // Creating elements to display clip
-          const clipContainer = document.createElement("article");
-          const clipLabel = document.createElement("p");
-          const audio = document.createElement("audio");
-          const deleteButton = document.createElement("button");
-          // Setting attributes of elements
-          clipContainer.classList.add("clip");
-          audio.setAttribute("controls", "");
-          deleteButton.innerHTML = "Delete";
-          clipLabel.innerHTML = clipName;
-          // Appending elements to article in HTML body
-          clipContainer.appendChild(audio);
-          clipContainer.appendChild(clipLabel);
-          clipContainer.appendChild(deleteButton);
-          soundClips.appendChild(clipContainer);
-          // Making mp3 file
-          const blob = new Blob(chunks, {
-            type: "audio/mp3"
-          });
-          const file = new File([blob], `${clipName}.mp3`, {
-            type: blob.type,
-          });
-          chunks = [];
-          const audioURL = window.URL.createObjectURL(file);
-          audio.src = audioURL;
-          // Downloading file automatically
-          function download() {
-            const link = document.createElement('a');
-            const url = URL.createObjectURL(file);
+	let book = form.elements[1].value;
+	let bookNum = (bibleBooks.indexOf(book) + 1).toString().padStart(2, "0");
+	// Make book just 3 uppercase characters no spaces
+	book = book.replace(/\s/g, "");
+	book = book.substring(0, 3);
+	book = book.toUpperCase();
+	let chapter = (form.elements[2].value).toString().padStart(3, "0");
+	let verse = (form.elements[3].value).toString().padStart(3, "0");
+	let preacher = form.elements[0].value;
+	return `${bookNum}-${book}-${chapter}-${verse}-${preacher}`;
+};
 
-            link.href = url;
-            link.download = file.name;
-            document.body.appendChild(link);
-            link.click();
+// Downloading file automatically
+function download() {
+  const link = document.createElement('a');
+  const url = URL.createObjectURL(file);
 
-            document.body.removeChild(link);
-            window.URL.revokeObjectURL(url);
-          }
-          download();
-          // Allowing file to be deleted
-          deleteButton.onclick = (e) => {
-            let evtTgt = e.target;
-            evtTgt.parentNode.parentNode.removeChild(evtTgt.parentNode);
-          };
-          // Making title form disappear
-          form.style.display = "none";
-        };
-      };
-    })
+  link.href = url;
+  link.download = file.name;
+  document.body.appendChild(link);
+  link.click();
 
-    // Error callback
-    .catch((err) => {
-      console.error(`The following getUserMedia error occurred: ${err}`);
-    });
-} else {
-  console.log("getUserMedia not supported on your browser!");
+  document.body.removeChild(link);
+  window.URL.revokeObjectURL(url);
 }
-
-// Prevents user from leaving
-window.onbeforeunload = confirmExit;
-    function confirmExit() {
-        return "You have attempted to leave this page. Are you sure?";
-    }
