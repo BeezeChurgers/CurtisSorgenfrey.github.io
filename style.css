@@ -84,6 +84,7 @@ body {
 main {
     background: url(images/pineappleBlur.jpg) no-repeat center;
     background-size: cover;
+    background-attachment: fixed;
   }
 
 /* Sections */
