@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <title>eCommerce Product Page</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers, eCommerce">
+    <meta name="description" content="eCommerce Page">
+    <meta name="author" content="Curtis Sorgenfrey">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/ecommercepage.css">
+    <link rel="stylesheet" href="css/product.css">
+  </head>
+
+  <body>
+
+    <!-- Top Nav Bar and Search imported with JS -->
+    <nav class="navbar"></nav>
+		
+		<section class="productDetails">
+				<div class="imageSlider">
+						<div class="productImages">
+								<img src="https://cdn.pixabay.com/photo/2017/08/06/15/33/bedroom-2593500_1280.jpg" class="active" alt="">
+								<img src="https://cdn.pixabay.com/photo/2017/08/06/15/33/bedroom-2593500_1280.jpg" alt="">
+								<img src="https://cdn.pixabay.com/photo/2017/08/06/15/33/bedroom-2593500_1280.jpg" alt="">
+								<img src="https://cdn.pixabay.com/photo/2017/08/06/15/33/bedroom-2593500_1280.jpg" alt="">
+						</div>
+				</div>
+				
+				<!-- Product Details -->
+				<div class="details">
+						<h2 class="productBrand">calvin klein</h2>
+						<p class="productShortDes">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
+						<span class="productPrice">$99</span>
+						<span class="productActualPrice">$200</span>
+						<span class="productDiscount">( 50% off )</span>
+
+						<p class="productSubHeading">select size</p>
+
+						<input type="radio" name="size" value="s" checked hidden id="sSize">
+						<label for="sSize" class="sizeRadioBtn check">s</label>
+						<input type="radio" name="size" value="m" hidden id="mSize">
+						<label for="mSize" class="sizeRadioBtn">m</label>
+						<input type="radio" name="size" value="l" hidden id="lSize">
+						<label for="lSize" class="sizeRadioBtn">l</label>
+						<input type="radio" name="size" value="xl" hidden id="xlSize">
+						<label for="xlSize" class="sizeRadioBtn">xl</label>
+						<input type="radio" name="size" value="xxl" hidden id="xxlSize">
+						<label for="xxlSize" class="sizeRadioBtn">xxl</label>
+
+						<button class="btn cartBtn">add to cart</button>
+						<button class="btn">add to wishlist</button>
+				</div>
+		</section>
+		
+		<section class="detailDes">
+				<h2 class="heading">description</h2>
+				<p class="des">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</section>
+		
+		<!-- Products 1 -->
+    <section class="product">
+      <h2 class="productCategory">best selling</h2>
+
+      <!-- Previous and Next Button -->
+      <button class="preBtn"><img src="https://static.thenounproject.com/png/4763792-200.png" alt=""></button>
+      <button class="nxtBtn"><img src="https://static.thenounproject.com/png/4763792-200.png" alt=""></button>
+
+      <!-- Product Cards -->
+      <div class="productContainer">
+        <div class="productCard">
+          <div class="productImage">
+            <span class="discountTag">25% off</span>
+            <img src="https://cdn.pixabay.com/photo/2017/08/06/15/33/bedroom-2593500_1280.jpg" class="productThumb" alt="">
+            <button class="cardBtn">add to wishlist</button>
+          </div>
+          <div class="productInfo">
+            <h2 class="productBrand">Stripes</h2>
+            <p class="productShortDes">Ultra soft, 100% real cotton</p>
+            <span class="price">$20</span><span class="actualPrice">$40</span>
+          </div>
+        </div>
+
+        <div class="productCard">
+          <div class="productImage">
+            <span class="discountTag">25% off</span>
+            <img src="https://cdn.pixabay.com/photo/2017/08/24/12/23/coffee-2676642_1280.jpg" class="productThumb" alt="">
+            <button class="cardBtn">add to wishlist</button>
+          </div>
+          <div class="productInfo">
+            <h2 class="productBrand">solid</h2>
+            <p class="productShortDes">Ultra soft, 100% real cotton</p>
+            <span class="price">$20</span><span class="actualPrice">$40</span>
+          </div>
+        </div>
+
+        <div class="productCard">
+          <div class="productImage">
+            <span class="discountTag">25% off</span>
+            <img src="https://cdn.pixabay.com/photo/2014/07/10/17/17/bedroom-389254_1280.jpg" class="productThumb" alt="">
+            <button class="cardBtn">add to wishlist</button>
+          </div>
+          <div class="productInfo">
+            <h2 class="productBrand">floral</h2>
+            <p class="productShortDes">Ultra soft, 100% real cotton</p>
+            <span class="price">$20</span><span class="actualPrice">$40</span>
+          </div>
+        </div>
+
+        <div class="productCard">
+          <div class="productImage">
+            <span class="discountTag">25% off</span>
+            <img src="https://cdn.pixabay.com/photo/2016/03/27/23/11/bed-1284666_960_720.jpg" class="productThumb" alt="">
+            <button class="cardBtn">add to wishlist</button>
+          </div>
+          <div class="productInfo">
+            <h2 class="productBrand">classic</h2>
+            <p class="productShortDes">Ultra soft, 100% real cotton</p>
+            <span class="price">$20</span><span class="actualPrice">$40</span>
+          </div>
+        </div>
+
+        <div class="productCard">
+          <div class="productImage">
+            <span class="discountTag">25% off</span>
+            <img src="https://cdn.pixabay.com/photo/2016/08/06/13/00/bed-1574322_960_720.jpg" class="productThumb" alt="">
+            <button class="cardBtn">add to wishlist</button>
+          </div>
+          <div class="productInfo">
+            <h2 class="productBrand">rustic</h2>
+            <p class="productShortDes">Ultra soft, 100% real cotton</p>
+            <span class="price">$20</span><span class="actualPrice">$40</span>
+          </div>
+        </div>
+
+        <div class="productCard">
+          <div class="productImage">
+            <span class="discountTag">25% off</span>
+            <img src="https://cdn.pixabay.com/photo/2019/08/19/13/58/bed-4416515_1280.jpg" class="productThumb" alt="">
+            <button class="cardBtn">add to wishlist</button>
+          </div>
+          <div class="productInfo">
+            <h2 class="productBrand">hotel</h2>
+            <p class="productShortDes">Ultra soft, 100% real cotton</p>
+            <span class="price">$20</span><span class="actualPrice">$40</span>
+          </div>
+        </div>
+
+        <div class="productCard">
+          <div class="productImage">
+            <span class="discountTag">25% off</span>
+            <img src="https://cdn.pixabay.com/photo/2018/04/05/16/38/furniture-3293321_960_720.jpg" class="productThumb" alt="">
+            <button class="cardBtn">add to wishlist</button>
+          </div>
+          <div class="productInfo">
+            <h2 class="productBrand">nuetral</h2>
+            <p class="productShortDes">Ultra soft, 100% real cotton</p>
+            <span class="price">$20</span><span class="actualPrice">$40</span>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+	<!-- Footer imported with JS -->
+    <footer></footer>
+
+    <script src="js/nav.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/ecommercepage.js"></script>
+    <script src="js/product.js"></script>
+  </body>
+
+</html>
