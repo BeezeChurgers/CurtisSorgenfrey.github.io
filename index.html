@@ -24,102 +24,142 @@
       </div>
 
     </header>
+  
+    <!-- Home Screen -->
+    <section class="container" id="homePage">
+
+      <h1 id="logoTitle">
+        my name is <strong>Curtis Sorgenfrey</strong><br>math teacher turned web developer
+      </h1>
+
+    </section>
 
     <main>
-      <!-- Home Screen -->
-      <section class="container" id="homePage">
 
-        <h1 id="logoTitle">
-          my name is <strong>Curtis Sorgenfrey</strong><br>math teacher turned web developer
-        </h1>
+    <!-- Projects -->
+    <section class="container" id="projects">
 
-      </section>
+      <div class="titleHolder">
 
-      <!-- Projects -->
-      <section class="container" id="projects">
+        <h2 id="recentProjectsTitle"><strong>Recent<br>Projects</strong></h2>
 
-        <div class="titleHolder">
+        <p id="recentProjectsDescription">
+          Calculator equipped with fully functional clickable buttons. Dark mode uses "prefers-color-scheme" CSS method.
+        </p>
 
-          <h2 id="recentProjectsTitle"><strong>Recent<br>Projects</strong></h2>
+        <a href="calculator.html" id="projectLink">Check it out for yourself!</a>
 
-          <p id="recentProjectsDescription">
-            Calculator equipped with fully functional clickable buttons. Dark mode uses "prefers-color-scheme" CSS method.
-          </p>
-
-          <a href="calculator.html" id="projectLink">Check it out for yourself!</a>
-
-          <div class="prevNextContainer">
-            <div class="prevBtn"></div>
-            <div class="nextBtn"></div>
-          </div>
-
-          <button class="randomBtn">Surprise Me</button>
-
+        <div class="prevNextContainer">
+          <div class="prevBtn"></div>
+          <div class="nextBtn"></div>
         </div>
 
-        <div class="examples" id="projectExamples">
+        <button class="randomBtn">Surprise Me</button>
 
-          <iframe id="recentProjectsImg" src="calculator.html" title="calculator"></iframe>
+      </div>
 
-        </div>
+      <div class="examples" id="projectExamples">
 
-      </section>
+        <iframe id="recentProjectsImg" src="calculator.html" title="calculator"></iframe>
 
-      <!-- Qualifications -->
-      <section class="container" id="qualifications">
+      </div>
 
-        <div class="titleHolder">
+    </section>
 
-          <h2 id="qualificationsTitle">
-            <strong>HTML</strong>
-          </h2>
+    <!-- Qualifications -->
+    <section class="container" id="qualifications">
 
-          <p id="qualificationsDescription">
-            Proficient in HTML coding, with a solid foundation in crafting well-structured and semantic markup. From building the structural framework of web pages to implementing essential elements such as forms, tables, and multimedia content. Well versed in best practices for accessibility and SEO optimization. An eye for detail and a commitment to clean, maintainable code, striving to create engaging and user-friendly web experiences that resonate with audiences across diverse platforms.
-          </p>
+      <div class="titleHolder">
 
-          <div class="prevNextContainer">
-            <div class="prevBtn"></div>
-            <div class="nextBtn"></div>
-          </div>
-
-        </div>
-
-        <div class="examples" id="qualificationsExamples">
-          <img id="qualificationsImg" src="images/pineappleLight.jpg">
-        </div>
-
-      </section>
-
-      <!-- Contact -->
-      <section class="container" id="contact">
-
-        <h2 id="contactTitle">
-          <strong>Contact Me</strong>
+        <h2 id="qualificationsTitle">
+          <strong>HTML</strong>
         </h2>
 
-        <p>
-          Need a website or web app updated, or built from scratch?
-          Need a Front End Developer on your team?
+        <p id="qualificationsDescription">
+          Proficient in HTML coding, with a solid foundation in crafting well-structured and semantic markup. From building the structural framework of web pages to implementing essential elements such as forms, tables, and multimedia content. Well versed in best practices for accessibility and SEO optimization. An eye for detail and a commitment to clean, maintainable code, striving to create engaging and user-friendly web experiences that resonate with audiences across diverse platforms.
         </p>
 
-        <p>
-          Email or message me.
-        </p>
-
-        <div>
-          <a class="topnavLinks" href="https://www.linkedin.com/in/curtis-sorgenfrey-02a109186?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BfpzrDYdlSWqI%2FnBdnTYDaQ%3D%3D"><i class="fa">&#xf08c;</i></a>
-          <a class="topnavLinks" href="https://github.com/BeezeChurgers"><i class="fa">&#xf09b;</i></a>
-          <a class="topnavLinks" href="mailto:curtissorgenfrey@gmail.com"><i class="fa">&#xf0e0;</i></a>
+        <div class="prevNextContainer">
+          <div class="prevBtn"></div>
+          <div class="nextBtn"></div>
         </div>
 
-      </section>
+      </div>
 
-      <footer>
-        <p>&copy;2024 Curtis Sorgenfrey</p>
-      </footer>
+      <div class="examples" id="qualificationsExamples">
+        <div class="codeContainer">
+<pre class="codeText"><code id="qualificationsCode">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;
+
+&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta name=&quot;keywords&quot; content=&quot;Curtis, Sorgenfrey, beezechurgers, to, do, list&quot;&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;To Do List&quot;&gt;
+  &lt;meta name=&quot;author&quot; content=&quot;Curtis Sorgenfrey&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;todolist.css&quot;&gt;
+  &lt;title&gt;To Do List&lt;/title&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+  &lt;main&gt;
+    &lt;h1 id=&quot;title&quot; contenteditable=&quot;true&quot;&gt;Title&lt;/h1&gt;
+
+    &lt;ul id=&quot;todoList&quot;&gt;
+      &lt;!-- Tasks will be added here --&gt;
+      &lt;!--&lt;li&gt;
+        &lt;input type=&quot;checkbox&quot; class=&quot;checkbox&quot;&gt;&lt;span&gt;This is my test note&lt;/span&gt;&lt;button&gt;&amp;#x270E;&lt;/button&gt;&lt;button&gt;&amp;#x2715;&lt;/button&gt;
+      &lt;/li&gt;--&gt;
+    &lt;/ul&gt;
+
+    &lt;form id=&quot;todoForm&quot;&gt;
+      &lt;button type=&quot;submit&quot;&gt;&amp;#x2b;&lt;/button&gt;
+      &lt;input type=&quot;text&quot; id=&quot;todoInput&quot; placeholder=&quot;Add a new task...&quot;&gt;
+    &lt;/form&gt;
+
+  &lt;/main&gt;
+
+  &lt;script src=&quot;todolist.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+
+&lt;/html&gt;
+</code>
+</pre>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Contact -->
+    <section class="container" id="contact">
+
+      <h2 id="contactTitle">
+        <strong>Contact Me</strong>
+      </h2>
+
+      <p>
+        Need a website or web app updated, or built from scratch?
+        Need a Front End Developer on your team?
+      </p>
+
+      <p>
+        Email or message me.
+      </p>
+
+      <div>
+        <a class="topnavLinks" href="https://www.linkedin.com/in/curtis-sorgenfrey-02a109186?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BfpzrDYdlSWqI%2FnBdnTYDaQ%3D%3D"><i class="fa">&#xf08c;</i></a>
+        <a class="topnavLinks" href="https://github.com/BeezeChurgers"><i class="fa">&#xf09b;</i></a>
+        <a class="topnavLinks" href="mailto:curtissorgenfrey@gmail.com"><i class="fa">&#xf0e0;</i></a>
+      </div>
+
+    </section>
 
     </main>
+
+    <footer>
+      <p>&copy;2024 Curtis Sorgenfrey</p>
+    </footer>
 
     <script src="script.js"></script>
   </body>
