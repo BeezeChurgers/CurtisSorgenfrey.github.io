@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <title>JavaScript Example</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers">
+    <meta name="description" content="Curtis Sorgenfrey Web Development Portfolio">
+    <meta name="author" content="Curtis Sorgenfrey">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background: black;
+            color: #feea63;
+            padding: 1rem;
+        }
+        pre {
+            white-space: pre-wrap;       /* Since CSS 2.1 */
+            white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+        }
+    </style>
+  </head>
+
+  <body>
+
+<pre class="codeText"><code id="qualificationsCode">// Computer plays Neural Network
+function computersTurn() {
+  if (pve &amp;&amp; !playerOne) {
+    // What is the expected output of current game?
+    let result = networkHolder.run(scoreBoard);
+    // Test best spot to play
+    let gameMoveArr = [
+      result.one,
+      result.two,
+      result.three,
+      result.four,
+      result.five,
+      result.six,
+      result.seven,
+      result.eight,
+      result.nine
+    ];
+    if (scoreBoard[indexOfMax(gameMoveArr)] == 0) {
+      const placeHolder = scoreBoard;
+      makeO(indexOfMax(gameMoveArr) + 1);
+      goodOrBad(placeHolder, gameMoveArr);
+    } else {
+      // Makes spot zero to try the next best spot
+      gameMoveArr[indexOfMax(gameMoveArr)] = 0;
+      // Jumps into a loop to play the next availible spot
+      for (let i=0; i&lt;gameMoveArr.length; i++) {
+        if (scoreBoard[indexOfMax(gameMoveArr)] == 0) {
+          const placeHolder2 = scoreBoard;
+          makeO(indexOfMax(gameMoveArr) + 1);
+          goodOrBad(placeHolder2, gameMoveArr);
+          break;
+        } else {
+          gameMoveArr[indexOfMax(gameMoveArr)] = 0;
+        }
+      }
+    }
+    checkWinning();
+  }
+}
+</code>
+</pre>
+     
+  </body>
+
+</html>
