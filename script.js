@@ -1,4 +1,6 @@
-// Recent Projects Carousel --------------------------------------------------
+$(document).ready(function(){
+
+  // Recent Projects Carousel --------------------------------------------------
 const recentProjects = [{
   id: 1,
   name: "ecommercesite",
@@ -133,17 +135,37 @@ const qualifications = [{
 {
   id: 4,
   name: "git",
-  code: `
-  
-  `,
+  code: "",
   text: ""
 },
 {
   id: 5,
+  name: "jQuery",
+  code: "",
+  text: ""
+},
+{
+  id: 6,
   name: "TypeScript",
-  code: `
-  
-  `,
+  code: "",
+  text: ""
+},
+{
+  id: 7,
+  name: "Node.js",
+  code: "",
+  text: ""
+},
+{
+  id: 8,
+  name: "React",
+  code: "",
+  text: ""
+},
+{
+  id: 9,
+  name: "Python",
+  code: "",
   text: ""
 }
 */
@@ -194,3 +216,5 @@ if (currentItemQ > qualifications.length - 1) {
 showQualifications();
 }
 let qInterval = setInterval(loopQualifications, 10000);
+
+});
