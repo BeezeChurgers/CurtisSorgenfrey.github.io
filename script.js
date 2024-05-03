@@ -1,52 +1,51 @@
 // Recent Projects Carousel --------------------------------------------------
 const recentProjects = [{
   id: 1,
-  name: "calculator",
-  img: "images/calculator.png",
-  text: "Calculator equipped with fully functional clickable buttons. Dark mode uses \"prefers-color-scheme\" CSS method.",
-  link: "calculator.html"
+  name: "ecommercesite",
+  text: "eCommerce site crafted with HTML, CSS, and JavaScript seamlessly blending aesthetic design with intuitive user experience, offering a diverse range of products and streamlined checkout processes. Through responsive design and interactive features, it caters to modern shoppers, providing a secure and convenient platform for online purchases.",
+  link: "projects/ecommercesite/ecommercepage.html"
 },
 {
   id: 2,
-  name: "tic-tac-toe",
-  img: "https://static-00.iconduck.com/assets.00/tic-tac-toe-icon-1024x1024-bmwf454z.png",
-  text: "Tic Tac Toe game with both pvp and pve modes. PvE offers intelligent Neural Network computer player, learning as you play with the power of Brain.js.",
-  link: "tictactoe.html"
+  name: "calculator",
+  text: "Calculator equipped with fully functional clickable buttons. Dark mode uses \"prefers-color-scheme\" CSS method.",
+  link: "projects/calculator.html"
 },
 {
   id: 3,
-  name: "to-do list",
-  img: "https://static1.anpoimages.com/wordpress/wp-content/uploads/2023/10/google-keep-list.jpeg",
-  text: "To Do List using iseditable elements.",
-  link: "todolist.html"
+  name: "tic-tac-toe",
+  text: "Tic Tac Toe game with both pvp and pve modes. PvE offers intelligent Neural Network computer player, learning as you play with the power of Brain.js.",
+  link: "projects/tictactoe.html"
 },
 {
   id: 4,
-  name: "Tetris",
-  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Typical_Tetris_Game.svg/1200px-Typical_Tetris_Game.svg.png",
-  text: "Tetris uses flexbox structure, testing class lists to move tetrominoes. The game uses arrays to itterate colors, and intervals to increase play speed.",
-  link: "tetris.html"
+  name: "to-do list",
+  text: "To Do List using iseditable elements.",
+  link: "projects/todolist.html"
 },
 {
   id: 5,
-  name: "Countdown",
-  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Typical_Tetris_Game.svg/1200px-Typical_Tetris_Game.svg.png",
-  text: "Simple countdown app.",
-  link: "countdown.html"
+  name: "Tetris",
+  text: "Tetris uses flexbox structure, testing class lists to move tetrominoes. The game uses arrays to itterate colors, and intervals to increase play speed.",
+  link: "projects/tetris.html"
 },
 {
   id: 6,
-  name: "Audio Recorder",
-  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Typical_Tetris_Game.svg/1200px-Typical_Tetris_Game.svg.png",
-  text: "Audio recording app using blob and file objects, with automatic download and title.",
-  link: "audiorecorder.html"
+  name: "Countdown",
+  text: "Simple countdown app.",
+  link: "projects/countdown.html"
 },
 {
   id: 7,
+  name: "Audio Recorder",
+  text: "Audio recording app using blob and file objects, with automatic download and title.",
+  link: "projects/audiorecorder.html"
+},
+{
+  id: 8,
   name: "Summarizer",
-  img: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Typical_Tetris_Game.svg/1200px-Typical_Tetris_Game.svg.png",
   text: "Summarize your podcast or video with the power of Transformers.js.",
-  link: "summarizer.html"
+  link: "projects/summarizer.html"
 }
 ]
 // Select Items
