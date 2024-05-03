@@ -75,9 +75,14 @@ body {
   }
 
   h1 {
-    font-size: 2em;
+    font-size: 1em;
     margin: 0;
-    padding: 0;
+    padding: 1rem;
+    text-shadow: -1px 1px 4px rgba(0,0,0,0.1);
+  }
+
+  h1 strong {
+    font-size: 3em;
   }
 
 /* Main */
@@ -248,15 +253,16 @@ main {
       color: #feea63;
     }
   
-    .container {
-      border: 1em solid black;
+    main {
       background: url(images/pineappleLightBlur.jpg) no-repeat center;
       background-size: cover;
+      background-attachment: fixed;
     }
   
     #homePage {
       background: url(images/pineappleLight.jpg) no-repeat center;
       background-size: cover;
+      border: 0.5rem solid #202020;
     }
   
     .prevBtn,
