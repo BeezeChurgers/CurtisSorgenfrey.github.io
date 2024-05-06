@@ -63,7 +63,7 @@ body {
     width: calc(100% - 2rem);
     padding: 1rem;
     margin: 5rem 1rem 1rem 1rem;
-    height: calc(100vh - 6rem);
+    height: calc(100dvh - 6rem);
   
     background: url(images/pineapple.jpg) no-repeat center;
     background-size: cover;
@@ -294,10 +294,6 @@ main {
   
 /* Mobile Sizing and Layout */
 @media screen and (max-width: 460px) {
-
-  #homePage {
-    height: calc(80vh - 6rem);
-  }
 
   #name {
     font-size: 1.5em;
