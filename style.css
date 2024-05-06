@@ -293,16 +293,28 @@ main {
   }
   
 /* Mobile Sizing and Layout */
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 460px) {
+
+  #homePage {
+    height: calc(80vh - 6rem);
+  }
+
+  #name {
+    font-size: 1.5em;
+  }
+
+  #jobTitle {
+    font-size: 2.5em;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
   
     .container {
       flex-direction: column;
       justify-content: center;
       align-items: center;
-    }
-  
-    #homePage {
-      height: calc(90vh - 6rem);
     }
   
     .titleHolder {
@@ -332,7 +344,5 @@ main {
     #contact {
       align-items: center;
     }
-  
-    /* ------------------------------------------------------------------------------------------------------------------------------------------------------ */
   
   }
