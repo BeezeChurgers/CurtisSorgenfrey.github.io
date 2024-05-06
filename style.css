@@ -67,6 +67,8 @@ body {
   
     background: url(images/pineapple.jpg) no-repeat center;
     background-size: cover;
+
+    display: flex;
     justify-content: start;
     align-items: end;
   
@@ -77,12 +79,15 @@ body {
   h1 {
     font-size: 1em;
     margin: 0;
-    padding: 1rem;
     text-shadow: -1px 1px 4px rgba(0,0,0,0.1);
   }
 
-  h1 strong {
+  #jobTitle {
     font-size: 3em;
+  }
+
+  #name {
+    font-size: 2em;
   }
 
 /* Main */
@@ -297,8 +302,7 @@ main {
     }
   
     #homePage {
-      justify-content: end;
-      align-items: start;
+      height: calc(90vh - 6rem);
     }
   
     .titleHolder {
