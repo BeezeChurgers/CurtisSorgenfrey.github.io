@@ -71,7 +71,7 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
           // Making mp3 file
           const file = new File(chunks, `${dateDetails()}-${bookDetails()}.mp3`, {
-            type: "audio/mp3",
+            type: "audio/mpeg",
           });
           chunks = [];
           const audioURL = window.URL.createObjectURL(file);
