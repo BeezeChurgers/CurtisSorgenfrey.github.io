@@ -78,6 +78,18 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
           audio.src = audioURL;
 
           // Downloading file automatically
+          const download = () => {
+            const link = document.createElement('a');
+            const url = URL.createObjectURL(file);
+
+            link.href = url;
+            link.download = file.name;
+            document.body.appendChild(link);
+            link.click();
+
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+          }
           download();
 
           // Allowing file to be deleted
@@ -196,17 +208,3 @@ const bookDetails = () => {
 	let preacher = form.elements[0].value;
 	return `${bookNum}-${book}-${chapter}-${verse}-${preacher}`;
 };
-
-// Downloading file automatically
-function download() {
-  const link = document.createElement('a');
-  const url = URL.createObjectURL(file);
-
-  link.href = url;
-  link.download = file.name;
-  document.body.appendChild(link);
-  link.click();
-
-  document.body.removeChild(link);
-  window.URL.revokeObjectURL(url);
-}
