@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title>JavaScript Example</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers">
+    <meta name="description" content="Curtis Sorgenfrey Web Development Portfolio">
+    <meta name="author" content="Curtis Sorgenfrey">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background: black;
+            color: #feea63;
+            padding: 1rem;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            /* Since CSS 2.1 */
+            white-space: -moz-pre-wrap;
+            /* Mozilla, since 1999 */
+            white-space: -pre-wrap;
+            /* Opera 4-6 */
+            white-space: -o-pre-wrap;
+            /* Opera 7 */
+            word-wrap: break-word;
+            /* Internet Explorer 5.5+ */
+        }
+    </style>
+</head>
+
+<body>
+
+    <pre class="codeText"><code id="qualificationsCode">// Render the board
+const renderBoard = () =&gt; {
+    // Build table
+    // Make columns first
+    let columns = '';
+    for (let i = 0; i &lt; size; i++) {
+        columns += '&lt;td&gt;&lt;/td&gt;';
+    }
+    // Make table
+    $('body').append('&lt;table&gt;&lt;/table&gt;');
+    // Add rows to table with columns embedded
+    for (let i = 0; i &lt; size; i++) {
+        $('table').append(`&lt;tr&gt;${columns}&lt;/tr&gt;`);
+    }
+    // Add checkerboard pattern class
+    $('tr:even').find('td:odd').addClass('checkerBoard');
+    $('tr:odd').find('td:even').addClass('checkerBoard');
+}
+    
+// Render fruit
+const renderFruitCell = () =&gt; {
+    // Remove fruit class from last spot first
+    $('td').removeClass('fruitCell');
+    // Make random coordinates
+    const randomCell = [Math.floor(Math.random() * 25), Math.floor(Math.random() * 25)];
+    // Add class to cell from random values
+    $('tr').eq(randomCell[1]).find('td').eq(randomCell[0]).addClass('fruitCell');
+    // Test spot: $('body').append(`&lt;p style='color: white'&gt;${randomCell}&lt;/p&gt;`);
+}
+    
+// Render snake
+const renderSnake = () =&gt; {
+    // Remove snake class from last spot first
+    $('td').removeClass('snakeCell snakeHead');
+    // Add class to cells from snake array values
+    for (let cell in snakeCells) {
+        $('tr').eq(snakeCells[cell][1]).find('td').eq(snakeCells[cell][0]).addClass('snakeCell');
+    }
+    // Add class for snake head
+    $('tr').eq(snakeHead[1]).find('td').eq(snakeHead[0]).addClass('snakeHead');
+}
+</code>
+</pre>
+
+</body>
+
+</html>

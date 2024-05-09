@@ -4,16 +4,19 @@
 }
 
 body {
-    width: 300px;
+    width: 500px;
     position: realtive;
     margin: 0 auto;
     background-color: #222;
-    font-family: Arial;
+
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 table {
-    width: 300px;
-    height: 300px;
+    width: 500px;
+    height: 500px;
     background-color: #333;
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
     border-spacing: 0;
@@ -21,17 +24,27 @@ table {
 
 #scoreBoard {
     margin-top: 50px;
-    width: 300px;
+    width: 500px;
     background-color: #444;
     padding: 10px 0;
     text-align: center;
     color: #999;
+    font-size: 1em;
+}
+
+#pause {
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: #999;
+    font-size: 1em;
+    margin-left: 50px;
 }
 
 #play {
     margin-top: 20px;
     color: #333;
-    background-color: #4ade1c;
+    background-color: #d61717;
     text-decoration: none;
     padding: 5px 10px;
     display: inline-block;
@@ -45,7 +58,12 @@ table {
 td {
     box-sizing: border-box;
     background: #7ac93a;
+    /* #6fbb30 */
     padding: 0;
+}
+
+.checkerBoard {
+    background: #6fbb30;
 }
 
 td.snakeCell {
@@ -65,7 +83,7 @@ td.fruitCell {
     margin-left: -100px;
     position: fixed;
     left: 50%;
-    bottom: 0;
+    top: 0;
     display: block;
     color: #d61717;
     text-align: center;

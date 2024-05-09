@@ -1,190 +1,189 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers, audiorecorder, voice, recorder, audio">
-    <meta name="description" content="Audio Recorder">
-    <meta name="author" content="Curtis Sorgenfrey">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audio Recorder</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers, audiorecorder, voice, recorder, audio">
+  <meta name="description" content="Audio Recorder">
+  <meta name="author" content="Curtis Sorgenfrey">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio Recorder</title>
 
-    <style>
-      body {
-        background: white;
-        color: white;
-        font-family: Arial;
-        text-align: center;
-        width: 100vw;
-        height: 100vh;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: start;
-        align-items: center;
-      }
+  <style>
+    body {
+      background: #222;
+      color: white;
+      font-family: Arial;
+      text-align: center;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: center;
+    }
 
-      main {
-        padding: 1rem;
-        margin: 0;
-        margin-top: 3em;
-        background: #333333;
-        border-radius: 1rem;
-        box-shadow: 0.2rem 0.2rem 1rem black;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
+    main {
+      padding: 1rem;
+      margin: 0;
+      margin-top: 3em;
+      background: #333;
+      border-radius: 1rem;
+      box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-      .record {
-        font-size: 3rem;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 50%;
-        width: 6rem;
-        height: 6rem;
-      }
+    .record {
+      font-size: 3rem;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      width: 6rem;
+      height: 6rem;
+    }
 
-      .clip {
-        margin: 1em;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
+    .clip {
+      margin: 1em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
 
-      form {
-        margin: 1em;
-        display: none;
-      }
+    form {
+      margin: 1em;
+      display: none;
+    }
 
-      input {
-        background: none;
-        color: white;
-        margin: 0.5em;
-      }
+    input {
+      background: none;
+      color: white;
+      margin: 0.5em;
+    }
 
-      select {
-        background: none;
-        color: white;
-        margin: 0.5em;
-      }
+    select {
+      background: none;
+      color: white;
+      margin: 0.5em;
+    }
 
-      select:focus {
-        background: white;
-        color: black;
-      }
+    select:focus {
+      background: white;
+      color: black;
+    }
+  </style>
+</head>
 
-    </style>
-  </head>
+<body>
 
-  <body>
+  <main>
+    <h1 id="title">Audio Recorder</h1>
 
-    <main>
-      <h1 id="title">Audio Recorder</h1>
+    <button class="record">
+      &#9724;
+    </button>
 
-      <button class="record">
-        &#9724;
-      </button>
+    <form>
+      <label for="preacher">Preacher:</label>
+      <select id="preacher" name="preacher">
+        <option value="Brucker">Stephen Brucker</option>
+        <option value="Spector">Ben Spector</option>
+        <option value="Spagnolo">Phil Spagnolo</option>
+      </select>
+      <br>
 
-      <form>
-        <label for="preacher">Preacher:</label>
-        <select id="preacher" name="preacher">
-          <option value="Brucker">Stephen Brucker</option>
-          <option value="Spector">Ben Spector</option>
-          <option value="Spagnolo">Phil Spagnolo</option>
-        </select>
-        <br>
+      <label for="bible-books">Book:</label>
+      <select id="bible-books" name="bible-books">
+        <option value="Genesis">Genesis</option>
+        <option value="Exodus">Exodus</option>
+        <option value="Leviticus">Leviticus</option>
+        <option value="Numbers">Numbers</option>
+        <option value="Deuteronomy">Deuteronomy</option>
+        <option value="Joshua">Joshua</option>
+        <option value="Judges">Judges</option>
+        <option value="Ruth">Ruth</option>
+        <option value="1 Samuel">1 Samuel</option>
+        <option value="2 Samuel">2 Samuel</option>
+        <option value="1 Kings">1 Kings</option>
+        <option value="2 Kings">2 Kings</option>
+        <option value="1 Chronicles">1 Chronicles</option>
+        <option value="2 Chronicles">2 Chronicles</option>
+        <option value="Ezra">Ezra</option>
+        <option value="Nehemiah">Nehemiah</option>
+        <option value="Esther">Esther</option>
+        <option value="Job">Job</option>
+        <option value="Psalms">Psalms</option>
+        <option value="Proverbs">Proverbs</option>
+        <option value="Ecclesiastes">Ecclesiastes</option>
+        <option value="Song of Solomon">Song of Solomon</option>
+        <option value="Isaiah">Isaiah</option>
+        <option value="Jeremiah">Jeremiah</option>
+        <option value="Lamentations">Lamentations</option>
+        <option value="Ezekiel">Ezekiel</option>
+        <option value="Daniel">Daniel</option>
+        <option value="Hosea">Hosea</option>
+        <option value="Joel">Joel</option>
+        <option value="Amos">Amos</option>
+        <option value="Obadiah">Obadiah</option>
+        <option value="Jonah">Jonah</option>
+        <option value="Micah">Micah</option>
+        <option value="Nahum">Nahum</option>
+        <option value="Habakkuk">Habakkuk</option>
+        <option value="Zephaniah">Zephaniah</option>
+        <option value="Haggai">Haggai</option>
+        <option value="Zechariah">Zechariah</option>
+        <option value="Malachi">Malachi</option>
+        <option value="Matthew">Matthew</option>
+        <option value="Mark">Mark</option>
+        <option value="Luke">Luke</option>
+        <option value="John">John</option>
+        <option value="Acts">Acts</option>
+        <option value="Romans">Romans</option>
+        <option value="1 Corinthians">1 Corinthians</option>
+        <option value="2 Corinthians">2 Corinthians</option>
+        <option value="Galatians">Galatians</option>
+        <option value="Ephesians">Ephesians</option>
+        <option value="Philippians">Philippians</option>
+        <option value="Colossians">Colossians</option>
+        <option value="1 Thessalonians">1 Thessalonians</option>
+        <option value="2 Thessalonians">2 Thessalonians</option>
+        <option value="1 Timothy">1 Timothy</option>
+        <option value="2 Timothy">2 Timothy</option>
+        <option value="Titus">Titus</option>
+        <option value="Philemon">Philemon</option>
+        <option value="Hebrews">Hebrews</option>
+        <option value="James">James</option>
+        <option value="1 Peter">1 Peter</option>
+        <option value="2 Peter">2 Peter</option>
+        <option value="1 John">1 John</option>
+        <option value="2 John">2 John</option>
+        <option value="3 John">3 John</option>
+        <option value="Jude">Jude</option>
+        <option value="Revelation">Revelation</option>
+      </select>
+      <br>
 
-        <label for="bible-books">Book:</label>
-        <select id="bible-books" name="bible-books">
-          <option value="Genesis">Genesis</option>
-          <option value="Exodus">Exodus</option>
-          <option value="Leviticus">Leviticus</option>
-          <option value="Numbers">Numbers</option>
-          <option value="Deuteronomy">Deuteronomy</option>
-          <option value="Joshua">Joshua</option>
-          <option value="Judges">Judges</option>
-          <option value="Ruth">Ruth</option>
-          <option value="1 Samuel">1 Samuel</option>
-          <option value="2 Samuel">2 Samuel</option>
-          <option value="1 Kings">1 Kings</option>
-          <option value="2 Kings">2 Kings</option>
-          <option value="1 Chronicles">1 Chronicles</option>
-          <option value="2 Chronicles">2 Chronicles</option>
-          <option value="Ezra">Ezra</option>
-          <option value="Nehemiah">Nehemiah</option>
-          <option value="Esther">Esther</option>
-          <option value="Job">Job</option>
-          <option value="Psalms">Psalms</option>
-          <option value="Proverbs">Proverbs</option>
-          <option value="Ecclesiastes">Ecclesiastes</option>
-          <option value="Song of Solomon">Song of Solomon</option>
-          <option value="Isaiah">Isaiah</option>
-          <option value="Jeremiah">Jeremiah</option>
-          <option value="Lamentations">Lamentations</option>
-          <option value="Ezekiel">Ezekiel</option>
-          <option value="Daniel">Daniel</option>
-          <option value="Hosea">Hosea</option>
-          <option value="Joel">Joel</option>
-          <option value="Amos">Amos</option>
-          <option value="Obadiah">Obadiah</option>
-          <option value="Jonah">Jonah</option>
-          <option value="Micah">Micah</option>
-          <option value="Nahum">Nahum</option>
-          <option value="Habakkuk">Habakkuk</option>
-          <option value="Zephaniah">Zephaniah</option>
-          <option value="Haggai">Haggai</option>
-          <option value="Zechariah">Zechariah</option>
-          <option value="Malachi">Malachi</option>
-          <option value="Matthew">Matthew</option>
-          <option value="Mark">Mark</option>
-          <option value="Luke">Luke</option>
-          <option value="John">John</option>
-          <option value="Acts">Acts</option>
-          <option value="Romans">Romans</option>
-          <option value="1 Corinthians">1 Corinthians</option>
-          <option value="2 Corinthians">2 Corinthians</option>
-          <option value="Galatians">Galatians</option>
-          <option value="Ephesians">Ephesians</option>
-          <option value="Philippians">Philippians</option>
-          <option value="Colossians">Colossians</option>
-          <option value="1 Thessalonians">1 Thessalonians</option>
-          <option value="2 Thessalonians">2 Thessalonians</option>
-          <option value="1 Timothy">1 Timothy</option>
-          <option value="2 Timothy">2 Timothy</option>
-          <option value="Titus">Titus</option>
-          <option value="Philemon">Philemon</option>
-          <option value="Hebrews">Hebrews</option>
-          <option value="James">James</option>
-          <option value="1 Peter">1 Peter</option>
-          <option value="2 Peter">2 Peter</option>
-          <option value="1 John">1 John</option>
-          <option value="2 John">2 John</option>
-          <option value="3 John">3 John</option>
-          <option value="Jude">Jude</option>
-          <option value="Revelation">Revelation</option>
-        </select>
-        <br>
+      <label for="chapter">Chapter:</label>
+      <input type="number" id="chapter" name="chapter">
+      <br>
 
-        <label for="chapter">Chapter:</label>
-        <input type="number" id="chapter" name="chapter">
-        <br>
+      <label for="verse">Verse:</label>
+      <input type="number" id="verse" name="verse">
+      <br>
 
-        <label for="verse">Verse:</label>
-        <input type="number" id="verse" name="verse">
-        <br>
+      <input type="submit">
+    </form>
 
-        <input type="submit">
-      </form>
+    <section class="soundClips"></section>
+  </main>
 
-      <section class="soundClips"></section>
-    </main>
-
-    <script src="audiorecorder.js" charset="utf-8"></script>
-  </body>
+  <script src="audiorecorder.js" charset="utf-8"></script>
+</body>
 
 </html>

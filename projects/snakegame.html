@@ -10,13 +10,21 @@
     <link rel="stylesheet" href="snakegame.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Snake Game</title>
+
+    <!-- 8-bit font links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div id="scoreBoard">Your Score : 0</div>
+    <div id="scoreBoard">
+        <span id="score">Your Score : 0</span>
+        <button id="pause">&#10073;&#10073; Pause</button>
+    </div>
 
     <div class="gameOver" style="display:none">
-        Oops! Game Over<br>
+        Game Over<br>
         <a href="" id="play">Play Again</a>
     </div>
 
