@@ -209,9 +209,9 @@ const pause = () => {
       }
     });
     // Touch Controls
-    $(window).unbind('touchstart', handleTouchStart, false);
-    $(window).unbind('touchmove', handleTouchMove, false);
-    $(window).unbind('touchend', handleTouchEnd, false);
+    $('table').unbind('touchstart', handleTouchStart, false);
+    $('table').unbind('touchmove', handleTouchMove, false);
+    $('table').unbind('touchend', handleTouchEnd, false);
   } else {
     // Start timer
     ticker = setInterval(updateSnakeCell, speed);
@@ -223,9 +223,9 @@ const pause = () => {
       }
     });
     // Touch Controls
-    $(window).bind('touchstart', handleTouchStart, false);
-    $(window).bind('touchmove', handleTouchMove, false);
-    $(window).bind('touchend', handleTouchEnd, false);
+    $('table').bind('touchstart', handleTouchStart, false);
+    $('table').bind('touchmove', handleTouchMove, false);
+    $('table').bind('touchend', handleTouchEnd, false);
   }
 }
 
@@ -339,11 +339,13 @@ $(document).ready(function () {
   });
 
   // Touch Controls
-  $(window).bind('touchstart', handleTouchStart, false);
-  $(window).bind('touchmove', handleTouchMove, false);
-  $(window).bind('touchend', handleTouchEnd, false);
+  $('table').bind('touchstart', handleTouchStart, false);
+  $('table').bind('touchmove', handleTouchMove, false);
+  $('table').bind('touchend', handleTouchEnd, false);
 
   startGame();
   $('#pause').bind('click', pause);
-  $('table').click();
+
+  // Reloads game when clicked
+  $('div.gameOver').click();
 });
