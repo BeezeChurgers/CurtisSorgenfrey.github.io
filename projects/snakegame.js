@@ -349,3 +349,4 @@ $(document).ready(function () {
   // Reloads game when clicked
   $('div.gameOver').click();
 });
+
