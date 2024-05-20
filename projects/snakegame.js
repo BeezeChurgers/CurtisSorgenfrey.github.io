@@ -209,9 +209,9 @@ const pause = () => {
       }
     });
     // Touch Controls
-    $(document).unbind('touchstart', handleTouchStart, false);
-    $(document).unbind('touchmove', handleTouchMove, false);
-    $(document).unbind('touchend', handleTouchEnd, false);
+    document.removeEventListener('touchstart', handleTouchStart, false);
+    document.removeEventListener('touchmove', handleTouchMove, false);
+    document.removeEventListener('touchend', handleTouchEnd, false);
   } else {
     // Start timer
     ticker = setInterval(updateSnakeCell, speed);
@@ -223,9 +223,9 @@ const pause = () => {
       }
     });
     // Touch Controls
-    $(document).bind('touchstart', handleTouchStart, false);
-    $(document).bind('touchmove', handleTouchMove, false);
-    $(document).bind('touchend', handleTouchEnd, false);
+    document.addEventListener('touchstart', handleTouchStart, false);
+    document.addEventListener('touchmove', handleTouchMove, false);
+    document.addEventListener('touchend', handleTouchEnd, false);
   }
 }
 
@@ -338,12 +338,11 @@ $(document).ready(function () {
     }
   });
 
-  // Touch Controls
-  $(document).bind('touchstart', handleTouchStart, false);
-  $(document).bind('touchmove', handleTouchMove, false);
-  $(document).bind('touchend', handleTouchEnd, false);
-
   startGame();
   $('#pause').bind('click', pause);
 });
 
+// Touch Controls
+document.addEventListener('touchstart', handleTouchStart, false);
+document.addEventListener('touchmove', handleTouchMove, false);
+document.addEventListener('touchend', handleTouchEnd, false);
