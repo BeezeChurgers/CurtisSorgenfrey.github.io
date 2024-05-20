@@ -338,11 +338,11 @@ $(document).ready(function () {
     }
   });
 
+  // Touch Controls
+  $('table').bind('touchstart', handleTouchStart, false);
+  $('table').bind('touchmove', handleTouchMove, false);
+  $('table').bind('touchend', handleTouchEnd, false);
+
   startGame();
   $('#pause').bind('click', pause);
 });
-
-// Touch Controls
-document.addEventListener('touchstart', handleTouchStart, false);
-document.addEventListener('touchmove', handleTouchMove, false);
-document.addEventListener('touchend', handleTouchEnd, false);
