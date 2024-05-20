@@ -58,7 +58,7 @@
     <main>
 
       <h1>
-        Countdown Timer
+        Countdown
       </h1>
 
       <p id="time"></p>
@@ -71,7 +71,7 @@
 
 
       // Setting desired date to countdown to
-      const targetDate = new Date("2024-05-02T00:00:00");
+      const targetDate = new Date("2024-05-11T05:07:00");
 
       // Make countdown update every second
       const interval = setInterval(updateCountdown, 1000);
@@ -84,7 +84,8 @@
         if (difference < 0) {
           difference = currentTime - targetDate;
 
-          const months = Math.floor(difference / (1000 * 60 * 60 * 24 * 30.44));
+          const years = Math.floor(difference / (1000 * 60 * 60 * 24 * 365));
+          const months = Math.floor((difference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30.44));
           const weeks = Math.floor((difference % (1000 * 60 * 60 * 24 * 30.44))/ (1000 * 60 * 60 * 24 * 7));
           const days = Math.floor((difference % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
           const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -94,15 +95,37 @@
           const seconds = Math.floor((difference % (1000 * 60)) / 1000);
           secondsStr = seconds.toString().padStart(2, "0");
 
-          if (months != 0) {
-            countdown.innerHTML = `${months} months ${weeks} weeks ${days} days<br>${hoursStr}:${minutesStr}:${secondsStr}`;
-          } else if (weeks != 0) {
-            countdown.innerHTML = `${weeks} weeks ${days} days<br>${hoursStr}:${minutesStr}:${secondsStr}`;
-          } else {
-            countdown.innerHTML = `${days} days<br>${hoursStr}:${minutesStr}:${secondsStr}`;
+          // Format Strings
+          let dayStr = 'day',
+            weekStr = 'week',
+            monthStr = 'month',
+            yearStr = 'year';
+
+          if (years != 1) {
+            yearStr = 'years';
+          }
+          if (months != 1) {
+            monthStr = 'months';
+          }
+          if (weeks != 1) {
+            weekStr = 'weeks';
+          }
+          if (days != 1) {
+            dayStr = 'days';
           }
 
-          title.innerHTML = "Date Passed<br>Counting Up";
+          // Format display
+          if (years != 0) {
+            countdown.innerHTML = `${years} ${yearStr} ${months} ${monthStr} ${weeks} ${weekStr} ${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
+          } else if (months != 0) {
+            countdown.innerHTML = `${months} ${monthStr} ${weeks} ${weekStr} ${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
+          } else if (weeks != 0) {
+            countdown.innerHTML = `${weeks} ${weekStr} ${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
+          } else {
+            countdown.innerHTML = `${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
+          }
+
+          title.innerHTML = "Counting Up";
         } else {
           const months = Math.floor(difference / (1000 * 60 * 60 * 24 * 30.44));
           const weeks = Math.floor((difference % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24 * 7));
@@ -114,12 +137,14 @@
           const seconds = Math.floor((difference % (1000 * 60)) / 1000);
           secondsStr = seconds.toString().padStart(2, "0");
 
-          if (months != 0) {
-            countdown.innerHTML = `${months} months ${weeks} weeks ${days} days<br>${hoursStr}:${minutesStr}:${secondsStr}`;
+          if (years != 0) {
+            countdown.innerHTML = `${years} ${yearStr} ${months} ${monthStr} ${weeks} ${weekStr} ${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
+          } else if (months != 0) {
+            countdown.innerHTML = `${months} ${monthStr} ${weeks} ${weekStr} ${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
           } else if (weeks != 0) {
-            countdown.innerHTML = `${weeks} weeks ${days} days<br>${hoursStr}:${minutesStr}:${secondsStr}`;
+            countdown.innerHTML = `${weeks} ${weekStr} ${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
           } else {
-            countdown.innerHTML = `${days} days<br>${hoursStr}:${minutesStr}:${secondsStr}`;
+            countdown.innerHTML = `${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
           }
         }
       }
