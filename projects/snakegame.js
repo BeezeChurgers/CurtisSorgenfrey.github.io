@@ -209,9 +209,9 @@ const pause = () => {
       }
     });
     // Touch Controls
-    $(document).unbind('touchstart', handleTouchStart, false);
-    $(document).unbind('touchmove', handleTouchMove, false);
-    $(document).unbind('touchend', handleTouchEnd, false);
+    table[0].removeEventListener('touchstart', handleTouchStart, false);
+    table[0].removeEventListener('touchmove', handleTouchMove, false);
+    table[0].removeEventListener('touchend', handleTouchEnd, false);
   } else {
     // Start timer
     ticker = setInterval(updateSnakeCell, speed);
@@ -223,9 +223,9 @@ const pause = () => {
       }
     });
     // Touch Controls
-    $(document).bind('touchstart', handleTouchStart, false);
-    $(document).bind('touchmove', handleTouchMove, false);
-    $(document).bind('touchend', handleTouchEnd, false);
+    table[0].addEventListener('touchstart', handleTouchStart, false);
+    table[0].addEventListener('touchmove', handleTouchMove, false);
+    table[0].addEventListener('touchend', handleTouchEnd, false);
   }
 }
 
@@ -338,10 +338,12 @@ $(document).ready(function () {
     }
   });
 
+  // Make variable after table is rendered
+  const table = document.getElementsByTagName('table');
   // Touch Controls
-  $('table').addEventListener('touchstart', handleTouchStart, false);
-  $('table').addEventListener('touchmove', handleTouchMove, false);
-  $('table').addEventListener('touchend', handleTouchEnd, false);
+  table[0].addEventListener('touchstart', handleTouchStart, false);
+  table[0].addEventListener('touchmove', handleTouchMove, false);
+  table[0].addEventListener('touchend', handleTouchEnd, false);
 
   startGame();
   $('#pause').bind('click', pause);
