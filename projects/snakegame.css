@@ -4,7 +4,8 @@
 }
 
 body {
-    width: 720px;
+    width: 100vw;
+    height: 100dvh;
     position: realtive;
     margin: 0 auto;
     background-color: #222;
@@ -23,16 +24,20 @@ table {
     background-color: #333;
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
     border-spacing: 0;
+
+    margin: auto;
 }
 
 #scoreBoard {
-    margin-top: 100px;
     width: 720px;
     background-color: #444;
     padding: 10px 0;
     text-align: center;
     color: #999;
     font-size: 1em;
+
+    margin: auto;
+    margin-top: 100px;
 }
 
 #pause {
