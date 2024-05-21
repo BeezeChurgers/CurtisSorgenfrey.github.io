@@ -153,7 +153,7 @@ function handleTouchStart(event) {
 function handleTouchEnd(event) {
   touchEnd = Date.now();
   touchTime = touchEnd - touchStart;
-  if (touchTime > 100) {
+  if (touchTime > 50) {
     if (touchDir === 1) {
       getNewDirection(37);
     } else if (touchDir === 2) {
