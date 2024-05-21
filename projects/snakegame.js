@@ -339,9 +339,9 @@ $(document).ready(function () {
   });
 
   // Touch Controls
-  $(document).bind('touchstart', handleTouchStart, false);
-  $(document).bind('touchmove', handleTouchMove, false);
-  $(document).bind('touchend', handleTouchEnd, false);
+  document.addEventListener('touchstart', handleTouchStart, false);
+  document.addEventListener('touchmove', handleTouchMove, false);
+  document.addEventListener('touchend', handleTouchEnd, false);
 
   startGame();
   $('#pause').bind('click', pause);
