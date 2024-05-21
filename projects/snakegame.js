@@ -237,7 +237,7 @@ function getFruitCell() {
 function gameOver() {
   $('div.gameOver').fadeIn('slow', function () {
     $(this).animate({
-      top: 270
+      top: 150
     }, 'slow');
   });
   clearInterval(ticker);
