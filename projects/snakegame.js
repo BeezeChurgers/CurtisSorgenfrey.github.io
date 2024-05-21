@@ -153,7 +153,7 @@ function handleTouchStart(event) {
 function handleTouchEnd(event) {
   touchEnd = Date.now();
   touchTime = touchEnd - touchStart;
-  if (touchTime > 50) {
+  if (touchTime > 40) {
     if (touchDir === 1) {
       getNewDirection(37);
     } else if (touchDir === 2) {
@@ -209,9 +209,9 @@ const pause = () => {
       }
     });
     // Touch Controls
-    table[0].removeEventListener('touchstart', handleTouchStart, false);
-    table[0].removeEventListener('touchmove', handleTouchMove, false);
-    table[0].removeEventListener('touchend', handleTouchEnd, false);
+    touchSurface[0].removeEventListener('touchstart', handleTouchStart, false);
+    touchSurface[0].removeEventListener('touchmove', handleTouchMove, false);
+    touchSurface[0].removeEventListener('touchend', handleTouchEnd, false);
   } else {
     // Start timer
     ticker = setInterval(updateSnakeCell, speed);
@@ -223,9 +223,9 @@ const pause = () => {
       }
     });
     // Touch Controls
-    table[0].addEventListener('touchstart', handleTouchStart, false);
-    table[0].addEventListener('touchmove', handleTouchMove, false);
-    table[0].addEventListener('touchend', handleTouchEnd, false);
+    touchSurface[0].addEventListener('touchstart', handleTouchStart, false);
+    touchSurface[0].addEventListener('touchmove', handleTouchMove, false);
+    touchSurface[0].addEventListener('touchend', handleTouchEnd, false);
   }
 }
 
@@ -339,11 +339,11 @@ $(document).ready(function () {
   });
 
   // Make variable after table is rendered
-  const table = document.getElementsByTagName('table');
+  const touchSurface = document.getElementsByTagName('body');
   // Touch Controls
-  table[0].addEventListener('touchstart', handleTouchStart, false);
-  table[0].addEventListener('touchmove', handleTouchMove, false);
-  table[0].addEventListener('touchend', handleTouchEnd, false);
+  touchSurface[0].addEventListener('touchstart', handleTouchStart, false);
+  touchSurface[0].addEventListener('touchmove', handleTouchMove, false);
+  touchSurface[0].addEventListener('touchend', handleTouchEnd, false);
 
   startGame();
   $('#pause').bind('click', pause);
