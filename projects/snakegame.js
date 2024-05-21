@@ -339,7 +339,7 @@ $(document).ready(function () {
   });
 
   // Make variable after table is rendered
-  const touchSurface = document.getElementsByTagName('body');
+  const touchSurface = document.getElementsByTagName('table');
   // Touch Controls
   touchSurface[0].addEventListener('touchstart', handleTouchStart, false);
   touchSurface[0].addEventListener('touchmove', handleTouchMove, false);
