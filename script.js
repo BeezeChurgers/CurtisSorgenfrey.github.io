@@ -135,16 +135,14 @@ $(document).ready(function () {
     id: 3,
     name: "JavaScript",
     code: "codeExamples/jsExample.html",
-    text: "Proficient in JavaScript development, with expertise in core concepts, modern frameworks, and dynamic interactivity. From manipulating the DOM to tackling complex logic, and delivering clean, modular, and maintainable code for robust web applications that meet user requirements and business objectives."
+    text: "Skilled in JavaScript development, with expertise in core concepts, modern frameworks, and dynamic interactivity. From manipulating the DOM to tackling complex logic, and delivering clean, modular, and maintainable code for robust web applications that meet user requirements and business objectives."
   },
-  /*
   {
     id: 4,
-    name: "git",
-    code: "",
-    text: ""
+    name: "Python",
+    code: "codeExamples/pythonExample.html",
+    text: "Skilled in utilizing Python for a wide range of applications, from data analysis and web development to automation and scripting. Experienced in leveraging Python's extensive libraries and frameworks to solve complex problems and deliver robust solutions."
   },
-  */
   {
     id: 5,
     name: "jQuery",
@@ -152,6 +150,12 @@ $(document).ready(function () {
     text: "Proficient in jQuery, possessing a deep understanding of its syntax, selectors, and methods, enabling efficient manipulation of the DOM, handling events, and implementing dynamic interactions in web applications."
   },
     /*
+    {
+      id: 5,
+      name: "git",
+      code: "",
+      text: ""
+    },
     {
       id: 6,
       name: "TypeScript",
@@ -170,12 +174,6 @@ $(document).ready(function () {
       code: "",
       text: ""
     },
-    {
-      id: 9,
-      name: "Python",
-      code: "",
-      text: ""
-    }
     */
   ]
   // Select Items
