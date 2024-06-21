@@ -153,7 +153,7 @@ function handleTouchStart(event) {
 function handleTouchEnd(event) {
   touchEnd = Date.now();
   touchTime = touchEnd - touchStart;
-  if (touchTime > 100) {
+  if (touchTime > 40) {
     if (touchDir === 1) {
       getNewDirection(37);
     } else if (touchDir === 2) {
@@ -209,9 +209,9 @@ const pause = () => {
       }
     });
     // Touch Controls
-    $(document).unbind('touchstart', handleTouchStart, false);
-    $(document).unbind('touchmove', handleTouchMove, false);
-    $(document).unbind('touchend', handleTouchEnd, false);
+    touchSurface[0].removeEventListener('touchstart', handleTouchStart, false);
+    touchSurface[0].removeEventListener('touchmove', handleTouchMove, false);
+    touchSurface[0].removeEventListener('touchend', handleTouchEnd, false);
   } else {
     // Start timer
     ticker = setInterval(updateSnakeCell, speed);
@@ -223,9 +223,9 @@ const pause = () => {
       }
     });
     // Touch Controls
-    $(document).bind('touchstart', handleTouchStart, false);
-    $(document).bind('touchmove', handleTouchMove, false);
-    $(document).bind('touchend', handleTouchEnd, false);
+    touchSurface[0].addEventListener('touchstart', handleTouchStart, false);
+    touchSurface[0].addEventListener('touchmove', handleTouchMove, false);
+    touchSurface[0].addEventListener('touchend', handleTouchEnd, false);
   }
 }
 
@@ -237,7 +237,7 @@ function getFruitCell() {
 function gameOver() {
   $('div.gameOver').fadeIn('slow', function () {
     $(this).animate({
-      top: 270
+      top: 150
     }, 'slow');
   });
   clearInterval(ticker);
@@ -338,12 +338,17 @@ $(document).ready(function () {
     }
   });
 
+  // Make variable after table is rendered
+  const touchSurface = document.getElementsByTagName('table');
   // Touch Controls
-  $(document).bind('touchstart', handleTouchStart, false);
-  $(document).bind('touchmove', handleTouchMove, false);
-  $(document).bind('touchend', handleTouchEnd, false);
+  touchSurface[0].addEventListener('touchstart', handleTouchStart, false);
+  touchSurface[0].addEventListener('touchmove', handleTouchMove, false);
+  touchSurface[0].addEventListener('touchend', handleTouchEnd, false);
 
   startGame();
   $('#pause').bind('click', pause);
+
+  // Reloads game when clicked
+  $('div.gameOver').click();
 });
 

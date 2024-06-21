@@ -4,7 +4,7 @@
 }
 
 body {
-    width: 500px;
+    width: 720px;
     position: realtive;
     margin: 0 auto;
     background-color: #222;
@@ -12,19 +12,22 @@ body {
     font-family: "Silkscreen", sans-serif;
     font-weight: 400;
     font-style: normal;
+
+    /* Prevent scrolling */
+    overflow: hidden; 
 }
 
 table {
-    width: 500px;
-    height: 500px;
+    width: 720px;
+    height: 720px;
     background-color: #333;
     box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.3);
     border-spacing: 0;
 }
 
 #scoreBoard {
-    margin-top: 50px;
-    width: 500px;
+    margin-top: 100px;
+    width: 720px;
     background-color: #444;
     padding: 10px 0;
     text-align: center;
@@ -49,6 +52,33 @@ table {
     padding: 5px 10px;
     display: inline-block;
     border-radius: 5px;
+}
+
+/* Mobile Sizing */
+@media screen and (max-width: 800px) {
+    body {
+        width: 90vw;
+    }
+    
+    table {
+        width: 90vw;
+        height: 90vw;
+    }
+    
+    #scoreBoard {
+        margin-top: 50px;
+        width: 90vw;
+    }
+    
+    #play {
+        margin-top: 20px;
+        color: #333;
+        background-color: #d61717;
+        text-decoration: none;
+        padding: 5px 10px;
+        display: inline-block;
+        border-radius: 5px;
+    }
 }
 
 #play:hover {
