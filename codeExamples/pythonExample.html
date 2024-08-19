@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <title>Python Example</title>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Curtis, Sorgenfrey, beezechurgers">
+    <meta name="description" content="Curtis Sorgenfrey Web Development Portfolio">
+    <meta name="author" content="Curtis Sorgenfrey">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background: black;
+            color: #feea63;
+            padding: 1rem;
+        }
+
+        pre {
+            white-space: pre-wrap;
+            /* Since CSS 2.1 */
+            white-space: -moz-pre-wrap;
+            /* Mozilla, since 1999 */
+            white-space: -pre-wrap;
+            /* Opera 4-6 */
+            white-space: -o-pre-wrap;
+            /* Opera 7 */
+            word-wrap: break-word;
+            /* Internet Explorer 5.5+ */
+        }
+    </style>
+</head>
+
+<body>
+
+    <pre class="codeText"><code id="qualificationsCode">import random
+    
+    def randomWord():
+        words = []
+    
+        # Read file
+        with open('sowpods.txt', 'r') as open_file:
+            line = open_file.readline()
+            while line:
+                text = line.strip('\n')
+                words.append(text)
+                line = open_file.readline()
+    
+        # Pick random word from list
+        randNum = random.randint(0, len(words))
+        return words[randNum]
+    
+    def displayHangman(num):
+        print(' +--+')
+        print(' | |')
+        # Head
+        if num > 0:
+            print(' O |')
+        else:
+            print(' |')
+        # Torso and arms
+        if num == 2:
+            print(' | |')
+        elif num == 3:
+            print('/| |')
+        elif num > 3:
+            print('/|\ |')
+        else:
+            print(' |')
+        # Legs
+        if num == 5:
+            print('/ |')
+        elif num > 5:
+            print('/ \ |')
+        else:
+            print(' |')
+        # Base
+        print(' |')
+        print('=====')
+    
+    # Loop to keep playing until prompted
+    while True:
+        start = input('Press enter to play, or type "exit" to stop: ').lower()
+        if start == 'exit':
+            print('Goodbye!')
+            break
+    
+        # Starting word
+        word = randomWord()
+        print('Welcome to Hangman!')
+        incorrectCount = 0
+        displayHangman(incorrectCount)
+        holder = ''
+        for letter in word:
+            holder += '_ '
+        print(holder)
+        alreadyGuessed = []
+        
+        # Loop to play game
+        while True:
+            # Getting input
+            guess = input('Guess your letter: ').capitalize()
+            if len(guess) > 1:
+                print('Invalid input, guess again.')
+            elif guess in alreadyGuessed:
+                print(f'Already guessed: {', '.join(alreadyGuessed)}')
+            elif guess in word:
+                alreadyGuessed.append(guess)
+                newHolder = ''
+                for x in range(0, len(word)):
+                    if guess == word[x]:
+                        newHolder += word[x] + ' '
+                    else:
+                        newHolder += holder[x * 2] + ' '
+                holder = newHolder
+            else:
+                alreadyGuessed.append(guess)
+                incorrectCount += 1
+                print('Incorrect!')
+            # Testing if word is complete
+            test = ''
+            for letter in holder:
+                if letter == ' ':
+                    continue
+                else:
+                    test += letter
+            if test == word:
+                displayHangman(incorrectCount)
+                print(holder)
+                print('You got it!')
+                break
+            elif incorrectCount == 6:
+                displayHangman(incorrectCount)
+                print('You lose...')
+                print(f'The word was {word}.')
+                break
+            else:
+                displayHangman(incorrectCount)
+                print(holder)
+        
+        print('Play agian?')
+</code>
+</pre>
+
+</body>
+
+</html>

@@ -69,83 +69,113 @@
       let countdown = document.getElementById("time");
       let title = document.querySelector("h1");
 
+      function getDateDifference(startDate, endDate) {
+        // Convert the dates to Date objects
+        const start = new Date(startDate);
+        const end = new Date(endDate);
 
-      // Setting desired date to countdown to
-      const targetDate = new Date("2024-05-11T05:07:00");
+        // Calculate the difference in total milliseconds
+        let totalMillis = end - start;
+
+        // Calculate the difference in years, months, and days
+        let years = end.getFullYear() - start.getFullYear();
+        let months = end.getMonth() - start.getMonth();
+        let days = end.getDate() - start.getDate();
+
+        // Adjust months and years if necessary
+        if (days < 0) {
+          months -= 1;
+          const previousMonth = new Date(end.getFullYear(), end.getMonth(), 0);
+          days += previousMonth.getDate();
+        }
+        if (months < 0) {
+          years -= 1;
+          months += 12;
+        }
+
+        // Calculate the remaining time
+        let remainingMillis = totalMillis - (
+          years * 365.25 * 24 * 60 * 60 * 1000 + 
+          months * 30.44 * 24 * 60 * 60 * 1000 + 
+          days * 24 * 60 * 60 * 1000
+        );
+
+        // Adjust for negative time
+        if (remainingMillis < 0) {
+          days -= 1;
+          remainingMillis += 24 * 60 * 60 * 1000;
+        }
+
+        // Calculate hours, minutes, and seconds
+        const hours = Math.floor(remainingMillis / (1000 * 60 * 60));
+        remainingMillis %= 1000 * 60 * 60;
+        const minutes = Math.floor(remainingMillis / (1000 * 60));
+        remainingMillis %= 1000 * 60;
+        const seconds = Math.floor(remainingMillis / 1000);
+
+        // Calculate weeks and remaining days
+        const weeks = Math.floor(days / 7);
+        days -= weeks * 7;
+
+        return {
+          years: years,
+          months: months,
+          weeks: weeks,
+          days: days,
+          hours: hours,
+          minutes: minutes,
+          seconds: seconds
+        };
+      }
 
       // Make countdown update every second
       const interval = setInterval(updateCountdown, 1000);
 
       // Function math for countdown
       function updateCountdown() {
-        const currentTime = new Date();
-        let difference = targetDate - currentTime;
+        // Get the date and time right now
+        const rightNow = new Date();
 
-        if (difference < 0) {
-          difference = currentTime - targetDate;
+        // Calling function to get difference in date
+        const result = getDateDifference('2024-05-11T05:07:00', rightNow);
 
-          const years = Math.floor(difference / (1000 * 60 * 60 * 24 * 365));
-          const months = Math.floor((difference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30.44));
-          const weeks = Math.floor((difference % (1000 * 60 * 60 * 24 * 30.44))/ (1000 * 60 * 60 * 24 * 7));
-          const days = Math.floor((difference % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          hoursStr = hours.toString().padStart(2, "0");
-          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-          minutesStr = minutes.toString().padStart(2, "0");
-          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-          secondsStr = seconds.toString().padStart(2, "0");
+        // Apply results to variables
+        hoursStr = result.hours.toString().padStart(2, "0");
+        minutesStr = result.minutes.toString().padStart(2, "0");
+        secondsStr = result.seconds.toString().padStart(2, "0");
 
-          // Format Strings
-          let dayStr = 'day',
-            weekStr = 'week',
-            monthStr = 'month',
-            yearStr = 'year';
+        // Format Strings
+        let dayStr = 'day',
+          weekStr = 'week',
+          monthStr = 'month',
+          yearStr = 'year';
 
-          if (years != 1) {
-            yearStr = 'years';
-          }
-          if (months != 1) {
-            monthStr = 'months';
-          }
-          if (weeks != 1) {
-            weekStr = 'weeks';
-          }
-          if (days != 1) {
-            dayStr = 'days';
-          }
+        if (result.years != 1) {
+          yearStr = 'years';
+        }
+        if (result.months != 1) {
+          monthStr = 'months';
+        }
+        if (result.weeks != 1) {
+          weekStr = 'weeks';
+        }
+        if (result.days != 1) {
+          dayStr = 'days';
+        }
 
-          // Format display
-          if (years != 0) {
-            countdown.innerHTML = `${years} ${yearStr} ${months} ${monthStr} ${weeks} ${weekStr} ${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
-          } else if (months != 0) {
-            countdown.innerHTML = `${months} ${monthStr} ${weeks} ${weekStr} ${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
-          } else if (weeks != 0) {
-            countdown.innerHTML = `${weeks} ${weekStr} ${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
-          } else {
-            countdown.innerHTML = `${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
-          }
-
-          title.innerHTML = "Counting Up";
+        // Format display
+        if (result.years != 0) {
+          countdown.innerHTML = `${result.years} ${yearStr} ${result.months} ${monthStr} ${result.weeks} ${weekStr} ${result.days} ${dayStr}<br>
+          ${hoursStr}:${minutesStr}:${secondsStr}`;
+        } else if (result.months != 0) {
+          countdown.innerHTML = `${result.months} ${monthStr} ${result.weeks} ${weekStr} ${result.days} ${dayStr}<br>
+          ${hoursStr}:${minutesStr}:${secondsStr}`;
+        } else if (result.weeks != 0) {
+          countdown.innerHTML = `${result.weeks} ${weekStr} ${result.days} ${dayStr}<br>
+          ${hoursStr}:${minutesStr}:${secondsStr}`;
         } else {
-          const months = Math.floor(difference / (1000 * 60 * 60 * 24 * 30.44));
-          const weeks = Math.floor((difference % (1000 * 60 * 60 * 24 * 30.44)) / (1000 * 60 * 60 * 24 * 7));
-          const days = Math.floor((difference % (1000 * 60 * 60 * 24 * 7)) / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          hoursStr = hours.toString().padStart(2, "0");
-          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-          minutesStr = minutes.toString().padStart(2, "0");
-          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-          secondsStr = seconds.toString().padStart(2, "0");
-
-          if (years != 0) {
-            countdown.innerHTML = `${years} ${yearStr} ${months} ${monthStr} ${weeks} ${weekStr} ${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
-          } else if (months != 0) {
-            countdown.innerHTML = `${months} ${monthStr} ${weeks} ${weekStr} ${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
-          } else if (weeks != 0) {
-            countdown.innerHTML = `${weeks} ${weekStr} ${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
-          } else {
-            countdown.innerHTML = `${days} ${dayStr}<br>${hoursStr}:${minutesStr}:${secondsStr}`;
-          }
+          countdown.innerHTML = `${result.days} ${dayStr}<br>
+          ${hoursStr}:${minutesStr}:${secondsStr}`;
         }
       }
       updateCountdown();
