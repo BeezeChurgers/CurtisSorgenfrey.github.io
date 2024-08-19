@@ -69,11 +69,15 @@ body {
     background-size: cover;
 
     display: flex;
-    justify-content: start;
+    justify-content: space-between;
     align-items: end;
   
     border: 0.5rem solid white;
     box-sizing: border-box;
+  }
+
+  #title p:first-child {
+    margin-bottom: 1rem;
   }
 
   h1 {
@@ -88,6 +92,25 @@ body {
 
   #name {
     font-size: 2em;
+  }
+
+  /* Jump to page */
+  #jumpTo {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+  }
+
+  #jumpTo a {
+    text-decoration: none;
+    color: #dfdfdf;
+    margin-top: 0.6rem;
+    font-size: 1.2em;
+  }
+
+  #jumpTo a:hover {
+    color: #feea63;
   }
 
 /* Main */
