@@ -70,7 +70,7 @@ body {
 
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: stretch;
   
     border: 0.5rem solid white;
     box-sizing: border-box;
