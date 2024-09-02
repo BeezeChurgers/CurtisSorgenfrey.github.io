@@ -86,11 +86,11 @@ body {
     text-shadow: -1px 1px 4px rgba(0,0,0,0.1);
   }
 
-  #jobTitle {
+  #name {
     font-size: 3em;
   }
 
-  #name {
+  #jobTitle {
     font-size: 2em;
   }
 
@@ -318,11 +318,11 @@ main {
 /* Mobile Sizing and Layout */
 @media screen and (max-width: 460px) {
 
-  #name {
+  #jobTitle {
     font-size: 1.5em;
   }
 
-  #jobTitle {
+  #name {
     font-size: 2.5em;
   }
 
