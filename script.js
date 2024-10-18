@@ -48,6 +48,12 @@ $(document).ready(function () {
     name: "Snake Game",
     text: "Snake game adapted from Codepen, utilizing jQuery with implamented touch controls and specialized css styles using jQuery selectors.",
     link: "projects/snakegame.html"
+  },
+  {
+    id: 9,
+    name: "Find That Meme",
+    text: "Find any meme you want.",
+    link: "projects/findthatmeme.html"
   }
     /*,
     {
